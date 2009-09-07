@@ -52,7 +52,7 @@ None so far.
 == Credits and Copyright ==
 Copyright 2009 NeuroDawg.
 
-The devlopment of this plugin took inspiration from the plugins, Admin Links Plus (http://alicious.com/admin-links-plus-sidebar-widget/), Admin Links (http://kdmurray.net/2007/08/14/wordpress-plugin-admin-links-widget/) and Quick Admin Links (http://www.4-14.org.uk/wordpress-plugins/quick-admin-links), created by pbhj, Keith Murray (kdmurray), and Mark Barnes, respectively.
+The devlopment of this plugin took inspiration from the plugins Admin Links Plus (http://alicious.com/admin-links-plus-sidebar-widget/), Admin Links (http://kdmurray.net/2007/08/14/wordpress-plugin-admin-links-widget/) and Quick Admin Links (http://www.4-14.org.uk/wordpress-plugins/quick-admin-links), created by pbhj, Keith Murray (kdmurray), and Mark Barnes, respectively.
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
