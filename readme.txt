@@ -8,6 +8,8 @@ Tested up to: 2.8.4
 Stable Tag: 1.1
 License: GPL v.3
 
+This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
+
 == Description ==
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles. 
 
@@ -50,7 +52,7 @@ None so far.
 * Initial release.
 
 = 1.1 =
-* Fixed to show the RSS and wordpress.org links for logged in, non admin, users.
+* Fixed to show the RSS and wordpress.org links for logged in, non-admin, users.
 
 == Credits and Copyright ==
 Copyright 2009 NeuroDawg.
