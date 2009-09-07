@@ -156,7 +156,7 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
 		 * This Section displays the login-in form if a user is not logged in
 		*/
 		else {
-			extract($args, EXTR_SKIP);	//gets the before_widget, after_widget, before_title, after_title tags if defined in a theme's functions.php
+			//extract($args, EXTR_SKIP);	//gets the before_widget, after_widget, before_title, after_title tags if defined in a theme's functions.php
 																	//otherwise uses the defaults for these tags
 			if ($display_loginout) {
 				echo $before_widget;
@@ -164,8 +164,8 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
         <ul>
 				<?php
   			wp_register(); ?>
-      	<br />
-				<?php }
+      	<br /> <!-- First -->
+				<?php
         if ($display_entrss) {?>
         <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php echo esc_attr(__('Syndicate this site using RSS 2.0')); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>'); ?></a></li>
 				<?php }
@@ -174,10 +174,10 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
 				<?php }
         if ($display_wplink) {?>
         <li><a href="http://wordpress.org/" title="<?php echo esc_attr(__('Powered by WordPress, state-of-the-art semantic personal publishing platform.')); ?>">WordPress.org</a></li>
-				<?php if ($display_entrss || $display_commrss || $display_wplink) { ?>
+				<?php }
+				if ($display_entrss || $display_commrss || $display_wplink) { ?>
         </ul> <!-- ends ul after the logged-out user options -->
         <?php }
-        //echo $before_widget;
         echo '<br />';
         echo $before_title . 'Log In' . $after_title;
         ?>

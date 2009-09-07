@@ -1,7 +1,7 @@
 === Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.worpdress.com/enhanced-meta-widget/
-Version: 1.0
+Version: 1.1
 Tags: meta, widget, links, admin, administration, dashboard
 Requires at least: 2.8
 Tested up to: 2.8.4
