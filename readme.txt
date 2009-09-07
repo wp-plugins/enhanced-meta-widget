@@ -49,6 +49,9 @@ None so far.
 = 1.0 =
 * Initial release.
 
+= 1.1 =
+* Fixed to show the RSS and wordpress.org links for logged in, non admin, users.
+
 == Credits and Copyright ==
 Copyright 2009 NeuroDawg.
 
