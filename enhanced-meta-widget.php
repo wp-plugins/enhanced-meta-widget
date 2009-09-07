@@ -93,19 +93,19 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
        * This section displays only when an administrator is logged in
       */
 			if ($user_level == 10) { ?>
-      	</ul>
-      	<br />
-      	<ul>
-      	<?php	
-        if ($display_dashboard) {?>
-      	 	<li><a href="<?php bloginfo('wpurl'); ?>/wp-admin">Site Admin</a></li>
+				</ul>
+				<br />
+				<ul>
+				<?php	
+				if ($display_dashboard) {?>
+					<li><a href="<?php bloginfo('wpurl'); ?>/wp-admin">Site Admin</a></li>
 				<?php }
 				if ($display_manposts) {?>
 					<li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit.php">Manage Posts</a></li>
-        <?php }
+				<?php }
 				if ($display_mandrafts) {?>
 					<li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit.php?post_status=draft">Manage Drafts</a></li>
- 				<?php }
+				<?php }
 				if ($display_medialib) {?>
 					<li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/upload.php">Media Library</a></li>
 				<?php }
@@ -135,21 +135,22 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
 				<?php }
 				if ($display_settings) {?>
 					<li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/options-general.php">Settings</a></li>
-          <br />
-				<?php }
-        if ($display_entrss) {?>
-        <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php echo esc_attr(__('Syndicate this site using RSS 2.0')); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>'); ?></a></li>
-				<?php }
-        if ($display_commrss) {?>
-        <li><a href="<?php bloginfo('comments_rss2_url'); ?>" title="<?php echo esc_attr(__('The latest comments to all posts in RSS')); ?>"><?php _e('Comments <abbr title="Really Simple Syndication">RSS</abbr>'); ?></a></li>
-				<?php }
-        if ($display_wplink) {?>
-        <li><a href="http://wordpress.org/" title="<?php echo esc_attr(__('Powered by WordPress, state-of-the-art semantic personal publishing platform.')); ?>">WordPress.org</a></li>
         <?php }
 			} // ends if user is admin sub-section
-				?>
-			</ul>
-			<?php echo $after_widget;
+			?>
+			<br />
+			<?php
+			if ($display_entrss) {?>
+				<li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php echo esc_attr(__('Syndicate this site using RSS 2.0')); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>'); ?></a></li>
+			<?php }
+			if ($display_commrss) {?>
+				<li><a href="<?php bloginfo('comments_rss2_url'); ?>" title="<?php echo esc_attr(__('The latest comments to all posts in RSS')); ?>"><?php _e('Comments <abbr title="Really Simple Syndication">RSS</abbr>'); ?></a></li>
+			<?php }
+			if ($display_wplink) {?>
+				<li><a href="http://wordpress.org/" title="<?php echo esc_attr(__('Powered by WordPress, state-of-the-art semantic personal publishing platform.')); ?>">WordPress.org</a></li>
+				</ul>
+			<?php }
+			echo $after_widget;
 		} // ends if user logged in section
 		/*
 		 * This Section displays the login-in form if a user is not logged in
@@ -172,10 +173,12 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
         <li><a href="<?php bloginfo('comments_rss2_url'); ?>" title="<?php echo esc_attr(__('The latest comments to all posts in RSS')); ?>"><?php _e('Comments <abbr title="Really Simple Syndication">RSS</abbr>'); ?></a></li>
 				<?php }
         if ($display_wplink) {?>
-        <li><a href="http://wordpress.org/" title="<?php echo esc_attr(__('Powered by WordPress, state-of-the-art semantic personal publishing platform.')); ?>">WordPress.org</a></li></ul>
+        <li><a href="http://wordpress.org/" title="<?php echo esc_attr(__('Powered by WordPress, state-of-the-art semantic personal publishing platform.')); ?>">WordPress.org</a></li>
 				<?php if ($display_entrss || $display_commrss || $display_wplink) { ?>
         </ul> <!-- ends ul after the logged-out user options -->
-        <?php } 
+        <?php }
+        //echo $before_widget;
+        echo '<br />';
         echo $before_title . 'Log In' . $after_title;
         ?>
 				<form method="post" action="<?php echo get_bloginfo('wpurl'); ?>/wp-login.php" id="ale_loginform" name="loginform">
