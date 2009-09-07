@@ -8,6 +8,8 @@ Tested up to: 2.8.4
 Stable Tag: 1.1
 License: GPL v.3
 
+This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
+
 == Description ==
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles. 
 
