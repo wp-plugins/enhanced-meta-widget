@@ -39,7 +39,9 @@ None so far.
 
 == Screenshots ==
 1. **Sidebar**: This is what the widget looks like when you're logged in as admin. (Not all possible links are shown).
-2. **Options**: You can select which links you want displayed. No links are displayed unless their relevant to the currently logged in user, on the page they're currently viewing.
+2. **Sidebar**: This is what the widget looks like when a user isn't admin, but can edit or write a new post.
+3. **Sidebar**: This is the sidebar when you're not logged in. Note that the widget includes both the "meta" and "Log In" sections.
+4. **Options**: You can select which links you want displayed. No links are displayed unless they're relevant to the currently logged in user, on the page they're currently viewing.
 
 
 == Change Log ==
