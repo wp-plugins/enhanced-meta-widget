@@ -48,11 +48,11 @@ None so far.
 
 == Change Log ==
 
-= 1.0 =
-* Initial release.
-
 = 1.1 =
 * Fixed to show the RSS and wordpress.org links for logged in, non-admin, users.
+
+= 1.0 =
+* Initial release.
 
 == Credits and Copyright ==
 Copyright 2009 NeuroDawg.
