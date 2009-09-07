@@ -5,7 +5,7 @@ Version: 1.0
 Tags: meta, widget, links, admin, administration, dashboard
 Requires at least: 2.8
 Tested up to: 2.8.4
-Stable Tag: 1.0
+Stable Tag: 1.1
 License: GPL v.3
 
 == Description ==
