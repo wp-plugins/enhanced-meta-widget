@@ -1,17 +1,17 @@
 === Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.worpdress.com/enhanced-meta-widget/
-Version: 1.2.1
+Version: 1.3
 Tags: meta, widget, links, admin, administration, dashboard
 Requires at least: 2.8
 Tested up to: 2.8.4
-Stable Tag: 1.2.1
+Stable Tag: 1.3
 License: GPL v.3
 
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
 
 == Description ==
-This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles. 
+This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles. It is also a multi-widget; it can be used in multiple instances on the same or different sidebars. Want your admin links only on a right-hand sidebar, but your general meta links on the left? Can be done. Want one widget just for the standard meta RSS and wordpress.org links, and a section below, with a different title for admin links? That can be done too, just add two separate widgets to the same sidebar and enable different options.
 
 If a user is not logged in it will present a log-in form, as well as a link to register (if allowed in site settings).
 
@@ -21,7 +21,7 @@ There are also links for the standard entries and comments RSS feeds, as well as
 
 All links can be turned on/off, and a different title for the sidebar widget can be set in the settings.
 
-Please note that this plugin/widget was written using the new programming method in WP 2.8, and will not work with previous versions. 
+Please note that this plugin/widget was written using the new programming method in WP 2.8, and will not work with previous versions.
 
 This plugin was using ideas gathered from a number of different WordPress plugins. Please see the Credits and Copyright information at the end of the readme file for further information.
 
@@ -48,7 +48,8 @@ None so far.
 
 == Change Log ==
 
-= 1.2.1
+= 1.3
+* Fixed error that would place widget title on the sidebar without content if user logged out and if links for register, RSS, and wordpress.org are not to be visible (log in form still displays).
 * Fixed a couple of spelling and html code errors
 
 = 1.2 =
