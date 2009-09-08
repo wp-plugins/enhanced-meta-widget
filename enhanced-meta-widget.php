@@ -179,7 +179,7 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
         echo '<br />';
         echo $before_title . 'Log In' . $after_title;
         ?>
-        <form method="post" action="<?php echo get_bloginfo('wpurl'); ?>/wp-login.php" id="ale_loginform" name="loginform">
+        <form method="post" action="<?php echo get_bloginfo('wpurl'); ?>/wp-login.php" id="emw_loginform" name="loginform">
         <p>
         <label>Username<br/>
           <input type="text" tabindex="10" size="20" value="" class="input" id="user_login" name="log"/></label>
@@ -235,7 +235,7 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
    * Creates the widget admin options form
   */
   function form( $instance ) {
-    $instance = wp_parse_args((array) $instance, array('title' => '', 'loginout' => 1, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 1, 'manposts' => 0, 'mandrasfts' => 0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0));
+    $instance = wp_parse_args((array) $instance, array('title' => '', 'loginout' => 1, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 1, 'manposts' => 0, 'mandrafts' => 0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0));
     $title        = strip_tags($instance['title']);
     $loginout      = $instance['loginout'] ? 'checked="checked"' : '';
     $editthispost  = $instance['editthispost'] ? 'checked="checked"' : '';
@@ -275,7 +275,7 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
     <input class="checkbox" type="checkbox" <?php checked($instance['manposts'], true) ?> id="<?php echo $this->get_field_id('manposts'); ?>" name="<?php echo $this->get_field_name('manposts'); ?>" /><br />
     <label for="<?php echo $this->get_field_id('mandrafts'); ?>"><?php _e('Show <em>manage drafts</em>?'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['mandrafts'], true) ?> id="<?php echo $this->get_field_id('mandrafts'); ?>" name="<?php echo $this->get_field_name('mandrafts'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('medialib'); ?>"><?php _e('Show <em>medial library</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('medialib'); ?>"><?php _e('Show <em>media library</em>?'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['medialib'], true) ?> id="<?php echo $this->get_field_id('medialib'); ?>" name="<?php echo $this->get_field_name('medialib'); ?>" /><br />
     <label for="<?php echo $this->get_field_id('manlinks'); ?>"><?php _e('Show <em>manage links</em>?'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['manlinks'], true) ?> id="<?php echo $this->get_field_id('manlinks'); ?>" name="<?php echo $this->get_field_name('manlinks'); ?>" /><br />
