@@ -48,7 +48,7 @@ None so far.
 
 == Change Log ==
 
-= 1.3
+= 1.3 =
 * Fixed error that would place widget title on the sidebar without content if user logged out and if links for register, RSS, and wordpress.org are not to be visible (log in form still displays).
 * Fixed a couple of spelling and html code errors
 
