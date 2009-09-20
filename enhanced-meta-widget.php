@@ -3,7 +3,7 @@
 Plugin Name: Enhanced Meta Widget
 Plugin URI: http://neurodawg.wordpress.com/enhanced-meta-widget/
 Description: Replaces the meta sidebar included with WordPress, and displays various links based upon user roles.
-Version: 1.3
+Version: 1.4.1
 Author: NeuroDawg
 Author URI: http://neurodawg.wordpress.com
 Copyright 2009 - NeuroDawg
@@ -80,7 +80,7 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
       <?php }
       if (is_single() && $display_editthispost) {
         if (current_user_can('edit_others_posts') | (current_user_can('edit_posts') && $user_ID == $post->post_author)) { ?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?action=edit&post='<?php the_id();?>">Edit This Post</a></li>
+          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?action=edit&post=<?php the_id();?>">Edit This Post</a></li>
       <?php  } }
       if (is_page() && $display_editthispage) {
         if (current_user_can('edit_others_pages') | (current_user_can('edit_pages') && $user_ID == $post->post_author)) { ?>
@@ -94,7 +94,8 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
       */
       if ($user_level == 10) { ?>
         </ul>
-        <br />
+        <?php if ($display_loginout || $display_editthispost || $display_editthispage || $display_newpost) {
+        echo '<br />'; } ?>
         <ul>
         <?php  
         if ($display_dashboard) {?>
@@ -137,9 +138,8 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
           <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/options-general.php">Settings</a></li>
         <?php }
       } // ends if user is admin sub-section and restarts options for all logged in users
-      ?>
-      <br />
-      <?php
+      if ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings) {
+      echo '<br />'; }
       if ($display_entrss) {?>
         <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php echo esc_attr(__('Syndicate this site using RSS 2.0')); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>'); ?></a></li>
       <?php }
@@ -148,8 +148,9 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
       <?php }
       if ($display_wplink) {?>
         <li><a href="http://wordpress.org/" title="<?php echo esc_attr(__('Powered by WordPress, state-of-the-art semantic personal publishing platform.')); ?>">WordPress.org</a></li>
+      <?php } ?>
         </ul>
-      <?php }
+      <?php
       echo $after_widget;
     } // ends if user logged in section
     /*
