@@ -3,7 +3,7 @@
 Plugin Name: Enhanced Meta Widget
 Plugin URI: http://neurodawg.wordpress.com/enhanced-meta-widget/
 Description: Replaces the meta sidebar included with WordPress, and displays various links based upon user roles.
-Version: 1.4.1
+Version: 1.5
 Author: NeuroDawg
 Author URI: http://neurodawg.wordpress.com
 Copyright 2009 - NeuroDawg
@@ -38,31 +38,34 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
   function widget( $args, $instance ) {
     extract($args, EXTR_SKIP);  //gets the before_widget, after_widget, before_title, after_title tags if defined in a theme's functions.php
                                 //otherwise uses the defaults for these tags
-    global $post, $user_ID, $user_level; // This gets the post and user information
+    global $post, $user_ID, $user_level, $user_login; // This gets the post and user information
     /* 
      * This sub-section gets the variables
     */
     $title = apply_filters('widget_title', empty($instance['title']) ? __('Meta') : $instance['title']);
-    $display_loginout      = $instance['loginout'] ? '1' : '0';
-    $display_editthispost  = $instance['editthispost'] ? '1' : '0';
-    $display_editthispage  = $instance['editthispage'] ? '1' : '0';
+    $display_username     = $instance['username'] ? '1' : '0';
+    $display_login        = $instance['login'] ? '1' : '0';
+    $display_logout       = $instance['logout'] ? '1' : '0';
+    $display_loginform    = $instance['loginform'] ? '1' : '0';
+    $display_editthispost = $instance['editthispost'] ? '1' : '0';
+    $display_editthispage = $instance['editthispage'] ? '1' : '0';
     $display_newpost      = $instance['newpost'] ? '1' : '0';
     $display_dashboard    = $instance['dashboard'] ? '1' : '0';
-    $display_manposts      = $instance['manposts'] ? '1' : '0';
-     $display_mandrafts    = $instance['mandrafts'] ? '1' : '0';
-    $display_medialib      = $instance['medialib'] ? '1' : '0';
-    $display_manlinks      = $instance['manlinks'] ? '1' : '0';
-    $display_manpages      = $instance['manpages'] ? '1' : '0';
+    $display_manposts     = $instance['manposts'] ? '1' : '0';
+    $display_mandrafts    = $instance['mandrafts'] ? '1' : '0';
+    $display_medialib     = $instance['medialib'] ? '1' : '0';
+    $display_manlinks     = $instance['manlinks'] ? '1' : '0';
+    $display_manpages     = $instance['manpages'] ? '1' : '0';
     $display_mancomments  = $instance['mancomments'] ? '1' : '0';
     $display_manthemes    = $instance['manthemes'] ? '1' : '0';
-    $display_manwidgets    = $instance['manwidgets'] ? '1' : '0';
-    $display_manplugins    = $instance['manplugins'] ? '1' : '0';
-    $display_manusers      = $instance['manusers'] ? '1' : '0';
+    $display_manwidgets   = $instance['manwidgets'] ? '1' : '0';
+    $display_manplugins   = $instance['manplugins'] ? '1' : '0';
+    $display_manusers     = $instance['manusers'] ? '1' : '0';
     $display_tools        = $instance['tools'] ? '1' : '0';
-    $display_settings      = $instance['settings'] ? '1' : '0';
-    $display_entrss        = $instance['entrss'] ? '1' : '0';
+    $display_settings     = $instance['settings'] ? '1' : '0';
+    $display_entrss       = $instance['entrss'] ? '1' : '0';
     $display_commrss      = $instance['commrss'] ? '1' : '0';
-    $display_wplink        = $instance['wplink'] ? '1' : '0';
+    $display_wplink       = $instance['wplink'] ? '1' : '0';
 
     /*
      * This sub-section outputs the sidebar
@@ -75,8 +78,10 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
       /*
        * This section is for all logged in users based upon their roles/permissions
       */
-      if ($display_loginout) { ?>
-        <li><?php wp_loginout();?></li>
+      if ($display_username) 
+      echo '<p><em>'. $user_login . '</em> is logged in.</p>';
+      if ($display_logout) { ?>
+        <li><?php wp_loginout(get_bloginfo('url'));?></li>
       <?php }
       if (is_single() && $display_editthispost) {
         if (current_user_can('edit_others_posts') | (current_user_can('edit_posts') && $user_ID == $post->post_author)) { ?>
@@ -84,7 +89,7 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
       <?php  } }
       if (is_page() && $display_editthispage) {
         if (current_user_can('edit_others_pages') | (current_user_can('edit_pages') && $user_ID == $post->post_author)) { ?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/page.php?action=edit&post=<?php the_id(); ?>">Edit This Page</a></li>
+          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/page.php?action=edit&post=<?php the_id();?>">Edit This Page</a></li>
       <?php } }
       if (current_user_can('edit_posts') && $display_newpost) {?>
         <li><a href="<?php bloginfo('wpurl') ?>/wp-admin/post-new.php">New Post</a></li>
@@ -157,10 +162,13 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
      * This Section displays the some links (register, RSS, and wordpress.org) and the login-in form if a user is not logged in
     */
     else {
-    if (get_option('users_can_register') || $display_entrss || $display_commrss || $display_wplink) {
+    if (get_option('users_can_register') || $display_entrss || $display_commrss || $display_wplink || $display_loginout) {
       echo $before_widget;
       echo $before_title . $title . $after_title;
       echo '<ul>'; }
+    if ($display_login && !($display_loginform)) {?>
+    <li><?php wp_loginout(get_bloginfo('url')); }?></li>
+    <?php
     if (get_option('users_can_register')) { //shows the register link if registration is allowed
       wp_register();
       echo '</ul>';
@@ -176,9 +184,11 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
       <li><a href="http://wordpress.org/" title="<?php echo esc_attr(__('Powered by WordPress, state-of-the-art semantic personal publishing platform.')); ?>">WordPress.org</a></li>
     <?php }
     echo '</ul>';
-    if ($display_loginout) {
-      if ($display_entrss || $display_commrss || $display_wplink) 
-        echo '<br />';
+    echo $after_widget;
+    if ($display_loginform) {
+      //if ($display_entrss || $display_commrss || $display_wplink) 
+        //echo '<br />';
+        echo $before_widget;
         echo $before_title . 'Log In' . $after_title;
         ?>
         <form method="post" action="<?php echo get_bloginfo('wpurl'); ?>/wp-login.php" id="emw_loginform" name="loginform">
@@ -209,62 +219,74 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
   */
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
-    $new_instance = wp_parse_args((array) $new_instance, array('title' => '', 'loginout' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 0, 'manposts' => 0, 'mandrafts' =>0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0));
+    $new_instance = wp_parse_args((array) $new_instance, array('title' => '', 'username' => 0, 'login' => 0, 'logout' => 0, 'loginform' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 0, 'manposts' => 0, 'mandrafts' =>0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0));
     $instance['title']        = strip_tags($new_instance['title']);
-    $instance['loginout']      = $new_instance['loginout'] ? '1' : '0';
-    $instance['editthispost']  = $new_instance['editthispost'] ? '1' : '0';
-    $instance['editthispage']  = $new_instance['editthispage'] ? '1' : '0';
+    $instance['username']     = $new_instance['username'] ? '1' : '0';
+    $instance['login']        = $new_instance['login'] ? '1' : '0';
+    $instance['logout']       = $new_instance['logout'] ? '1' : '0';
+    $instance['loginform']    = $new_instance['loginform'] ? '1' : '0';
+    $instance['editthispost'] = $new_instance['editthispost'] ? '1' : '0';
+    $instance['editthispage'] = $new_instance['editthispage'] ? '1' : '0';
     $instance['newpost']      = $new_instance['newpost'] ? '1' : '0';
     $instance['dashboard']    = $new_instance['dashboard'] ? '1' : '0';
-    $instance['manposts']      = $new_instance['manposts'] ? '1' : '0';
+    $instance['manposts']     = $new_instance['manposts'] ? '1' : '0';
     $instance['mandrafts']    = $new_instance['mandrafts'] ? '1' : '0';
-    $instance['medialib']      = $new_instance['medialib'] ? '1' : '0';
-    $instance['manlinks']      = $new_instance['manlinks'] ? '1' : '0';
-    $instance['manpages']      = $new_instance['manpages'] ? '1' : '0';
+    $instance['medialib']     = $new_instance['medialib'] ? '1' : '0';
+    $instance['manlinks']     = $new_instance['manlinks'] ? '1' : '0';
+    $instance['manpages']     = $new_instance['manpages'] ? '1' : '0';
     $instance['mancomments']  = $new_instance['mancomments'] ? '1' : '0';
     $instance['manthemes']    = $new_instance['manthemes'] ? '1' : '0';
-    $instance['manwidgets']    = $new_instance['manwidgets'] ? '1' : '0';
-    $instance['manplugins']    = $new_instance['manplugins'] ? '1' : '0';
-    $instance['manusers']      = $new_instance['manusers'] ? '1' : '0';
+    $instance['manwidgets']   = $new_instance['manwidgets'] ? '1' : '0';
+    $instance['manplugins']   = $new_instance['manplugins'] ? '1' : '0';
+    $instance['manusers']     = $new_instance['manusers'] ? '1' : '0';
     $instance['tools']        = $new_instance['tools'] ? '1' : '0';
-    $instance['settings']      = $new_instance['settings'] ? '1' : '0';
-     $instance['entrss']        = $new_instance['entrss'] ? '1' : '0';
+    $instance['settings']     = $new_instance['settings'] ? '1' : '0';
+     $instance['entrss']      = $new_instance['entrss'] ? '1' : '0';
     $instance['commrss']      = $new_instance['commrss'] ? '1' : '0';
-    $instance['wplink']        = $new_instance['wplink'] ? '1' : '0';
+    $instance['wplink']       = $new_instance['wplink'] ? '1' : '0';
     return $instance;
   } //ends update function
   /*
    * Creates the widget admin options form
   */
   function form( $instance ) {
-    $instance = wp_parse_args((array) $instance, array('title' => '', 'loginout' => 1, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 1, 'manposts' => 0, 'mandrafts' => 0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0));
+    $instance = wp_parse_args((array) $instance, array('title' => '', 'username' => 0, 'login' => 1, 'logout' => 1, 'loginform' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 1, 'manposts' => 0, 'mandrafts' => 0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0));
     $title        = strip_tags($instance['title']);
-    $loginout      = $instance['loginout'] ? 'checked="checked"' : '';
-    $editthispost  = $instance['editthispost'] ? 'checked="checked"' : '';
-    $editthispage  = $instance['editthispage'] ? 'checked="checked"' : '';
+    $username     = $instance['username'] ? 'checked="checked"' : '';
+    $login     = $instance['login'] ? 'checked="checked"' : '';
+    $logout     = $instance['logout'] ? 'checked="checked"' : '';
+    $loginform    = $instance['loginform'] ? 'checked="checked"' : '';
+    $editthispost = $instance['editthispost'] ? 'checked="checked"' : '';
+    $editthispage = $instance['editthispage'] ? 'checked="checked"' : '';
     $newpost      = $instance['newpost'] ? 'checked="checked"' : '';
     $dashboard    = $instance['dashboard'] ? 'checked="checked"' : '';
-    $manposts      = $instance['manposts'] ? 'checked="checked"' : '';
+    $manposts     = $instance['manposts'] ? 'checked="checked"' : '';
     $mandrafts    = $instance['mandrafts'] ? 'checked="checked"' : '';
-    $medialib      = $instance['medialib'] ? 'checked="checked"' : '';
-    $manlinks      = $instance['manlinks'] ? 'checked="checked"' : '';
-    $manpages      = $instance['manpages'] ? 'checked="checked"' : '';
+    $medialib     = $instance['medialib'] ? 'checked="checked"' : '';
+    $manlinks     = $instance['manlinks'] ? 'checked="checked"' : '';
+    $manpages     = $instance['manpages'] ? 'checked="checked"' : '';
     $mancomments  = $instance['mancomments'] ? 'checked="checked"' : '';
     $manthemes    = $instance['manthemes'] ? 'checked="checked"' : '';
-    $manwidgets    = $instance['manwidgets'] ? 'checked="checked"' : '';
-    $manplugins    = $instance['manplugins'] ? 'checked="checked"' : '';
-    $manusers      = $instance['manusers'] ? 'checked="checked"' : '';
+    $manwidgets   = $instance['manwidgets'] ? 'checked="checked"' : '';
+    $manplugins   = $instance['manplugins'] ? 'checked="checked"' : '';
+    $manusers     = $instance['manusers'] ? 'checked="checked"' : '';
     $tools        = $instance['tools'] ? 'checked="checked"' : '';
-    $settings      = $instance['settings'] ? 'checked="checked"' : '';
-     $entrss        = $instance['entrss'] ? 'checked="checked"' : '';
+    $settings     = $instance['settings'] ? 'checked="checked"' : '';
+    $entrss       = $instance['entrss'] ? 'checked="checked"' : '';
     $commrss      = $instance['commrss'] ? 'checked="checked"' : '';
-    $wplink        = $instance['wplink'] ? 'checked="checked"' : '';
+    $wplink       = $instance['wplink'] ? 'checked="checked"' : '';
   ?>
     <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
     <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
     <div style="text-align:right">
-    <p><label for="<?php echo $this->get_field_id('loginout'); ?>"><?php _e('Show login form or logout link?'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['loginout'], true) ?> id="<?php echo $this->get_field_id('loginout'); ?>" name="<?php echo $this->get_field_name('loginout'); ?>" /><br />
+    <p><label for="<?php echo $this->get_field_id('username'); ?>"><?php _e('Dispalay user name'); ?></label>
+    <input class="checkbox" type="checkbox" <?php checked($instance['username'], true) ?> id="<?php echo $this->get_field_id('username'); ?>" name="<?php echo $this->get_field_name('username'); ?>" /><br />    
+    <label for="<?php echo $this->get_field_id('login'); ?>"><?php _e('Show login link?'); ?></label>
+    <input class="checkbox" type="checkbox" <?php checked($instance['login'], true) ?> id="<?php echo $this->get_field_id('login'); ?>" name="<?php echo $this->get_field_name('login'); ?>" /><br />
+    <label for="<?php echo $this->get_field_id('logout'); ?>"><?php _e('Show logout link?'); ?></label>
+    <input class="checkbox" type="checkbox" <?php checked($instance['logout'], true) ?> id="<?php echo $this->get_field_id('logout'); ?>" name="<?php echo $this->get_field_name('logout'); ?>" /><br />
+    <label for="<?php echo $this->get_field_id('loginform'); ?>"><?php _e('Show login form?'); ?></label>
+    <input class="checkbox" type="checkbox" <?php checked($instance['loginform'], true) ?> id="<?php echo $this->get_field_id('loginform'); ?>" name="<?php echo $this->get_field_name('loginform'); ?>" /><br />
     <label for="<?php echo $this->get_field_id('editthispost'); ?>"><?php _e('Show <em>edit this post</em>?'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['editthispost'], true) ?> id="<?php echo $this->get_field_id('editthispost'); ?>" name="<?php echo $this->get_field_name('editthispost'); ?>" /><br />
     <label for="<?php echo $this->get_field_id('editthispage'); ?>"><?php _e('Show <em>edit this page</em>?'); ?></label>
