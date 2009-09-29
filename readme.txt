@@ -50,9 +50,11 @@ None so far.
 
 = 1.5 =
 * Added New Features
-  *Can choose to display login link or login form*
-  *Separated logout link from login link/form*
-  *Display "username is logged in."*
+
+* *Can choose to display login link or login form*
+* *Separated logout link from login link/form*
+* *Display "username is logged in."*
+
 * Fixed display of login form if it's the only thing showing on the sidebar (now surrounded by $before_widget and $after_widget).
 
 = 1.4.1 =
