@@ -51,7 +51,7 @@ None so far.
 = 1.6 =
 * Coded for I18n. Now just looking for translators.
 * As part of I18n, the POT file is included with each distribution.
-* Fixed bug where $after_widget was being displayed inappropriately.
+* Fixed bug where $after_widget was being displayed inappropriately. (Thanks Jose.)
 * Fixed improper insertion of a couple of br tags.
 * Moved the display of "username is logged in." to the bottom of the sidebar widget. I didn't like it at the top.
 
