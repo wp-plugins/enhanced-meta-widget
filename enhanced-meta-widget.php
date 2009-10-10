@@ -3,7 +3,7 @@
 Plugin Name: Enhanced Meta Widget
 Plugin URI: http://neurodawg.wordpress.com/enhanced-meta-widget/
 Description: Replaces the meta sidebar included with WordPress, and displays various links based upon user roles.
-Version: 1.5
+Version: 1.5.1
 Author: NeuroDawg
 Author URI: http://neurodawg.wordpress.com
 Copyright 2009 - NeuroDawg
@@ -143,7 +143,7 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
           <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/options-general.php">Settings</a></li>
         <?php }
       } // ends if user is admin sub-section and restarts options for all logged in users
-      if ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings) {
+      if ( $display_entrss || $display_commrss || $display_wplink) {
       echo '<br />'; }
       if ($display_entrss) {?>
         <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php echo esc_attr(__('Syndicate this site using RSS 2.0')); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>'); ?></a></li>

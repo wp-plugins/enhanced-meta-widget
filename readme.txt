@@ -1,7 +1,7 @@
 === Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.worpdress.com/enhanced-meta-widget/
-Version: 1.5
+Version: 1.5.1
 Tags: meta, widget, links, admin, administration, dashboard
 Requires at least: 2.8
 Tested up to: 2.8.4
@@ -47,6 +47,10 @@ None so far.
 5. **Options**: You can select which links you want displayed. No links are displayed unless they're relevant to the currently logged in user, on the page they're currently viewing.
 
 == Change Log ==
+
+= 1.5.1 =
+* Coded for I18n.
+* Fixed improper insertion of br tag.
 
 = 1.5 =
 * Added New Features
