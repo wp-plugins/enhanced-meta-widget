@@ -28,8 +28,8 @@ License:
 class meta_enhanced extends WP_Widget { //extends the base widget class
   function meta_enhanced() {
     unregister_widget ('WP_Widget_Meta'); //comment out or delete this line if you want to keep the default meta widget
-    $widget_ops = array('classname' => 'meta_enhanced', 'description' => __('Adds various admin links for logged in users on every page.'));
-    $this->WP_Widget('meta_enhanced', __('Enhanced Meta'), $widget_ops);
+    $widget_ops = array('classname' => 'meta_enhanced', 'description' => __('Adds various admin links for logged in users on every page.', 'enhanced-meta-widget'));
+    $this->WP_Widget('meta_enhanced', __('Enhanced Meta', 'enhanced-meta-widget'), $widget_ops);
   } //closes function meta_enhanced()
   
   /*
@@ -42,7 +42,7 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
     /* 
      * This sub-section gets the variables
     */
-    $title = apply_filters('widget_title', empty($instance['title']) ? __('Meta') : $instance['title']);
+    $title = apply_filters('widget_title', empty($instance['title']) ? __('Meta', 'enhanced-meta-widget') : $instance['title']);
     $display_username     = $instance['username'] ? '1' : '0';
     $display_login        = $instance['login'] ? '1' : '0';
     $display_logout       = $instance['logout'] ? '1' : '0';
@@ -78,82 +78,82 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
       /*
        * This section is for all logged in users based upon their roles/permissions
       */
-      if ($display_username) 
-      echo '<p><em>'. $user_login . '</em> is logged in.</p>';
       if ($display_logout) { ?>
         <li><?php wp_loginout(get_bloginfo('url'));?></li>
       <?php }
       if (is_single() && $display_editthispost) {
         if (current_user_can('edit_others_posts') | (current_user_can('edit_posts') && $user_ID == $post->post_author)) { ?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?action=edit&post=<?php the_id();?>">Edit This Post</a></li>
+          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Post', 'enhanced-meta-widget')?></a></li>
       <?php  } }
       if (is_page() && $display_editthispage) {
         if (current_user_can('edit_others_pages') | (current_user_can('edit_pages') && $user_ID == $post->post_author)) { ?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/page.php?action=edit&post=<?php the_id();?>">Edit This Page</a></li>
+          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/page.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Page', 'enhanced-meta-widget')?></a></li>
       <?php } }
       if (current_user_can('edit_posts') && $display_newpost) {?>
-        <li><a href="<?php bloginfo('wpurl') ?>/wp-admin/post-new.php">New Post</a></li>
+        <li><a href="<?php bloginfo('wpurl') ?>/wp-admin/post-new.php"><?php _e('New Post', 'enhanced-meta-widget')?></a></li>
       <?php }
       /*
        * This section displays only when an administrator is logged in
       */
       if ($user_level == 10) { ?>
         </ul>
-        <?php if ($display_loginout || $display_editthispost || $display_editthispage || $display_newpost) {
+        <?php if ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings) {
         echo '<br />'; } ?>
         <ul>
         <?php  
         if ($display_dashboard) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin">Site Admin</a></li>
+          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin"><?php _e('Site Admin', 'enhanced-meta-widget')?></a></li>
         <?php }
         if ($display_manposts) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit.php">Manage Posts</a></li>
+          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit.php"><?php _e('Manage Posts', 'enhanced-meta-widget')?></a></li>
         <?php }
         if ($display_mandrafts) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit.php?post_status=draft">Manage Drafts</a></li>
+          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit.php?post_status=draft"><?php _e('Manage Drafts', 'enhanced-meta-widget')?></a></li>
         <?php }
         if ($display_medialib) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/upload.php">Media Library</a></li>
+          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/upload.php"><?php _e('Media Library', 'enhanced-meta-widget')?></a></li>
         <?php }
         if ($display_manlinks) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/link-manager.php">Manage Links</a></li>
+          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/link-manager.php"><?php _e('Manage Links', 'enhanced-meta-widget')?></a></li>
         <?php }
         if ($display_manpages) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit-pages.php">Manage Pages</a></li>
+          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit-pages.php"><?php _e('Manage Pages', 'enhanced-meta-widget')?></a></li>
         <?php }
         if ($display_mancomments) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit-comments.php">Manage Comments</a></li>
+          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit-comments.php"><?php _e('Manage Comments', 'enhanced-meta-widget')?></a></li>
         <?php }
         if ($display_manthemes) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/themes.php">Manage Themes</a></li>
+          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/themes.php"><?php _e('Manage Themes', 'enhanced-meta-widget')?></a></li>
         <?php }
         if ($display_manwidgets) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/widgets.php">Manage Widgets</a></li>
+          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/widgets.php"><?php _e('Manage Widgets', 'enhanced-meta-widget')?></a></li>
         <?php }
         if ($display_manplugins) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/plugins.php">Manage Plugins</a></li>
+          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/plugins.php"><?php _e('Manage Plugins', 'enhanced-meta-widget')?></a></li>
         <?php }
         if ($display_manusers) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/users.php">Manage Users</a></li>
+          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/users.php"><?php _e('Manage Users', 'enhanced-meta-widget')?></a></li>
         <?php }
         if ($display_tools) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/tools.php">Tools</a></li>
+          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/tools.php"><?php _e('Tools', 'enhanced-meta-widget')?></a></li>
         <?php }
         if ($display_settings) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/options-general.php">Settings</a></li>
+          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/options-general.php"><?php _e('Settings', 'enhanced-meta-widget')?></a></li>
         <?php }
       } // ends if user is admin sub-section and restarts options for all logged in users
       if ( $display_entrss || $display_commrss || $display_wplink) {
       echo '<br />'; }
       if ($display_entrss) {?>
-        <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php echo esc_attr(__('Syndicate this site using RSS 2.0')); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>'); ?></a></li>
+        <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS 2.0', 'enhanced-meta-widget'); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li>
       <?php }
       if ($display_commrss) {?>
-        <li><a href="<?php bloginfo('comments_rss2_url'); ?>" title="<?php echo esc_attr(__('The latest comments to all posts in RSS')); ?>"><?php _e('Comments <abbr title="Really Simple Syndication">RSS</abbr>'); ?></a></li>
+        <li><a href="<?php bloginfo('comments_rss2_url'); ?>" title="<?php _e('The latest comments to all posts in RSS', 'enhanced-meta-widget'); ?>"><?php _e('Comments <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li>
       <?php }
       if ($display_wplink) {?>
-        <li><a href="http://wordpress.org/" title="<?php echo esc_attr(__('Powered by WordPress, state-of-the-art semantic personal publishing platform.')); ?>">WordPress.org</a></li>
-      <?php } ?>
+        <li><a href="http://wordpress.org/" title="<?php _e('Powered by WordPress, state-of-the-art semantic personal publishing platform.', 'enhanced-meta-widget'); ?>">WordPress.org</a></li>
+      <?php }
+      if ($display_username) 
+      echo '<br /><em>'. $user_login . __('</em> is logged in.<br /><br />', 'enhanced-meta-widget'); ?>
         </ul>
       <?php
       echo $after_widget;
@@ -165,26 +165,26 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
     if (get_option('users_can_register') || $display_entrss || $display_commrss || $display_wplink || $display_loginout) {
       echo $before_widget;
       echo $before_title . $title . $after_title;
-      echo '<ul>'; }
-    if ($display_login && !($display_loginform)) {?>
-    <li><?php wp_loginout(get_bloginfo('url')); }?></li>
-    <?php
-    if (get_option('users_can_register')) { //shows the register link if registration is allowed
-      wp_register();
+      echo '<ul>'; 
+      if ($display_login && !($display_loginform)) {?>
+      <li><?php wp_loginout(get_bloginfo('url')); }?></li>
+      <?php
+      if (get_option('users_can_register')) { //shows the register link if registration is allowed
+        wp_register();
+        echo '</ul>';
+        echo '<br />';
+        echo '<ul>'; }
+      if ($display_entrss) {?>
+        <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS 2.0', 'enhanced-meta-widget'); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li>
+      <?php }
+      if ($display_commrss) {?>
+        <li><a href="<?php bloginfo('comments_rss2_url'); ?>" title="<?php _e('The latest comments to all posts in RSS', 'enhanced-meta-widget'); ?>"><?php _e('Comments <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li>
+      <?php }
+      if ($display_wplink) {?>
+        <li><a href="http://wordpress.org/" title="<?php _e('Powered by WordPress, state-of-the-art semantic personal publishing platform.', 'enhanced-meta-widget'); ?>">WordPress.org</a></li>
+      <?php }
       echo '</ul>';
-      echo '<br />';
-      echo '<ul>'; }
-    if ($display_entrss) {?>
-      <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php echo esc_attr(__('Syndicate this site using RSS 2.0')); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>'); ?></a></li>
-    <?php }
-    if ($display_commrss) {?>
-      <li><a href="<?php bloginfo('comments_rss2_url'); ?>" title="<?php echo esc_attr(__('The latest comments to all posts in RSS')); ?>"><?php _e('Comments <abbr title="Really Simple Syndication">RSS</abbr>'); ?></a></li>
-    <?php }
-    if ($display_wplink) {?>
-      <li><a href="http://wordpress.org/" title="<?php echo esc_attr(__('Powered by WordPress, state-of-the-art semantic personal publishing platform.')); ?>">WordPress.org</a></li>
-    <?php }
-    echo '</ul>';
-    echo $after_widget;
+      echo $after_widget; }
     if ($display_loginform) {
       //if ($display_entrss || $display_commrss || $display_wplink) 
         //echo '<br />';
@@ -276,54 +276,54 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
     $commrss      = $instance['commrss'] ? 'checked="checked"' : '';
     $wplink       = $instance['wplink'] ? 'checked="checked"' : '';
   ?>
-    <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
-    <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
+    <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'enhanced-meta-widget'); ?></label>
+    <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></p>
     <div style="text-align:right">
-    <p><label for="<?php echo $this->get_field_id('username'); ?>"><?php _e('Dispalay user name'); ?></label>
+    <p><label for="<?php echo $this->get_field_id('username'); ?>"><?php _e('Display user name', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['username'], true) ?> id="<?php echo $this->get_field_id('username'); ?>" name="<?php echo $this->get_field_name('username'); ?>" /><br />    
-    <label for="<?php echo $this->get_field_id('login'); ?>"><?php _e('Show login link?'); ?></label>
+    <label for="<?php echo $this->get_field_id('login'); ?>"><?php _e('Show login link?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['login'], true) ?> id="<?php echo $this->get_field_id('login'); ?>" name="<?php echo $this->get_field_name('login'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('logout'); ?>"><?php _e('Show logout link?'); ?></label>
+    <label for="<?php echo $this->get_field_id('logout'); ?>"><?php _e('Show logout link?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['logout'], true) ?> id="<?php echo $this->get_field_id('logout'); ?>" name="<?php echo $this->get_field_name('logout'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('loginform'); ?>"><?php _e('Show login form?'); ?></label>
+    <label for="<?php echo $this->get_field_id('loginform'); ?>"><?php _e('Show login form?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['loginform'], true) ?> id="<?php echo $this->get_field_id('loginform'); ?>" name="<?php echo $this->get_field_name('loginform'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('editthispost'); ?>"><?php _e('Show <em>edit this post</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('editthispost'); ?>"><?php _e('Show <em>edit this post</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['editthispost'], true) ?> id="<?php echo $this->get_field_id('editthispost'); ?>" name="<?php echo $this->get_field_name('editthispost'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('editthispage'); ?>"><?php _e('Show <em>edit this page</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('editthispage'); ?>"><?php _e('Show <em>edit this page</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['editthispage'], true) ?> id="<?php echo $this->get_field_id('editthispage'); ?>" name="<?php echo $this->get_field_name('editthispage'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('newpost'); ?>"><?php _e('Show <em>new post</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('newpost'); ?>"><?php _e('Show <em>new post</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['newpost'], true) ?> id="<?php echo $this->get_field_id('newpost'); ?>" name="<?php echo $this->get_field_name('newpost'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('dashboard'); ?>"><?php _e('Show <em>site admin</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('dashboard'); ?>"><?php _e('Show <em>site admin</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['dashboard'], true) ?> id="<?php echo $this->get_field_id('dashboard'); ?>" name="<?php echo $this->get_field_name('dashboard'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('manposts'); ?>"><?php _e('Show <em>manage posts</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('manposts'); ?>"><?php _e('Show <em>manage posts</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['manposts'], true) ?> id="<?php echo $this->get_field_id('manposts'); ?>" name="<?php echo $this->get_field_name('manposts'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('mandrafts'); ?>"><?php _e('Show <em>manage drafts</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('mandrafts'); ?>"><?php _e('Show <em>manage drafts</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['mandrafts'], true) ?> id="<?php echo $this->get_field_id('mandrafts'); ?>" name="<?php echo $this->get_field_name('mandrafts'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('medialib'); ?>"><?php _e('Show <em>media library</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('medialib'); ?>"><?php _e('Show <em>media library</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['medialib'], true) ?> id="<?php echo $this->get_field_id('medialib'); ?>" name="<?php echo $this->get_field_name('medialib'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('manlinks'); ?>"><?php _e('Show <em>manage links</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('manlinks'); ?>"><?php _e('Show <em>manage links</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['manlinks'], true) ?> id="<?php echo $this->get_field_id('manlinks'); ?>" name="<?php echo $this->get_field_name('manlinks'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('manpages'); ?>"><?php _e('Show <em>manage pages</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('manpages'); ?>"><?php _e('Show <em>manage pages</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['manpages'], true) ?> id="<?php echo $this->get_field_id('manpages'); ?>" name="<?php echo $this->get_field_name('manpages'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('mancomments'); ?>"><?php _e('Show <em>manage comments</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('mancomments'); ?>"><?php _e('Show <em>manage comments</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['mancomments'], true) ?> id="<?php echo $this->get_field_id('mancomments'); ?>" name="<?php echo $this->get_field_name('mancomments'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('manthemes'); ?>"><?php _e('Show <em>manage themes</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('manthemes'); ?>"><?php _e('Show <em>manage themes</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['manthemes'], true) ?> id="<?php echo $this->get_field_id('manthemes'); ?>" name="<?php echo $this->get_field_name('manthemes'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('manwidgets'); ?>"><?php _e('Show <em>manage widgets</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('manwidgets'); ?>"><?php _e('Show <em>manage widgets</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['manwidgets'], true) ?> id="<?php echo $this->get_field_id('manwidgets'); ?>" name="<?php echo $this->get_field_name('manwidgets'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('manplugins'); ?>"><?php _e('Show <em>manage plugins</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('manplugins'); ?>"><?php _e('Show <em>manage plugins</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['manplugins'], true) ?> id="<?php echo $this->get_field_id('manplugins'); ?>" name="<?php echo $this->get_field_name('manplugins'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('manusers'); ?>"><?php _e('Show <em>manage users</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('manusers'); ?>"><?php _e('Show <em>manage users</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['manusers'], true) ?> id="<?php echo $this->get_field_id('manusers'); ?>" name="<?php echo $this->get_field_name('manusers'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('tools'); ?>"><?php _e('Show <em>tools</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('tools'); ?>"><?php _e('Show <em>tools</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['tools'], true) ?> id="<?php echo $this->get_field_id('tools'); ?>" name="<?php echo $this->get_field_name('tools'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('settings'); ?>"><?php _e('Show <em>settings</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('settings'); ?>"><?php _e('Show <em>settings</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['settings'], true) ?> id="<?php echo $this->get_field_id('settings'); ?>" name="<?php echo $this->get_field_name('settings'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('entrss'); ?>"><?php _e('Show <em>entries rss</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('entrss'); ?>"><?php _e('Show <em>entries rss</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['entrss'], true) ?> id="<?php echo $this->get_field_id('entrss'); ?>" name="<?php echo $this->get_field_name('entrss'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('commrss'); ?>"><?php _e('Show <em>comments rss</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('commrss'); ?>"><?php _e('Show <em>comments rss</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['commrss'], true) ?> id="<?php echo $this->get_field_id('commrss'); ?>" name="<?php echo $this->get_field_name('commrss'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('wplink'); ?>"><?php _e('Show <em>wordpress.org</em>?'); ?></label>
+    <label for="<?php echo $this->get_field_id('wplink'); ?>"><?php _e('Show <em>wordpress.org</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['wplink'], true) ?> id="<?php echo $this->get_field_id('wplink'); ?>" name="<?php echo $this->get_field_name('wplink'); ?>" /><br />
     </div>
   <?php

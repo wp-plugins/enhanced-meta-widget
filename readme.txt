@@ -1,11 +1,11 @@
 === Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.worpdress.com/enhanced-meta-widget/
-Version: 1.5.1
+Version: 1.6
 Tags: meta, widget, links, admin, administration, dashboard
 Requires at least: 2.8
 Tested up to: 2.8.4
-Stable Tag: 1.5
+Stable Tag: 1.6
 License: GPL v.3
 
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
@@ -48,9 +48,11 @@ None so far.
 
 == Change Log ==
 
-= 1.5.1 =
-* Coded for I18n.
-* Fixed improper insertion of br tag.
+= 1.6 =
+* Coded for I18n. Now just looking for translators.
+* Fixed bug where $after_widget was being displayed inappropriately.
+* Fixed improper insertion of a couple of br tags.
+* Moved the display of "username is logged in." to the bottom of the sidebar widget. I didn't like it at the top.
 
 = 1.5 =
 * Added New Features
