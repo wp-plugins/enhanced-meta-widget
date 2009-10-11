@@ -2,7 +2,7 @@
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.worpdress.com/enhanced-meta-widget/
 Version: 1.6.1
-Tags: meta, widget, links, admin, administration, dashboard
+Tags: meta, widget, links, admin, administration, dashboard, international, i18n
 Requires at least: 2.8
 Tested up to: 2.8.4
 Stable Tag: 1.6
