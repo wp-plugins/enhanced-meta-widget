@@ -3,7 +3,7 @@
 Plugin Name: Enhanced Meta Widget
 Plugin URI: http://neurodawg.wordpress.com/enhanced-meta-widget/
 Description: Replaces the meta sidebar included with WordPress, and displays various links based upon user roles.
-Version: 1.5.1
+Version: 1.6.1
 Author: NeuroDawg
 Author URI: http://neurodawg.wordpress.com
 Copyright 2009 - NeuroDawg
@@ -153,7 +153,8 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
         <li><a href="http://wordpress.org/" title="<?php _e('Powered by WordPress, state-of-the-art semantic personal publishing platform.', 'enhanced-meta-widget'); ?>">WordPress.org</a></li>
       <?php }
       if ($display_username) 
-      echo '<br /><em>'. $user_login . __('</em> is logged in.<br /><br />', 'enhanced-meta-widget'); ?>
+      /*echo '<br /><em>'. $user_login . __('</em> is logged in.<br /><br />', 'enhanced-meta-widget'); ?>*/
+      printf(__('<br /><em>%s</em> is logged in.<br /><br />', 'enhanced-meta-widget'), $user_login); ?>
         </ul>
       <?php
       echo $after_widget;

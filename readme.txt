@@ -1,7 +1,7 @@
 === Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.worpdress.com/enhanced-meta-widget/
-Version: 1.6
+Version: 1.6.1
 Tags: meta, widget, links, admin, administration, dashboard
 Requires at least: 2.8
 Tested up to: 2.8.4
@@ -47,6 +47,9 @@ None so far.
 5. **Options**: You can select which links you want displayed. No links are displayed unless they're relevant to the currently logged in user, on the page they're currently viewing.
 
 == Change Log ==
+
+= 1.6.1 =
+*Fixed translation string of "username logged in" to include the whole string, including the username. (Allows for differnt word placement for different languages. Thanks to Daryan for pointing this out to me.)
 
 = 1.6 =
 * Coded for I18n. Now just looking for translators.
