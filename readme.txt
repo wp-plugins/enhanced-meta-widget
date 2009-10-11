@@ -5,7 +5,7 @@ Version: 1.6.1
 Tags: meta, widget, links, admin, administration, dashboard, international, i18n
 Requires at least: 2.8
 Tested up to: 2.8.4
-Stable Tag: 1.6
+Stable Tag: 1.6.1
 License: GPL v.3
 
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
@@ -49,7 +49,8 @@ None so far.
 == Change Log ==
 
 = 1.6.1 =
-*Fixed translation string of "username logged in" to include the whole string, including the username. (Allows for differnt word placement for different languages. Thanks to Daryan for pointing this out to me.)
+* Fixed translation string of "username logged in" to include the whole string, including the username. (Allows for differnt word placement for different languages. Thanks to Daryan for pointing this out to me.)
+* French Translation now included.
 
 = 1.6 =
 * Coded for I18n. Now just looking for translators.

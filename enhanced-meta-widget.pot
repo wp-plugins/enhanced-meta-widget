@@ -1,19 +1,19 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR NeuroDawg
+# LANGUAGE translation for Enhanced Meta Widget.
+# Copyright (C) 2009 NeuroDawg
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# NeuroDawg <neurodawg@hebers.us>, 2009.
+# http://neurodawg.wordpress.com/enhanced-meta-widget
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Enhanced Meta Widget v1.6\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/enhanced-meta-widget\n"
 "POT-Creation-Date: 2009-10-11 15:51+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2009-10-11 11:36-0800\n"
+"Last-Translator: NeuroDawg <neurodawg@hebers.us>\n"
+"Language-Team: NeuroDawg <neurodawg@hebers.us>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: enhanced-meta-widget.php:32
@@ -92,25 +92,29 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: enhanced-meta-widget.php:148 enhanced-meta-widget.php:180
+#: enhanced-meta-widget.php:148
+#: enhanced-meta-widget.php:180
 msgid "Syndicate this site using RSS 2.0"
 msgstr ""
 
-#: enhanced-meta-widget.php:148 enhanced-meta-widget.php:180
+#: enhanced-meta-widget.php:148
+#: enhanced-meta-widget.php:180
 msgid "Entries <abbr title=\"Really Simple Syndication\">RSS</abbr>"
 msgstr ""
 
-#: enhanced-meta-widget.php:151 enhanced-meta-widget.php:183
+#: enhanced-meta-widget.php:151
+#: enhanced-meta-widget.php:183
 msgid "The latest comments to all posts in RSS"
 msgstr ""
 
-#: enhanced-meta-widget.php:151 enhanced-meta-widget.php:183
+#: enhanced-meta-widget.php:151
+#: enhanced-meta-widget.php:183
 msgid "Comments <abbr title=\"Really Simple Syndication\">RSS</abbr>"
 msgstr ""
 
-#: enhanced-meta-widget.php:154 enhanced-meta-widget.php:186
-msgid ""
-"Powered by WordPress, state-of-the-art semantic personal publishing platform."
+#: enhanced-meta-widget.php:154
+#: enhanced-meta-widget.php:186
+msgid "Powered by WordPress, state-of-the-art semantic personal publishing platform."
 msgstr ""
 
 #: enhanced-meta-widget.php:158
@@ -223,9 +227,7 @@ msgid "http://neurodawg.wordpress.com/enhanced-meta-widget/"
 msgstr ""
 
 #. Description of an extension
-msgid ""
-"Replaces the meta sidebar included with WordPress, and displays various "
-"links based upon user roles."
+msgid "Replaces the meta sidebar included with WordPress, and displays various links based upon user roles."
 msgstr ""
 
 #. Author of an extension
@@ -235,3 +237,4 @@ msgstr ""
 #. Author URI of an extension
 msgid "http://neurodawg.wordpress.com"
 msgstr ""
+
