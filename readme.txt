@@ -49,7 +49,8 @@ None so far.
 == Change Log ==
 
 = 1.6.1 =
-* Fixed translation string of "username logged in" to include the whole string, including the username. (Allows for differnt word placement for different languages. Thanks to Daryan for pointing this out to me.)
+* Please note I18n is not working correctly. Will be corrected in 1.6.2.
+* Fixed translation string of "username logged in" to include the whole string, including the username. (Allows for different word placement for different languages. Thanks to Daryan for pointing this out to me.)
 * French Translation now included.
 
 = 1.6 =
