@@ -153,7 +153,7 @@ msgstr "Afficher le formulaire de connexion ?"
 
 #: enhanced-meta-widget.php:295
 msgid "Show register link?"
-msgstr "Afficher le lien de registre ?"
+msgstr "Afficher le lien pour s'enregistrer ?"
 
 #: enhanced-meta-widget.php:297
 msgid "Show <em>edit this post</em>?"
