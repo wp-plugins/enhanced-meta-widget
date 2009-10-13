@@ -284,7 +284,12 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
     <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'enhanced-meta-widget'); ?></label>
     <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></p>
     <div style="text-align:right">
-    <p><label for="<?php echo $this->get_field_id('username'); ?>"><?php _e('Display user name', 'enhanced-meta-widget'); ?></label>
+    <?php $adminlocale = get_locale();
+    if ($adminlocale=='fr_FR')
+      echo '<p style="font-size: 10px;">';
+    else
+      echo '<p>'; ?>
+    <label for="<?php echo $this->get_field_id('username'); ?>"><?php _e('Display user name', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['username'], true) ?> id="<?php echo $this->get_field_id('username'); ?>" name="<?php echo $this->get_field_name('username'); ?>" /><br />    
     <label for="<?php echo $this->get_field_id('login'); ?>"><?php _e('Show login link?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['login'], true) ?> id="<?php echo $this->get_field_id('login'); ?>" name="<?php echo $this->get_field_name('login'); ?>" /><br />
