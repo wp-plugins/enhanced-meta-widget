@@ -1,7 +1,7 @@
 === Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.worpdress.com/enhanced-meta-widget/
-Version: 1.6.1
+Version: 1.7
 Tags: meta, widget, links, admin, administration, dashboard, international, i18n
 Requires at least: 2.8
 Tested up to: 2.8.4
@@ -27,9 +27,11 @@ This plugin was using ideas gathered from a number of different WordPress plugin
 
 == Installation ==
 1. Extract admin-links-enhanced.php into your wp-content/plugins folder (or any subfolder)
-2. Activate the plugin in Wordpress
-3. Add the widget to your page
-4. Set the options to select which links you want displayed
+2. If you want to use this plugin in different languages, then install the plugin in the wp-content/plugins/enhanced-meta-widget directory.
+3. Choose any language you may want to use, and upload that directory into the lang/ subdirectory. (i.e. the French(France) language files will be uploaded to wp-content/plugins/enhanced-meta-widget/lang/fr_FR)
+4. Activate the plugin in Wordpress
+5. Add the widget to your page
+6. Set the options to select which links you want displayed
 
 If you want to keep the original meta widget, then comment out or remove line #30 in the php file, it's commented.
 
@@ -37,7 +39,13 @@ Please inform me of any problems/issues. Recommendations for improvement are alw
 
 == Frequently Asked Questions ==
 
-None so far.
+= How can I translate this widget into my language? =
+
+I've written a fairly [detailed tutorial](http://neurodawg.wordpress.com/translating-emw/) on how to translate any WordPress plugin.
+
+= How can I contact you with a question, suggestion, or complaint? =
+
+Send your questions to neurodawg@hebers.us
 
 == Screenshots ==
 1. **Sidebar**: This is what the widget looks like when you're logged in as admin. (Not all possible links are shown).
@@ -47,6 +55,12 @@ None so far.
 5. **Options**: You can select which links you want displayed. No links are displayed unless they're relevant to the currently logged in user, on the page they're currently viewing.
 
 == Change Log ==
+
+= 1.7 =
+* I18n now works correctly.
+* All phrases have now been coded for I18n
+* Added option to display register link. Depends both on "anyone can register" in the settings->general, and "show register link?" in this widget.
+* Change directory structure to put language files in individual directories. Now the POT file is in the directory "lang" with all language files having their own directories below "lang". For example, the french(France) files are found in the wp-content/plugins/enahnced-meta-widget/lang/fr_FR directory.
 
 = 1.6.1 =
 * Please note I18n is not working correctly. Will be corrected in 1.6.2.
