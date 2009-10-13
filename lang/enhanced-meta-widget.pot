@@ -1,19 +1,19 @@
-# LANGUAGE translation for Enhanced Meta Widget.
-# Copyright (C) 2009 NeuroDawg
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR NeuroDawg
 # This file is distributed under the same license as the PACKAGE package.
-# NeuroDawg <neurodawg@hebers.us>, 2009.
-# http://neurodawg.wordpress.com/enhanced-meta-widget
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Enhanced Meta Widget v1.6\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/enhanced-meta-widget\n"
-"POT-Creation-Date: 2009-10-11 15:51+0000\n"
-"PO-Revision-Date: 2009-10-11 11:36-0800\n"
-"Last-Translator: NeuroDawg <neurodawg@hebers.us>\n"
-"Language-Team: NeuroDawg <neurodawg@hebers.us>\n"
+"POT-Creation-Date: 2009-10-13 05:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: enhanced-meta-widget.php:32
@@ -28,93 +28,89 @@ msgstr ""
 msgid "Meta"
 msgstr ""
 
-#: enhanced-meta-widget.php:87
+#: enhanced-meta-widget.php:88
 msgid "Edit This Post"
 msgstr ""
 
-#: enhanced-meta-widget.php:91
+#: enhanced-meta-widget.php:92
 msgid "Edit This Page"
 msgstr ""
 
-#: enhanced-meta-widget.php:94
+#: enhanced-meta-widget.php:95
 msgid "New Post"
 msgstr ""
 
-#: enhanced-meta-widget.php:106
+#: enhanced-meta-widget.php:107
 msgid "Site Admin"
 msgstr ""
 
-#: enhanced-meta-widget.php:109
+#: enhanced-meta-widget.php:110
 msgid "Manage Posts"
 msgstr ""
 
-#: enhanced-meta-widget.php:112
+#: enhanced-meta-widget.php:113
 msgid "Manage Drafts"
 msgstr ""
 
-#: enhanced-meta-widget.php:115
+#: enhanced-meta-widget.php:116
 msgid "Media Library"
 msgstr ""
 
-#: enhanced-meta-widget.php:118
+#: enhanced-meta-widget.php:119
 msgid "Manage Links"
 msgstr ""
 
-#: enhanced-meta-widget.php:121
+#: enhanced-meta-widget.php:122
 msgid "Manage Pages"
 msgstr ""
 
-#: enhanced-meta-widget.php:124
+#: enhanced-meta-widget.php:125
 msgid "Manage Comments"
 msgstr ""
 
-#: enhanced-meta-widget.php:127
+#: enhanced-meta-widget.php:128
 msgid "Manage Themes"
 msgstr ""
 
-#: enhanced-meta-widget.php:130
+#: enhanced-meta-widget.php:131
 msgid "Manage Widgets"
 msgstr ""
 
-#: enhanced-meta-widget.php:133
+#: enhanced-meta-widget.php:134
 msgid "Manage Plugins"
 msgstr ""
 
-#: enhanced-meta-widget.php:136
+#: enhanced-meta-widget.php:137
 msgid "Manage Users"
 msgstr ""
 
-#: enhanced-meta-widget.php:139
+#: enhanced-meta-widget.php:140
 msgid "Tools"
 msgstr ""
 
-#: enhanced-meta-widget.php:142
+#: enhanced-meta-widget.php:143
 msgid "Settings"
 msgstr ""
 
-#: enhanced-meta-widget.php:148
-#: enhanced-meta-widget.php:180
+#: enhanced-meta-widget.php:149 enhanced-meta-widget.php:180
 msgid "Syndicate this site using RSS 2.0"
 msgstr ""
 
-#: enhanced-meta-widget.php:148
-#: enhanced-meta-widget.php:180
+#: enhanced-meta-widget.php:149 enhanced-meta-widget.php:180
 msgid "Entries <abbr title=\"Really Simple Syndication\">RSS</abbr>"
 msgstr ""
 
-#: enhanced-meta-widget.php:151
-#: enhanced-meta-widget.php:183
+#: enhanced-meta-widget.php:152 enhanced-meta-widget.php:183
 msgid "The latest comments to all posts in RSS"
 msgstr ""
 
-#: enhanced-meta-widget.php:151
-#: enhanced-meta-widget.php:183
+#: enhanced-meta-widget.php:152 enhanced-meta-widget.php:183
 msgid "Comments <abbr title=\"Really Simple Syndication\">RSS</abbr>"
 msgstr ""
 
-#: enhanced-meta-widget.php:154
-#: enhanced-meta-widget.php:186
-msgid "Powered by WordPress, state-of-the-art semantic personal publishing platform."
+#: enhanced-meta-widget.php:155 enhanced-meta-widget.php:186
+msgid ""
+"Powered by WordPress, state-of-the-art semantic personal publishing platform."
 msgstr ""
 
 #: enhanced-meta-widget.php:158
@@ -122,99 +118,115 @@ msgstr ""
 msgid "<br /><em>%s</em> is logged in.<br /><br />"
 msgstr ""
 
-#: enhanced-meta-widget.php:281
-msgid "Title:"
+#: enhanced-meta-widget.php:195
+msgid "Log In"
+msgstr ""
+
+#: enhanced-meta-widget.php:200
+msgid "Username"
+msgstr ""
+
+#: enhanced-meta-widget.php:204
+msgid "Password"
 msgstr ""
 
 #: enhanced-meta-widget.php:284
+msgid "Title:"
+msgstr ""
+
+#: enhanced-meta-widget.php:287
 msgid "Display user name"
 msgstr ""
 
-#: enhanced-meta-widget.php:286
+#: enhanced-meta-widget.php:289
 msgid "Show login link?"
 msgstr ""
 
-#: enhanced-meta-widget.php:288
+#: enhanced-meta-widget.php:291
 msgid "Show logout link?"
 msgstr ""
 
-#: enhanced-meta-widget.php:290
+#: enhanced-meta-widget.php:293
 msgid "Show login form?"
 msgstr ""
 
-#: enhanced-meta-widget.php:292
+#: enhanced-meta-widget.php:295
+msgid "Show register link?"
+msgstr ""
+
+#: enhanced-meta-widget.php:297
 msgid "Show <em>edit this post</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:294
+#: enhanced-meta-widget.php:299
 msgid "Show <em>edit this page</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:296
+#: enhanced-meta-widget.php:301
 msgid "Show <em>new post</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:298
+#: enhanced-meta-widget.php:303
 msgid "Show <em>site admin</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:300
+#: enhanced-meta-widget.php:305
 msgid "Show <em>manage posts</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:302
+#: enhanced-meta-widget.php:307
 msgid "Show <em>manage drafts</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:304
+#: enhanced-meta-widget.php:309
 msgid "Show <em>media library</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:306
+#: enhanced-meta-widget.php:311
 msgid "Show <em>manage links</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:308
+#: enhanced-meta-widget.php:313
 msgid "Show <em>manage pages</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:310
+#: enhanced-meta-widget.php:315
 msgid "Show <em>manage comments</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:312
+#: enhanced-meta-widget.php:317
 msgid "Show <em>manage themes</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:314
+#: enhanced-meta-widget.php:319
 msgid "Show <em>manage widgets</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:316
+#: enhanced-meta-widget.php:321
 msgid "Show <em>manage plugins</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:318
+#: enhanced-meta-widget.php:323
 msgid "Show <em>manage users</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:320
+#: enhanced-meta-widget.php:325
 msgid "Show <em>tools</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:322
+#: enhanced-meta-widget.php:327
 msgid "Show <em>settings</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:324
+#: enhanced-meta-widget.php:329
 msgid "Show <em>entries rss</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:326
+#: enhanced-meta-widget.php:331
 msgid "Show <em>comments rss</em>?"
 msgstr ""
 
-#: enhanced-meta-widget.php:328
+#: enhanced-meta-widget.php:333
 msgid "Show <em>wordpress.org</em>?"
 msgstr ""
 
@@ -227,7 +239,9 @@ msgid "http://neurodawg.wordpress.com/enhanced-meta-widget/"
 msgstr ""
 
 #. Description of an extension
-msgid "Replaces the meta sidebar included with WordPress, and displays various links based upon user roles."
+msgid ""
+"Replaces the meta sidebar included with WordPress, and displays various "
+"links based upon user roles."
 msgstr ""
 
 #. Author of an extension
@@ -237,4 +251,3 @@ msgstr ""
 #. Author URI of an extension
 msgid "http://neurodawg.wordpress.com"
 msgstr ""
-
