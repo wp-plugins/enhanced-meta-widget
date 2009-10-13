@@ -3,7 +3,7 @@
 Plugin Name: Enhanced Meta Widget
 Plugin URI: http://neurodawg.wordpress.com/enhanced-meta-widget/
 Description: Replaces the meta sidebar included with WordPress, and displays various links based upon user roles.
-Version: 1.6.1
+Version: 1.6.2
 Text Domain: enhanced-meta-widget
 Author: NeuroDawg
 Author URI: http://neurodawg.wordpress.com
@@ -48,6 +48,7 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
     $display_login        = $instance['login'] ? '1' : '0';
     $display_logout       = $instance['logout'] ? '1' : '0';
     $display_loginform    = $instance['loginform'] ? '1' : '0';
+    $display_register     = $instance['register'] ? '1' : '0';
     $display_editthispost = $instance['editthispost'] ? '1' : '0';
     $display_editthispage = $instance['editthispage'] ? '1' : '0';
     $display_newpost      = $instance['newpost'] ? '1' : '0';
@@ -154,7 +155,6 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
         <li><a href="http://wordpress.org/" title="<?php _e('Powered by WordPress, state-of-the-art semantic personal publishing platform.', 'enhanced-meta-widget'); ?>">WordPress.org</a></li>
       <?php }
       if ($display_username) 
-      /*echo '<br /><em>'. $user_login . __('</em> is logged in.<br /><br />', 'enhanced-meta-widget'); ?>*/
       printf(__('<br /><em>%s</em> is logged in.<br /><br />', 'enhanced-meta-widget'), $user_login); ?>
         </ul>
       <?php
@@ -164,14 +164,14 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
      * This Section displays the some links (register, RSS, and wordpress.org) and the login-in form if a user is not logged in
     */
     else {
-    if (get_option('users_can_register') || $display_entrss || $display_commrss || $display_wplink || $display_loginout) {
+    if ($display_register || $display_entrss || $display_commrss || $display_wplink || $display_loginout) {
       echo $before_widget;
       echo $before_title . $title . $after_title;
       echo '<ul>'; 
       if ($display_login && !($display_loginform)) {?>
       <li><?php wp_loginout(get_bloginfo('url')); }?></li>
       <?php
-      if (get_option('users_can_register')) { //shows the register link if registration is allowed
+      if (get_option('users_can_register') && $display_register) { //shows the register link if registration is allowed
         wp_register();
         echo '</ul>';
         echo '<br />';
@@ -191,15 +191,17 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
       //if ($display_entrss || $display_commrss || $display_wplink) 
         //echo '<br />';
         echo $before_widget;
-        echo $before_title . 'Log In' . $after_title;
+        echo $before_title;
+        _e('Log In', 'enhanced-meta-widget');
+        echo $after_title;
         ?>
         <form method="post" action="<?php echo get_bloginfo('wpurl'); ?>/wp-login.php" id="emw_loginform" name="loginform">
         <p>
-        <label>Username<br/>
+        <label><?php _e('Username', 'enhanced-meta-widget'); ?><br/>
           <input type="text" tabindex="10" size="20" value="" class="input" id="user_login" name="log"/></label>
         </p>
         <p>
-        <label>Password<br/>
+        <label><?php _e('Password', 'enhanced-meta-widget'); ?><br/>
           <input type="password" tabindex="20" size="20" value="" class="input" id="user_pass" name="pwd"/></label>
         </p>
         <p class="forgetmenot"><label><input type="checkbox" tabindex="90" value="forever" id="rememberme" name="rememberme"/>Remember Me</label></p>
@@ -215,18 +217,18 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
     } //ends else statement to display meta links for users not logged in
   } //ends widget function
 
-
   /*
    * Process options to be saved
   */
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
-    $new_instance = wp_parse_args((array) $new_instance, array('title' => '', 'username' => 0, 'login' => 0, 'logout' => 0, 'loginform' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 0, 'manposts' => 0, 'mandrafts' =>0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0));
+    $new_instance = wp_parse_args((array) $new_instance, array('title' => '', 'username' => 0, 'login' => 0, 'logout' => 0, 'loginform' => 0, 'register' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 0, 'manposts' => 0, 'mandrafts' =>0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0));
     $instance['title']        = strip_tags($new_instance['title']);
     $instance['username']     = $new_instance['username'] ? '1' : '0';
     $instance['login']        = $new_instance['login'] ? '1' : '0';
     $instance['logout']       = $new_instance['logout'] ? '1' : '0';
     $instance['loginform']    = $new_instance['loginform'] ? '1' : '0';
+    $instance['register']     = $new_instance['register'] ? '1' : '0';
     $instance['editthispost'] = $new_instance['editthispost'] ? '1' : '0';
     $instance['editthispage'] = $new_instance['editthispage'] ? '1' : '0';
     $instance['newpost']      = $new_instance['newpost'] ? '1' : '0';
@@ -243,7 +245,7 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
     $instance['manusers']     = $new_instance['manusers'] ? '1' : '0';
     $instance['tools']        = $new_instance['tools'] ? '1' : '0';
     $instance['settings']     = $new_instance['settings'] ? '1' : '0';
-     $instance['entrss']      = $new_instance['entrss'] ? '1' : '0';
+    $instance['entrss']       = $new_instance['entrss'] ? '1' : '0';
     $instance['commrss']      = $new_instance['commrss'] ? '1' : '0';
     $instance['wplink']       = $new_instance['wplink'] ? '1' : '0';
     return $instance;
@@ -252,12 +254,13 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
    * Creates the widget admin options form
   */
   function form( $instance ) {
-    $instance = wp_parse_args((array) $instance, array('title' => '', 'username' => 0, 'login' => 1, 'logout' => 1, 'loginform' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 1, 'manposts' => 0, 'mandrafts' => 0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0));
+    $instance = wp_parse_args((array) $instance, array('title' => '', 'username' => 0, 'login' => 1, 'logout' => 1, 'loginform' => 0, 'register' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 1, 'manposts' => 0, 'mandrafts' => 0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0));
     $title        = strip_tags($instance['title']);
     $username     = $instance['username'] ? 'checked="checked"' : '';
-    $login     = $instance['login'] ? 'checked="checked"' : '';
-    $logout     = $instance['logout'] ? 'checked="checked"' : '';
+    $login        = $instance['login'] ? 'checked="checked"' : '';
+    $logout       = $instance['logout'] ? 'checked="checked"' : '';
     $loginform    = $instance['loginform'] ? 'checked="checked"' : '';
+    $register     = $instance['register'] ? 'checked="checked"' : '';
     $editthispost = $instance['editthispost'] ? 'checked="checked"' : '';
     $editthispage = $instance['editthispage'] ? 'checked="checked"' : '';
     $newpost      = $instance['newpost'] ? 'checked="checked"' : '';
@@ -289,6 +292,8 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
     <input class="checkbox" type="checkbox" <?php checked($instance['logout'], true) ?> id="<?php echo $this->get_field_id('logout'); ?>" name="<?php echo $this->get_field_name('logout'); ?>" /><br />
     <label for="<?php echo $this->get_field_id('loginform'); ?>"><?php _e('Show login form?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['loginform'], true) ?> id="<?php echo $this->get_field_id('loginform'); ?>" name="<?php echo $this->get_field_name('loginform'); ?>" /><br />
+    <label for="<?php echo $this->get_field_id('register'); ?>"><?php _e('Show register link?', 'enhanced-meta-widget'); ?></label>
+    <input class="checkbox" type="checkbox" <?php checked($instance['register'], true) ?> id="<?php echo $this->get_field_id('register'); ?>" name="<?php echo $this->get_field_name('register'); ?>" /><br />
     <label for="<?php echo $this->get_field_id('editthispost'); ?>"><?php _e('Show <em>edit this post</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['editthispost'], true) ?> id="<?php echo $this->get_field_id('editthispost'); ?>" name="<?php echo $this->get_field_name('editthispost'); ?>" /><br />
     <label for="<?php echo $this->get_field_id('editthispage'); ?>"><?php _e('Show <em>edit this page</em>?', 'enhanced-meta-widget'); ?></label>
@@ -332,3 +337,9 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
   } // ends form function
 } //closes class function
 add_action('widgets_init', create_function('', 'return register_widget("meta_enhanced");'));
+/*
+* Set Locale and get appropriate language translation
+*/
+$mylocale = get_locale();
+$localedir = "enhanced-meta-widget/lang/" . $mylocale;
+load_plugin_textdomain('enhanced-meta-widget', '', $localedir);
