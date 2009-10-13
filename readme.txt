@@ -5,12 +5,15 @@ Version: 1.7
 Tags: meta, widget, links, admin, administration, dashboard, international, i18n
 Requires at least: 2.8
 Tested up to: 2.8.4
-Stable Tag: 1.6.1
+Stable Tag: 1.7
 License: GPL v.3
 
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
 
 == Description ==
+===Update===
+This widget is now fully internationalized. The only current translation is French, but I hope to have a few others soon. If anyone is willing to translate for me, please contact me or follow the directions found at the plugin homepage.
+
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles. It is also a multi-widget; it can be used in multiple instances on the same or different sidebars. Want your admin links only on a right-hand sidebar, but your general meta links on the left? Can be done. Want one widget just for the standard meta RSS and wordpress.org links, and a section below, with a different title for admin links? That can be done too, just add two separate widgets to the same sidebar and enable different options.
 
 If a user is not logged in it will present a log-in form, as well as a link to register (if allowed in site settings).
@@ -60,10 +63,10 @@ Send your questions to neurodawg@hebers.us
 * I18n now works correctly.
 * All phrases have now been coded for I18n
 * Added option to display register link. Depends both on "anyone can register" in the settings->general, and "show register link?" in this widget.
-* Change directory structure to put language files in individual directories. Now the POT file is in the directory "lang" with all language files having their own directories below "lang". For example, the french(France) files are found in the wp-content/plugins/enahnced-meta-widget/lang/fr_FR directory.
+* Changed directory structure to put language files in individual directories. Now the POT file is in the directory "lang" with all language files having their own directories below "lang". For example, the french(France) files are found in the wp-content/plugins/enahnced-meta-widget/lang/fr_FR directory.
 
 = 1.6.1 =
-* Please note I18n is not working correctly. Will be corrected in 1.6.2.
+* Please note I18n is not working correctly. Will be corrected in next version.
 * Fixed translation string of "username logged in" to include the whole string, including the username. (Allows for different word placement for different languages. Thanks to Daryan for pointing this out to me.)
 * French Translation now included.
 
