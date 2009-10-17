@@ -3,7 +3,7 @@
 Plugin Name: Enhanced Meta Widget
 Plugin URI: http://neurodawg.wordpress.com/enhanced-meta-widget/
 Description: Replaces the meta sidebar included with WordPress, and displays various links based upon user roles.
-Version: 1.8
+Version: 1.7.1
 Text Domain: enhanced-meta-widget
 Author: NeuroDawg
 Author URI: http://neurodawg.wordpress.com
@@ -27,218 +27,173 @@ License:
  * Enhanced Meta Widget Class
 */
 class meta_enhanced extends WP_Widget { //extends the base widget class
-  function meta_enhanced() {
-    unregister_widget ('WP_Widget_Meta'); //comment out or delete this line if you want to keep the default meta widget
-    $widget_ops = array('classname' => 'meta_enhanced', 'description' => __('Adds various admin links for logged in users on every page.', 'enhanced-meta-widget'));
-    $this->WP_Widget('meta_enhanced', __('Enhanced Meta', 'enhanced-meta-widget'), $widget_ops);
-  } //closes function meta_enhanced()
-  
-  /*
-   * Get variables and output the sidebar
+function meta_enhanced() {
+  unregister_widget ('WP_Widget_Meta'); //comment out or delete this line if you want to keep the default meta widget
+  $widget_ops = array('classname' => 'meta_enhanced', 'description' => __('Adds various admin links for logged in users on every page.', 'enhanced-meta-widget'));
+  $this->WP_Widget('meta_enhanced', __('Enhanced Meta', 'enhanced-meta-widget'), $widget_ops);
+} //closes function meta_enhanced()
+/*
+ * Get variables and output the sidebar
+*/
+function widget( $args, $instance ) {
+  extract($args, EXTR_SKIP);  //gets the before_widget, after_widget, before_title, after_title tags if defined in a theme's functions.php
+                              //otherwise uses the defaults for these tags
+  global $post, $user_ID, $user_level, $user_login, $userdata; // This gets the post and user information
+  /* 
+   * This sub-section gets the variables
   */
-  function widget( $args, $instance ) {
-    extract($args, EXTR_SKIP);  //gets the before_widget, after_widget, before_title, after_title tags if defined in a theme's functions.php
-                                //otherwise uses the defaults for these tags
-    global $post, $user_ID, $user_level, $user_login, $userdata; // This gets the post and user information
-    /* 
-     * This sub-section gets the variables
-    */
-    $title = apply_filters('widget_title', empty($instance['title']) ? __('Meta', 'enhanced-meta-widget') : $instance['title']);
-    $display_username     = $instance['username'] ? '1' : '0';
-    $display_profile      = $instance['profile'] ? '1' : '0';
-    $display_login        = $instance['login'] ? '1' : '0';
-    $display_logout       = $instance['logout'] ? '1' : '0';
-    $display_loginform    = $instance['loginform'] ? '1' : '0';
-    $display_register     = $instance['register'] ? '1' : '0';
-    $display_editthispost = $instance['editthispost'] ? '1' : '0';
-    $display_editthispage = $instance['editthispage'] ? '1' : '0';
-    $display_newpost      = $instance['newpost'] ? '1' : '0';
-    $display_dashboard    = $instance['dashboard'] ? '1' : '0';
-    $display_manposts     = $instance['manposts'] ? '1' : '0';
-    $display_mandrafts    = $instance['mandrafts'] ? '1' : '0';
-    $display_medialib     = $instance['medialib'] ? '1' : '0';
-    $display_manlinks     = $instance['manlinks'] ? '1' : '0';
-    $display_manpages     = $instance['manpages'] ? '1' : '0';
-    $display_mancomments  = $instance['mancomments'] ? '1' : '0';
-    $display_manthemes    = $instance['manthemes'] ? '1' : '0';
-    $display_manwidgets   = $instance['manwidgets'] ? '1' : '0';
-    $display_manplugins   = $instance['manplugins'] ? '1' : '0';
-    $display_manusers     = $instance['manusers'] ? '1' : '0';
-    $display_tools        = $instance['tools'] ? '1' : '0';
-    $display_settings     = $instance['settings'] ? '1' : '0';
-    $display_entrss       = $instance['entrss'] ? '1' : '0';
-    $display_commrss      = $instance['commrss'] ? '1' : '0';
-    $display_wplink       = $instance['wplink'] ? '1' : '0';
-    $display_linebreaks   = $instance['linebreaks'] ? '1' : '0';
+  $title = apply_filters('widget_title', empty($instance['title']) ? __('Meta', 'enhanced-meta-widget') : $instance['title']);
+  $display_username     = $instance['username'] ? '1' : '0';
+  $display_profile      = $instance['profile'] ? '1' : '0';
+  $display_login        = $instance['login'] ? '1' : '0';
+  $display_logout       = $instance['logout'] ? '1' : '0';
+  $display_loginform    = $instance['loginform'] ? '1' : '0';
+  $display_register     = $instance['register'] ? '1' : '0';
+  $display_editthispost = $instance['editthispost'] ? '1' : '0';
+  $display_editthispage = $instance['editthispage'] ? '1' : '0';
+  $display_newpost      = $instance['newpost'] ? '1' : '0';
+  $display_dashboard    = $instance['dashboard'] ? '1' : '0';
+  $display_manposts     = $instance['manposts'] ? '1' : '0';
+  $display_mandrafts    = $instance['mandrafts'] ? '1' : '0';
+  $display_medialib     = $instance['medialib'] ? '1' : '0';
+  $display_manlinks     = $instance['manlinks'] ? '1' : '0';
+  $display_manpages     = $instance['manpages'] ? '1' : '0';
+  $display_mancomments  = $instance['mancomments'] ? '1' : '0';
+  $display_manthemes    = $instance['manthemes'] ? '1' : '0';
+  $display_manwidgets   = $instance['manwidgets'] ? '1' : '0';
+  $display_manplugins   = $instance['manplugins'] ? '1' : '0';
+  $display_manusers     = $instance['manusers'] ? '1' : '0';
+  $display_tools        = $instance['tools'] ? '1' : '0';
+  $display_settings     = $instance['settings'] ? '1' : '0';
+  $display_entrss       = $instance['entrss'] ? '1' : '0';
+  $display_commrss      = $instance['commrss'] ? '1' : '0';
+  $display_wplink       = $instance['wplink'] ? '1' : '0';
+  $display_linebreaks   = $instance['linebreaks'] ? '1' : '0';
 
+  /*
+   * This sub-section outputs the sidebar
+  */
+  if (is_user_logged_in()) { //begins section for all logged in users
+    echo $before_widget;
+    echo $before_title . $title . $after_title;
+    echo '<ul>';
     /*
-     * This sub-section outputs the sidebar
+     * This section is for all logged in users based upon their roles/permissions
     */
-    if (is_user_logged_in()) {
-      echo $before_widget;
-      echo $before_title . $title . $after_title; ?>
-      <ul>
-      <?php 
-      /*
-       * This section is for all logged in users based upon their roles/permissions
-      */
-      if ($display_logout) { ?>
-        <li><?php wp_loginout(get_bloginfo('url'));?></li>
-      <?php }
-      if ($display_profile) { ?>
-        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/profile.php"><?php _e('My Profile', 'enhanced-meta-widget')?></a></li>
-      <?php }
-      if ($display_linebreaks)
-        echo '<br />'; 
-      if (is_single() && $display_editthispost) {
-        if (current_user_can('edit_others_posts') | (current_user_can('edit_posts') && $user_ID == $post->post_author)) { ?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Post', 'enhanced-meta-widget')?></a></li>
-      <?php  } }
-      if (is_page() && $display_editthispage) {
-        if (current_user_can('edit_others_pages') | (current_user_can('edit_pages') && $user_ID == $post->post_author)) { ?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/page.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Page', 'enhanced-meta-widget')?></a></li>
-      <?php } }
-      if (current_user_can('edit_posts') && $display_newpost) {?>
-        <li><a href="<?php bloginfo('wpurl') ?>/wp-admin/post-new.php"><?php _e('New Post', 'enhanced-meta-widget')?></a></li>
-      <?php }
-      /*
-       * This section displays only when an administrator is logged in
-      */
-      if ($user_level == 10) { ?>
-        </ul>
-        <?php if (( $display_logout || $display_editthispost || $display_editthispage || $display_newpost) && ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings)) {
-        if ($display_linebreaks)
-        echo '<br />'; } ?>
-        <ul>
-        <?php  
-        if ($display_dashboard) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin"><?php _e('Site Admin', 'enhanced-meta-widget')?></a></li>
-        <?php }
-        if ($display_manposts) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit.php"><?php _e('Manage Posts', 'enhanced-meta-widget')?></a></li>
-        <?php }
-        if ($display_mandrafts) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit.php?post_status=draft"><?php _e('Manage Drafts', 'enhanced-meta-widget')?></a></li>
-        <?php }
-        if ($display_medialib) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/upload.php"><?php _e('Media Library', 'enhanced-meta-widget')?></a></li>
-        <?php }
-        if ($display_manlinks) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/link-manager.php"><?php _e('Manage Links', 'enhanced-meta-widget')?></a></li>
-        <?php }
-        if ($display_manpages) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit-pages.php"><?php _e('Manage Pages', 'enhanced-meta-widget')?></a></li>
-        <?php }
-        if ($display_mancomments) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit-comments.php"><?php _e('Manage Comments', 'enhanced-meta-widget')?></a></li>
-        <?php }
-        if ($display_manthemes) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/themes.php"><?php _e('Manage Themes', 'enhanced-meta-widget')?></a></li>
-        <?php }
-        if ($display_manwidgets) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/widgets.php"><?php _e('Manage Widgets', 'enhanced-meta-widget')?></a></li>
-        <?php }
-        if ($display_manplugins) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/plugins.php"><?php _e('Manage Plugins', 'enhanced-meta-widget')?></a></li>
-        <?php }
-        if ($display_manusers) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/users.php"><?php _e('Manage Users', 'enhanced-meta-widget')?></a></li>
-        <?php }
-        if ($display_tools) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/tools.php"><?php _e('Tools', 'enhanced-meta-widget')?></a></li>
-        <?php }
-        if ($display_settings) {?>
-          <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/options-general.php"><?php _e('Settings', 'enhanced-meta-widget')?></a></li>
-        <?php }
-      } // ends if user is admin sub-section and restarts options for all logged in users
-      if (( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings) && ( $display_entrss || $display_commrss || $display_wplink)) {
-      if ($display_linebreaks)
-      echo '<br />'; }
-      if ($display_entrss) {?>
-        <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS 2.0', 'enhanced-meta-widget'); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li>
-      <?php }
-      if ($display_commrss) {?>
-        <li><a href="<?php bloginfo('comments_rss2_url'); ?>" title="<?php _e('The latest comments to all posts in RSS', 'enhanced-meta-widget'); ?>"><?php _e('Comments <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li>
-      <?php }
-      if ($display_wplink) {?>
-        <li><a href="http://wordpress.org/" title="<?php _e('Powered by WordPress, state-of-the-art semantic personal publishing platform.', 'enhanced-meta-widget'); ?>">WordPress.org</a></li>
-      <?php }
-      if ($display_username) {
-        if ($display_linebreaks)
-        echo '<br />';
-      printf(__('<em>%s</em> is logged in.<br /><br />', 'enhanced-meta-widget'), $userdata->display_name); } ?>
-        </ul>
-      <?php  //var_dump($userdata);
-      ?>
-      <?php
-      echo $after_widget;
-    } // ends if user logged in section
+    if ($display_username) { ?>
+      <p><?php printf(__('Welcome, <em>%s</em>.', 'enhanced-meta-widget'), $userdata->display_name);?></p><?php }
+    if ($display_logout) { ?>
+      <li><?php wp_loginout(wp_logout_url($_SERVER['REQUEST_URI']));?></li><?php }
+    if ($display_profile) { ?>
+      <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/profile.php"><?php _e('My Profile', 'enhanced-meta-widget')?></a></li><?php }
+    //if ($display_linebreaks) echo '<br />';
+    if (current_user_can('edit_posts') && $display_newpost) {?>
+      <li><a href="<?php bloginfo('wpurl') ?>/wp-admin/post-new.php"><?php _e('New Post', 'enhanced-meta-widget')?></a></li> <?php }
+    if (is_single() && $display_editthispost) {
+      if (current_user_can('edit_others_posts') || ((current_user_can('edit_posts') && $user_ID == $post->post_author))) { ?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Post', 'enhanced-meta-widget')?></a></li><?php }}
+    if (is_page() && $display_editthispage) {
+      if (current_user_can('edit_others_pages') | (current_user_can('edit_pages') && $user_ID == $post->post_author)) { ?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/page.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Page', 'enhanced-meta-widget')?></a></li><?php }}
     /*
-     * This Section displays the some links (register, RSS, and wordpress.org) and the login-in form if a user is not logged in
+     * This section displays only when an administrator is logged in
     */
-    else {
-    if ($display_register || $display_entrss || $display_commrss || $display_wplink || $display_loginout) {
-      echo $before_widget;
-      echo $before_title . $title . $after_title;
-      echo '<ul>'; 
-      if ($display_login && !($display_loginform)) {?>
-      <li><?php wp_loginout(get_bloginfo('url')); }?></li>
-      <?php
-      if (get_option('users_can_register') && $display_register) { //shows the register link if registration is allowed
-        wp_register();
-        echo '</ul>';
-          if ($display_linebreaks)
-          echo '<br />';
-        echo '<ul>'; }
-      if ($display_entrss) {?>
-        <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS 2.0', 'enhanced-meta-widget'); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li>
-      <?php }
-      if ($display_commrss) {?>
-        <li><a href="<?php bloginfo('comments_rss2_url'); ?>" title="<?php _e('The latest comments to all posts in RSS', 'enhanced-meta-widget'); ?>"><?php _e('Comments <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li>
-      <?php }
-      if ($display_wplink) {?>
-        <li><a href="http://wordpress.org/" title="<?php _e('Powered by WordPress, state-of-the-art semantic personal publishing platform.', 'enhanced-meta-widget'); ?>">WordPress.org</a></li>
-      <?php }
+    if ($user_level == 10) { ?>
+      <?php if ((( $display_logout || $display_editthispost || $display_editthispage || $display_newpost) && ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings)) && ($display_linebreaks)) echo '<br />';
+      if ($display_dashboard) {?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin"><?php _e('Site Admin', 'enhanced-meta-widget')?></a></li><?php }
+      if ($display_manposts) {?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit.php"><?php _e('Manage Posts', 'enhanced-meta-widget')?></a></li><?php }
+      if ($display_mandrafts) {?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit.php?post_status=draft"><?php _e('Manage Drafts', 'enhanced-meta-widget')?></a></li><?php }
+      if ($display_medialib) {?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/upload.php"><?php _e('Media Library', 'enhanced-meta-widget')?></a></li><?php }
+      if ($display_manlinks) {?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/link-manager.php"><?php _e('Manage Links', 'enhanced-meta-widget')?></a></li><?php }
+      if ($display_manpages) {?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit-pages.php"><?php _e('Manage Pages', 'enhanced-meta-widget')?></a></li><?php }
+      if ($display_mancomments) {?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit-comments.php"><?php _e('Manage Comments', 'enhanced-meta-widget')?></a></li><?php }
+      if ($display_manthemes) {?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/themes.php"><?php _e('Manage Themes', 'enhanced-meta-widget')?></a></li><?php }
+      if ($display_manwidgets) {?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/widgets.php"><?php _e('Manage Widgets', 'enhanced-meta-widget')?></a></li><?php }
+      if ($display_manplugins) {?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/plugins.php"><?php _e('Manage Plugins', 'enhanced-meta-widget')?></a></li><?php }
+      if ($display_manusers) {?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/users.php"><?php _e('Manage Users', 'enhanced-meta-widget')?></a></li><?php }
+      if ($display_tools) {?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/tools.php"><?php _e('Tools', 'enhanced-meta-widget')?></a></li><?php }
+      if ($display_settings) {?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/options-general.php"><?php _e('Settings', 'enhanced-meta-widget')?></a></li><?php }
+    } // ends if user is admin sub-section and restarts options for all logged in users
+    if ((( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings) && ( $display_entrss || $display_commrss || $display_wplink)) && ($display_linebreaks)) echo '<br />';
+    if ($display_entrss) {?>
+      <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS 2.0', 'enhanced-meta-widget'); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li><?php }
+    if ($display_commrss) {?>
+      <li><a href="<?php bloginfo('comments_rss2_url'); ?>" title="<?php _e('The latest comments to all posts in RSS', 'enhanced-meta-widget'); ?>"><?php _e('Comments <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li><?php }
+    if ($display_wplink) {?>
+      <li><a href="http://wordpress.org/" title="<?php _e('Powered by WordPress, state-of-the-art semantic personal publishing platform.', 'enhanced-meta-widget'); ?>">WordPress.org</a></li><?php }
       echo '</ul>';
-      echo $after_widget; }
-      /* Generate the Login Form */
-      if ($display_loginform) {
-        echo $before_widget;
-        echo $before_title;
-        _e('Log In', 'enhanced-meta-widget');
-        echo $after_title;
-                ?>
-        <form method="post" action="<?php echo get_bloginfo('wpurl'); ?>/wp-login.php" id="emw_loginform" name="loginform">
-        <p>
-        <label><?php _e('Username', 'enhanced-meta-widget'); ?><br/>
-          <input type="text" tabindex="10" size="20" value="" class="input" id="user_login" name="log"/></label>
-        </p>
-        <p>
-        <label><?php _e('Password', 'enhanced-meta-widget'); ?><br/>
-          <input type="password" tabindex="20" size="20" value="" class="input" id="user_pass" name="pwd"/></label>
-        </p>
-        <?php
-        // allow plugins to override the default actions, and to add extra actions if they want
-        do_action('login_form_' . $action); ?>
-        <p class="forgetmenot"><label><input type="checkbox" tabindex="90" value="forever" id="rememberme" name="rememberme"/>Remember Me</label></p>
-        <p class="submit">
-          <input type="submit" tabindex="100" value="Log In" id="wp-submit" name="wp-submit"/>
-          <input type="hidden" value="<?php echo get_bloginfo('url'); ?>" name="redirect_to" class=""/>
-          <input type="hidden" value="1" name="testcookie" class=""/>
-        </p>
-      </form>
-      <?php
+      //var_dump($userdata); 
       echo $after_widget;
-      } //ends if... statement to display login form
-    } //ends else statement to display meta links for users not logged in
-  } //ends widget function
-
+  } // ends if user logged in section
   /*
-   * Process options to be saved
+   * This Section displays the some links (register, RSS, and wordpress.org) and the login-in form if a user is not logged in
   */
-  function update($new_instance, $old_instance) {
-    $instance = $old_instance;
-    $new_instance = wp_parse_args((array) $new_instance, array('title' => '', 'username' => 0, 'profile' => 0, 'login' => 0, 'logout' => 0, 'loginform' => 0, 'register' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 0, 'manposts' => 0, 'mandrafts' =>0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0, 'linebreaks' => 0));
+  else {
+  if ($display_register || $display_entrss || $display_commrss || $display_wplink || $display_loginout) {
+    echo $before_widget;
+    echo $before_title . $title . $after_title;
+    echo '<ul>'; 
+    if ($display_login && !($display_loginform)) {?>
+      <li><?php echo wp_loginout($_SERVER['REQUEST_URI']);?></li><?php }
+    if (get_option('users_can_register') && $display_register) { //shows the register link if registration is allowed
+      wp_register();
+      echo '</ul>';
+      if ($display_linebreaks) echo '<br />';
+      echo '<ul>'; }
+    if ($display_entrss) {?>
+        <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS 2.0', 'enhanced-meta-widget'); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li><?php }
+    if ($display_commrss) {?>
+      <li><a href="<?php bloginfo('comments_rss2_url'); ?>" title="<?php _e('The latest comments to all posts in RSS', 'enhanced-meta-widget'); ?>"><?php _e('Comments <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li><?php }
+    if ($display_wplink) {?>
+      <li><a href="http://wordpress.org/" title="<?php _e('Powered by WordPress, state-of-the-art semantic personal publishing platform.', 'enhanced-meta-widget'); ?>">WordPress.org</a></li><?php }
+    echo '</ul>';
+    echo $after_widget; }
+    if ($display_loginform) { /* Starts to generate the Login Form */
+      echo $before_widget;
+      echo $before_title; _e('Log In', 'enhanced-meta-widget'); echo $after_title; ?>
+      <form method="post" action="<?php echo get_bloginfo('wpurl'); ?>/wp-login.php" id="emw_loginform" name="loginform">
+      <p>
+      <label><?php _e('Username', 'enhanced-meta-widget'); ?><br/>
+        <input type="text" tabindex="10" size="20" value="" class="input" id="user_login" name="log"/></label>
+      </p>
+      <p>
+      <label><?php _e('Password', 'enhanced-meta-widget'); ?><br/>
+        <input type="password" tabindex="20" size="20" value="" class="input" id="user_pass" name="pwd"/></label>
+      </p>
+      <?php
+        do_action('login_form_' . $action); // allow plugins to override the default actions, and to add extra actions if they want
+      ?>
+      <p class="forgetmenot"><label><input type="checkbox" tabindex="90" value="forever" id="rememberme" name="rememberme"/>Remember Me</label></p>
+      <p class="submit">
+        <input type="submit" tabindex="100" value="Log In" id="wp-submit" name="wp-submit"/>
+        <input type="hidden" value="<?php echo $_SERVER['REQUEST_URI']; ?>" name="redirect_to" class=""/>
+        <input type="hidden" value="1" name="testcookie" class=""/>
+      </p>
+    </form><?php
+    echo $after_widget;
+    } //ends if... statement to display login form
+  } //ends else statement to display meta links for users not logged in
+} //ends widget function
+
+/*
+ * Process options to be saved
+*/
+function update($new_instance, $old_instance) {
+  $instance = $old_instance;
+  $new_instance = wp_parse_args((array) $new_instance, array('title' => '', 'username' => 0, 'profile' => 0, 'login' => 0, 'logout' => 0, 'loginform' => 0, 'register' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 0, 'manposts' => 0, 'mandrafts' =>0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0, 'linebreaks' => 0));
     $instance['title']        = strip_tags($new_instance['title']);
     $instance['username']     = $new_instance['username'] ? '1' : '0';
     $instance['profile']      = $new_instance['profile'] ? '1' : '0';
