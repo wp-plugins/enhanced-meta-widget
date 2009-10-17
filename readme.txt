@@ -1,7 +1,7 @@
 === Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.worpdress.com/enhanced-meta-widget/
-Version: 1.7
+Version: 2.0
 Tags: meta, widget, links, admin, administration, dashboard, international, i18n
 Requires at least: 2.8
 Tested up to: 2.8.4
@@ -60,7 +60,7 @@ Send your questions to neurodawg@hebers.us
 
 == Change Log ==
 
-= 1.8 =
+= 2.0 =
 * Changed "UserName is logged in" to "Welcome, UserName" and moved to top, under the title.
 * "Welcome, UserName" displays the username as chosen for "Display name publicly as" in the user profile.
 * Added link to "my profile" for logged in users.
