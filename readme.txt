@@ -61,16 +61,16 @@ Send your questions to neurodawg@hebers.us
 == Change Log ==
 
 = 2.0 =
+* Changed the format of the administration panel to a cleaner presentation. Gone are the "Display..." or "Show..." statements/questions, and they have been replaced with just a simple "Display:" header with all the options simply listed as options with checkboxes.
 * Changed "UserName is logged in" to "Welcome, UserName" and moved to top, under the title.
-* "Welcome, UserName" displays the username as chosen for "Display name publicly as" in the user profile.
+* "Welcome, UserName" displays the username as set with "Display name publicly as" in the user profile.
 * Added link to "my profile" for logged in users.
 * Updated log in and log out links to return to the current page/post.
-* Changed the format of the admininstration panel to a cleaner presentation.
 * Created option to have linebreaks or not. (I prefer to have breaks between some sections of links - user actions, admin actions, and the orignal meta links - but others prefer all links to be a list without breaks. So now "Line breaks between sections" is an option.
 * Added hook to allow other plugins to run actions just before the end of the login form - do_action('login_form').
 * Corrected the order in which the options are presented on the admin page to reflect how they're presented on the sidebar.
 * Added Polish (pl_PL) language files.
-* Removed all question marks from the admin panel, leaving just "Display ..." statements.
+* Updated French (fr_FR) and Dutch (nl_NL) language files.
 * Found and translated another missed phrase. I think all phrases are now coded for i18n. If you are using a different language and find a phrase I have missed, please let me know.
 
 = 1.7 =
