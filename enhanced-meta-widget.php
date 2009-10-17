@@ -317,7 +317,7 @@ function update($new_instance, $old_instance) {
     <input class="checkbox" type="checkbox" <?php checked($instance['wplink'], true) ?> id="<?php echo $this->get_field_id('wplink'); ?>" name="<?php echo $this->get_field_name('wplink'); ?>" />
     <label for="<?php echo $this->get_field_id('wplink'); ?>"><?php _e('<em>wordpress.org</em>', 'enhanced-meta-widget'); ?></label><br />
     <input class="checkbox" type="checkbox" <?php checked($instance['linebreaks'], true) ?> id="<?php echo $this->get_field_id('linebreaks'); ?>" name="<?php echo $this->get_field_name('linebreaks'); ?>" />
-    <label for="<?php echo $this->get_field_id('linebreaks'); ?>"><?php _e('Line breaks between sections', 'enhanced-meta-widget'); ?></label>
+    <label for="<?php echo $this->get_field_id('linebreaks'); ?>"><?php _e('line breaks between sections', 'enhanced-meta-widget'); ?></label>
     </div>
   <?php
   } // ends form function
