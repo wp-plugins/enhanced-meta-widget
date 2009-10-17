@@ -1,273 +1,272 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR NeuroDawg
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/enhanced-meta-widget\n"
-"POT-Creation-Date: 2009-10-17 15:50+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2009-10-17 15:13+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: NeuroDawg <neurodawg@hebers.us>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: NETHERLANDS\n"
 
 #: enhanced-meta-widget.php:32
 msgid "Adds various admin links for logged in users on every page."
-msgstr ""
+msgstr "Voegt verschillende admin links toe voor aangemelde gebruikers op iedere pagina."
 
 #: enhanced-meta-widget.php:34
 msgid "Enhanced Meta"
-msgstr ""
+msgstr "Enhanced Meta"
 
 #: enhanced-meta-widget.php:46
 msgid "Meta"
-msgstr ""
+msgstr "Meta"
 
 #: enhanced-meta-widget.php:85
 #, php-format
 msgid "Welcome, <em>%s</em>."
-msgstr ""
+msgstr "Welkom, <em>%s</em>."
 
 #: enhanced-meta-widget.php:89
 msgid "My Profile"
-msgstr ""
+msgstr "Mijn Profiel"
 
 #: enhanced-meta-widget.php:92
 msgid "New Post"
-msgstr ""
+msgstr "Nieuw Bericht"
 
 #: enhanced-meta-widget.php:95
 msgid "Edit This Post"
-msgstr ""
+msgstr "Dit Bericht Aanpassen"
 
 #: enhanced-meta-widget.php:98
 msgid "Edit This Page"
-msgstr ""
+msgstr "Deze Pagina Aanpassen"
 
 #: enhanced-meta-widget.php:105
 msgid "Site Admin"
-msgstr ""
+msgstr "Site Admin"
 
 #: enhanced-meta-widget.php:107
 msgid "Manage Posts"
-msgstr ""
+msgstr "Berichten Aanpassen"
 
 #: enhanced-meta-widget.php:109
 msgid "Manage Drafts"
-msgstr ""
+msgstr "Concepten Aanpasseen"
 
 #: enhanced-meta-widget.php:111
 msgid "Media Library"
-msgstr ""
+msgstr "Media Bibliotheek"
 
 #: enhanced-meta-widget.php:113
 msgid "Manage Links"
-msgstr ""
+msgstr "Links Aanpassen"
 
 #: enhanced-meta-widget.php:115
 msgid "Manage Pages"
-msgstr ""
+msgstr "Pagina's Aanpassen"
 
 #: enhanced-meta-widget.php:117
 msgid "Manage Comments"
-msgstr ""
+msgstr "Reacties Aanpassen"
 
 #: enhanced-meta-widget.php:119
 msgid "Manage Themes"
-msgstr ""
+msgstr "Thema's Aanpassen"
 
 #: enhanced-meta-widget.php:121
 msgid "Manage Widgets"
-msgstr ""
+msgstr "Widgets Aanpassen"
 
 #: enhanced-meta-widget.php:123
 msgid "Manage Plugins"
-msgstr ""
+msgstr "Plugins Aanpassen"
 
 #: enhanced-meta-widget.php:125
 msgid "Manage Users"
-msgstr ""
+msgstr "Gebruikers Aanpassen"
 
 #: enhanced-meta-widget.php:127
 msgid "Tools"
-msgstr ""
+msgstr "Gereedschap"
 
 #: enhanced-meta-widget.php:129
 msgid "Settings"
-msgstr ""
+msgstr "Instellingen"
 
-#: enhanced-meta-widget.php:133 enhanced-meta-widget.php:158
+#: enhanced-meta-widget.php:133
+#: enhanced-meta-widget.php:158
 msgid "Syndicate this site using RSS 2.0"
-msgstr ""
+msgstr "Koppel deze site met RSS 2.0"
 
-#: enhanced-meta-widget.php:133 enhanced-meta-widget.php:158
+#: enhanced-meta-widget.php:133
+#: enhanced-meta-widget.php:158
 msgid "Entries <abbr title=\"Really Simple Syndication\">RSS</abbr>"
-msgstr ""
+msgstr "Berichten <abbr title=\"Really Simple Syndication\">RSS</abbr>"
 
-#: enhanced-meta-widget.php:135 enhanced-meta-widget.php:160
+#: enhanced-meta-widget.php:135
+#: enhanced-meta-widget.php:160
 msgid "The latest comments to all posts in RSS"
-msgstr ""
+msgstr "Recente reacties op alle berichten in RSS"
 
-#: enhanced-meta-widget.php:135 enhanced-meta-widget.php:160
+#: enhanced-meta-widget.php:135
+#: enhanced-meta-widget.php:160
 msgid "Comments <abbr title=\"Really Simple Syndication\">RSS</abbr>"
-msgstr ""
+msgstr "Reacties <abbr title=\"Really Simple Syndication\">RSS</abbr>"
 
-#: enhanced-meta-widget.php:137 enhanced-meta-widget.php:162
-msgid ""
-"Powered by WordPress, state-of-the-art semantic personal publishing platform."
-msgstr ""
+#: enhanced-meta-widget.php:137
+#: enhanced-meta-widget.php:162
+msgid "Powered by WordPress, state-of-the-art semantic personal publishing platform."
+msgstr "Gemaakt met WordPress, het state-of-the-art semantisch persoonlijk publicatie platform."
 
 #: enhanced-meta-widget.php:167
 msgid "Log In"
-msgstr ""
+msgstr "Aanmelden"
 
 #: enhanced-meta-widget.php:170
 msgid "Username"
-msgstr ""
+msgstr "Gebruikersnaam"
 
 #: enhanced-meta-widget.php:174
 msgid "Password"
-msgstr ""
+msgstr "Wachtwoord"
 
 #: enhanced-meta-widget.php:180
 msgid "Remember Me"
-msgstr ""
+msgstr "Onthoud Mij"
 
 #: enhanced-meta-widget.php:260
 msgid "Title:"
-msgstr ""
+msgstr "Titel:"
 
 #: enhanced-meta-widget.php:268
 msgid "Display:<br />"
-msgstr ""
+msgstr "Toon:<br />"
 
 #: enhanced-meta-widget.php:270
 msgid "user name"
-msgstr ""
+msgstr "gebruikersnaam"
 
 #: enhanced-meta-widget.php:272
 msgid "<em>my profile</em>"
-msgstr ""
+msgstr "<em>mijn profiel</em>"
 
 #: enhanced-meta-widget.php:274
 msgid "login link"
-msgstr ""
+msgstr "aanmelden link"
 
 #: enhanced-meta-widget.php:276
 msgid "logout link"
-msgstr ""
+msgstr "afmelden link"
 
 #: enhanced-meta-widget.php:278
 msgid "login form"
-msgstr ""
+msgstr "aanmeld formulier"
 
 #: enhanced-meta-widget.php:280
 msgid "register link"
-msgstr ""
+msgstr "registreren link"
 
 #: enhanced-meta-widget.php:282
 msgid "<em>new post</em>"
-msgstr ""
+msgstr "<em>nieuw bericht</em>"
 
 #: enhanced-meta-widget.php:284
 msgid "<em>edit this post</em>"
-msgstr ""
+msgstr "<em>dit bericht aanpassen</em>"
 
 #: enhanced-meta-widget.php:286
 msgid "<em>edit this page</em>"
-msgstr ""
+msgstr "<em>deze pagina aanpassen</em>"
 
 #: enhanced-meta-widget.php:288
 msgid "<em>site admin</em>"
-msgstr ""
+msgstr "<em>site admin</em>"
 
 #: enhanced-meta-widget.php:290
 msgid "<em>manage posts</em>"
-msgstr ""
+msgstr "<em>berichten aanpassen</em>"
 
 #: enhanced-meta-widget.php:292
 msgid "<em>manage drafts</em>"
-msgstr ""
+msgstr "<em>concepten aanpassen</em>"
 
 #: enhanced-meta-widget.php:294
 msgid "<em>media library</em>"
-msgstr ""
+msgstr "<em>media bibliotheek</em>"
 
 #: enhanced-meta-widget.php:296
 msgid "<em>manage links</em>"
-msgstr ""
+msgstr "<em>links aanpassen</em>"
 
 #: enhanced-meta-widget.php:298
 msgid "<em>manage pages</em>"
-msgstr ""
+msgstr "<em>pania's aanpassen</em>"
 
 #: enhanced-meta-widget.php:300
 msgid "<em>manage comments</em>"
-msgstr ""
+msgstr "<em>reacties aanpassen</em>"
 
 #: enhanced-meta-widget.php:302
 msgid "<em>manage themes</em>"
-msgstr ""
+msgstr "<em>thema's aanpassen</em>"
 
 #: enhanced-meta-widget.php:304
 msgid "<em>manage widgets</em>"
-msgstr ""
+msgstr "<em>widgets aanpassen</em>"
 
 #: enhanced-meta-widget.php:306
 msgid "<em>manage plugins</em>"
-msgstr ""
+msgstr "<em>plugins aanpassen</em>"
 
 #: enhanced-meta-widget.php:308
 msgid "<em>manage users</em>"
-msgstr ""
+msgstr "<em>gebruikers aanpassen</em>"
 
 #: enhanced-meta-widget.php:310
 msgid "<em>tools</em>"
-msgstr ""
+msgstr "<em>gereedschap</em>"
 
 #: enhanced-meta-widget.php:312
 msgid "<em>settings</em>"
-msgstr ""
+msgstr "<em>instellingen</em>"
 
 #: enhanced-meta-widget.php:314
 msgid "<em>entries rss</em>"
-msgstr ""
+msgstr "<em>rss postings</em>"
 
 #: enhanced-meta-widget.php:316
 msgid "<em>comments rss</em>"
-msgstr ""
+msgstr "<em>rss reacties</em>"
 
 #: enhanced-meta-widget.php:318
 msgid "<em>wordpress.org</em>"
-msgstr ""
+msgstr "<em>wordpress.org</em>"
 
 #: enhanced-meta-widget.php:320
 msgid "line breaks between sections"
-msgstr ""
+msgstr "regelafbreking tussen secties"
 
 #. Plugin Name of an extension
 msgid "Enhanced Meta Widget"
-msgstr ""
+msgstr "Enhanced Meta Widget"
 
 #. Plugin URI of an extension
 msgid "http://neurodawg.wordpress.com/enhanced-meta-widget/"
-msgstr ""
+msgstr "http://neurodawg.wordpress.com/enhanced-meta-widget/"
 
 #. Description of an extension
-msgid ""
-"Replaces the meta sidebar included with WordPress, and displays various "
-"links based upon user roles."
-msgstr ""
+msgid "Replaces the meta sidebar included with WordPress, and displays various links based upon user roles."
+msgstr "Vervangt de meta zijbalk widget die bijgeleverd wordt in WordPress, en toont verschillende links gebaseerd op gebruiker status."
 
 #. Author of an extension
 msgid "NeuroDawg"
-msgstr ""
+msgstr "NeuroDawg"
 
 #. Author URI of an extension
 msgid "http://neurodawg.wordpress.com"
-msgstr ""
+msgstr "http://neurodawg.wordpress.com"
+

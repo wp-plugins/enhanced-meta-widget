@@ -262,7 +262,7 @@ function update($new_instance, $old_instance) {
     <div style="text-align:left">
     <?php $adminlocale = get_locale();
     if ($adminlocale=='fr_FR')
-      echo '<p style="font-size: 10px;">';
+      echo '<p>'; // style="font-size: 10px;">';
     else
       echo '<p>';
     _e('Display:<br />', 'enhanced-meta-widget') ?>
