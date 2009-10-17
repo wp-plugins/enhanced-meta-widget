@@ -11,7 +11,7 @@ License: GPL v.3
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
 
 == Description ==
-===Update===
+**Update**
 This widget is now fully internationalized. The only current translation is French, but I hope to have a few others soon. If anyone is willing to translate for me, please contact me or follow the directions found at the plugin homepage.
 
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles. It is also a multi-widget; it can be used in multiple instances on the same or different sidebars. Want your admin links only on a right-hand sidebar, but your general meta links on the left? Can be done. Want one widget just for the standard meta RSS and wordpress.org links, and a section below, with a different title for admin links? That can be done too, just add two separate widgets to the same sidebar and enable different options.

@@ -3,7 +3,7 @@
 Plugin Name: Enhanced Meta Widget
 Plugin URI: http://neurodawg.wordpress.com/enhanced-meta-widget/
 Description: Replaces the meta sidebar included with WordPress, and displays various links based upon user roles.
-Version: 1.7
+Version: 1.8
 Text Domain: enhanced-meta-widget
 Author: NeuroDawg
 Author URI: http://neurodawg.wordpress.com
@@ -39,12 +39,13 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
   function widget( $args, $instance ) {
     extract($args, EXTR_SKIP);  //gets the before_widget, after_widget, before_title, after_title tags if defined in a theme's functions.php
                                 //otherwise uses the defaults for these tags
-    global $post, $user_ID, $user_level, $user_login; // This gets the post and user information
+    global $post, $user_ID, $user_level, $user_login, $userdata; // This gets the post and user information
     /* 
      * This sub-section gets the variables
     */
     $title = apply_filters('widget_title', empty($instance['title']) ? __('Meta', 'enhanced-meta-widget') : $instance['title']);
     $display_username     = $instance['username'] ? '1' : '0';
+    $display_profile      = $instance['profile'] ? '1' : '0';
     $display_login        = $instance['login'] ? '1' : '0';
     $display_logout       = $instance['logout'] ? '1' : '0';
     $display_loginform    = $instance['loginform'] ? '1' : '0';
@@ -68,6 +69,7 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
     $display_entrss       = $instance['entrss'] ? '1' : '0';
     $display_commrss      = $instance['commrss'] ? '1' : '0';
     $display_wplink       = $instance['wplink'] ? '1' : '0';
+    $display_linebreaks   = $instance['linebreaks'] ? '1' : '0';
 
     /*
      * This sub-section outputs the sidebar
@@ -83,6 +85,11 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
       if ($display_logout) { ?>
         <li><?php wp_loginout(get_bloginfo('url'));?></li>
       <?php }
+      if ($display_profile) { ?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/profile.php"><?php _e('My Profile', 'enhanced-meta-widget')?></a></li>
+      <?php }
+      if ($display_linebreaks)
+        echo '<br />'; 
       if (is_single() && $display_editthispost) {
         if (current_user_can('edit_others_posts') | (current_user_can('edit_posts') && $user_ID == $post->post_author)) { ?>
           <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Post', 'enhanced-meta-widget')?></a></li>
@@ -99,7 +106,8 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
       */
       if ($user_level == 10) { ?>
         </ul>
-        <?php if ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings) {
+        <?php if (( $display_logout || $display_editthispost || $display_editthispage || $display_newpost) && ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings)) {
+        if ($display_linebreaks)
         echo '<br />'; } ?>
         <ul>
         <?php  
@@ -143,7 +151,8 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
           <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/options-general.php"><?php _e('Settings', 'enhanced-meta-widget')?></a></li>
         <?php }
       } // ends if user is admin sub-section and restarts options for all logged in users
-      if ( $display_entrss || $display_commrss || $display_wplink) {
+      if (( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings) && ( $display_entrss || $display_commrss || $display_wplink)) {
+      if ($display_linebreaks)
       echo '<br />'; }
       if ($display_entrss) {?>
         <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS 2.0', 'enhanced-meta-widget'); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li>
@@ -154,9 +163,13 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
       if ($display_wplink) {?>
         <li><a href="http://wordpress.org/" title="<?php _e('Powered by WordPress, state-of-the-art semantic personal publishing platform.', 'enhanced-meta-widget'); ?>">WordPress.org</a></li>
       <?php }
-      if ($display_username) 
-      printf(__('<br /><em>%s</em> is logged in.<br /><br />', 'enhanced-meta-widget'), $user_login); ?>
+      if ($display_username) {
+        if ($display_linebreaks)
+        echo '<br />';
+      printf(__('<em>%s</em> is logged in.<br /><br />', 'enhanced-meta-widget'), $userdata->display_name); } ?>
         </ul>
+      <?php  //var_dump($userdata);
+      ?>
       <?php
       echo $after_widget;
     } // ends if user logged in section
@@ -174,7 +187,8 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
       if (get_option('users_can_register') && $display_register) { //shows the register link if registration is allowed
         wp_register();
         echo '</ul>';
-        echo '<br />';
+          if ($display_linebreaks)
+          echo '<br />';
         echo '<ul>'; }
       if ($display_entrss) {?>
         <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS 2.0', 'enhanced-meta-widget'); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li>
@@ -187,14 +201,13 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
       <?php }
       echo '</ul>';
       echo $after_widget; }
-    if ($display_loginform) {
-      //if ($display_entrss || $display_commrss || $display_wplink) 
-        //echo '<br />';
+      /* Generate the Login Form */
+      if ($display_loginform) {
         echo $before_widget;
         echo $before_title;
         _e('Log In', 'enhanced-meta-widget');
         echo $after_title;
-        ?>
+                ?>
         <form method="post" action="<?php echo get_bloginfo('wpurl'); ?>/wp-login.php" id="emw_loginform" name="loginform">
         <p>
         <label><?php _e('Username', 'enhanced-meta-widget'); ?><br/>
@@ -204,6 +217,9 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
         <label><?php _e('Password', 'enhanced-meta-widget'); ?><br/>
           <input type="password" tabindex="20" size="20" value="" class="input" id="user_pass" name="pwd"/></label>
         </p>
+        <?php
+        // allow plugins to override the default actions, and to add extra actions if they want
+        do_action('login_form_' . $action); ?>
         <p class="forgetmenot"><label><input type="checkbox" tabindex="90" value="forever" id="rememberme" name="rememberme"/>Remember Me</label></p>
         <p class="submit">
           <input type="submit" tabindex="100" value="Log In" id="wp-submit" name="wp-submit"/>
@@ -222,9 +238,10 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
   */
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
-    $new_instance = wp_parse_args((array) $new_instance, array('title' => '', 'username' => 0, 'login' => 0, 'logout' => 0, 'loginform' => 0, 'register' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 0, 'manposts' => 0, 'mandrafts' =>0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0));
+    $new_instance = wp_parse_args((array) $new_instance, array('title' => '', 'username' => 0, 'profile' => 0, 'login' => 0, 'logout' => 0, 'loginform' => 0, 'register' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 0, 'manposts' => 0, 'mandrafts' =>0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0, 'linebreaks' => 0));
     $instance['title']        = strip_tags($new_instance['title']);
     $instance['username']     = $new_instance['username'] ? '1' : '0';
+    $instance['profile']      = $new_instance['profile'] ? '1' : '0';
     $instance['login']        = $new_instance['login'] ? '1' : '0';
     $instance['logout']       = $new_instance['logout'] ? '1' : '0';
     $instance['loginform']    = $new_instance['loginform'] ? '1' : '0';
@@ -248,15 +265,17 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
     $instance['entrss']       = $new_instance['entrss'] ? '1' : '0';
     $instance['commrss']      = $new_instance['commrss'] ? '1' : '0';
     $instance['wplink']       = $new_instance['wplink'] ? '1' : '0';
+    $instance['linebreaks']   = $new_instance['linebreaks'] ? '1' : '0';
     return $instance;
   } //ends update function
   /*
    * Creates the widget admin options form
   */
   function form( $instance ) {
-    $instance = wp_parse_args((array) $instance, array('title' => '', 'username' => 0, 'login' => 1, 'logout' => 1, 'loginform' => 0, 'register' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 1, 'manposts' => 0, 'mandrafts' => 0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0));
+    $instance = wp_parse_args((array) $instance, array('title' => '', 'username' => 0, 'profile' => 0, 'login' => 1, 'logout' => 1, 'loginform' => 0, 'register' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 1, 'manposts' => 0, 'mandrafts' => 0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0, 'linebreaks' => 0));
     $title        = strip_tags($instance['title']);
     $username     = $instance['username'] ? 'checked="checked"' : '';
+    $profile      = $instance['profile'] ? 'checked="checked"' : '';
     $login        = $instance['login'] ? 'checked="checked"' : '';
     $logout       = $instance['logout'] ? 'checked="checked"' : '';
     $loginform    = $instance['loginform'] ? 'checked="checked"' : '';
@@ -280,6 +299,7 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
     $entrss       = $instance['entrss'] ? 'checked="checked"' : '';
     $commrss      = $instance['commrss'] ? 'checked="checked"' : '';
     $wplink       = $instance['wplink'] ? 'checked="checked"' : '';
+    $linebreaks   = $instance['linebreaks'] ? 'checked="checked"' : '';
   ?>
     <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'enhanced-meta-widget'); ?></label>
     <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></p>
@@ -290,7 +310,9 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
     else
       echo '<p>'; ?>
     <label for="<?php echo $this->get_field_id('username'); ?>"><?php _e('Display user name', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['username'], true) ?> id="<?php echo $this->get_field_id('username'); ?>" name="<?php echo $this->get_field_name('username'); ?>" /><br />    
+    <input class="checkbox" type="checkbox" <?php checked($instance['username'], true) ?> id="<?php echo $this->get_field_id('username'); ?>" name="<?php echo $this->get_field_name('username'); ?>" /><br />
+    <label for="<?php echo $this->get_field_id('profile'); ?>"><?php _e('Display profile link', 'enhanced-meta-widget'); ?></label>
+    <input class="checkbox" type="checkbox" <?php checked($instance['profile'], true) ?> id="<?php echo $this->get_field_id('profile'); ?>" name="<?php echo $this->get_field_name('profile'); ?>" /><br />
     <label for="<?php echo $this->get_field_id('login'); ?>"><?php _e('Show login link?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['login'], true) ?> id="<?php echo $this->get_field_id('login'); ?>" name="<?php echo $this->get_field_name('login'); ?>" /><br />
     <label for="<?php echo $this->get_field_id('logout'); ?>"><?php _e('Show logout link?', 'enhanced-meta-widget'); ?></label>
@@ -337,6 +359,8 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
     <input class="checkbox" type="checkbox" <?php checked($instance['commrss'], true) ?> id="<?php echo $this->get_field_id('commrss'); ?>" name="<?php echo $this->get_field_name('commrss'); ?>" /><br />
     <label for="<?php echo $this->get_field_id('wplink'); ?>"><?php _e('Show <em>wordpress.org</em>?', 'enhanced-meta-widget'); ?></label>
     <input class="checkbox" type="checkbox" <?php checked($instance['wplink'], true) ?> id="<?php echo $this->get_field_id('wplink'); ?>" name="<?php echo $this->get_field_name('wplink'); ?>" /><br />
+    <label for="<?php echo $this->get_field_id('linebreaks'); ?>"><?php _e('Line breaks between sections?', 'enhanced-meta-widget'); ?></label>
+    <input class="checkbox" type="checkbox" <?php checked($instance['linebreaks'], true) ?> id="<?php echo $this->get_field_id('linebreaks'); ?>" name="<?php echo $this->get_field_name('linebreaks'); ?>" />
     </div>
   <?php
   } // ends form function
