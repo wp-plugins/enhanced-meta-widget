@@ -11,22 +11,23 @@ License: GPL v.3
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
 
 == Description ==
-**Update**
-This widget is now fully internationalized. The only current translation is French, but I hope to have a few others soon. If anyone is willing to translate for me, please contact me or follow the directions found at the plugin homepage.
+**Update -- This widget is now fully internationalized. A list of current languages can be found in [Other Notes](http://wordpress.org/extend/plugins/enhanced-meta-widget/other_notes/) (or at the end of the readme.txt file). If anyone is willing to translate for me, please contact me or follow the directions found at the plugin homepage.**
 
-This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles. It is also a multi-widget; it can be used in multiple instances on the same or different sidebars. Want your admin links only on a right-hand sidebar, but your general meta links on the left? Can be done. Want one widget just for the standard meta RSS and wordpress.org links, and a section below, with a different title for admin links? That can be done too, just add two separate widgets to the same sidebar and enable different options.
-
-If a user is not logged in it will present a log-in form, as well as a link to register (if allowed in site settings).
+This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles. 
 
 For logged in users all links are based upon that user's role/permissions. Can the user write posts? A link for "Write Post" is presented. On a post/page that the user can edit? There are links for "Edit Post" or "Edit Page". If the user is an administrator, then there are links to all the main sections of the administrator pages, plus a few of the subsections like "Manage Widgets" and "Manage Drafts".
 
+If a user is not logged in can present a log-in form or simple link to the standard login page, as well as a link to register (if allowed in site settings).
+
 There are also links for the standard entries and comments RSS feeds, as well as to wordpress.org, like in the original meta widget.
 
-All links can be turned on/off, and a different title for the sidebar widget can be set in the settings.
+All links can be turned on/off, and a different title for the sidebar widget can be set.
 
-Please note that this plugin/widget was written using the new programming method in WP 2.8, and will not work with previous versions.
+Enhanded Meta Widget is also a multi-widget -- it can be used in multiple instances on the same or different sidebars. Want your admin links only on a right-hand sidebar, but your general meta links on the left? Can be done. Want one widget just for the standard meta RSS and wordpress.org links, and a section below, with a different title for admin links? That can be done too, just add two separate widgets to the same sidebar and enable different options.
 
-This plugin was using ideas gathered from a number of different WordPress plugins. Please see the Credits and Copyright information at the end of the readme file for further information.
+**Please note that this plugin/widget was written using the new programming method in WP 2.8, and will not work with previous versions.**
+
+This plugin was developed using ideas gathered from a number of different WordPress plugins. Credits and Copyright information can be found in [Other Notes](http://wordpress.org/extend/plugins/enhanced-meta-widget/other_notes/) (or at the end of the readme.txt file).
 
 == Installation ==
 1. Extract admin-links-enhanced.php into your wp-content/plugins folder (or any subfolder)
@@ -36,7 +37,7 @@ This plugin was using ideas gathered from a number of different WordPress plugin
 5. Add the widget to your page
 6. Set the options to select which links you want displayed
 
-If you want to keep the original meta widget, then comment out or remove line #30 in the php file, it's commented.
+If you want to keep the original meta widget included with WordPress, then comment out or remove line #30 in the php file, it's commented.
 
 Please inform me of any problems/issues. Recommendations for improvement are always welcome!
 
@@ -58,6 +59,19 @@ Send your questions to neurodawg@hebers.us
 5. **Options**: You can select which links you want displayed. No links are displayed unless they're relevant to the currently logged in user, on the page they're currently viewing.
 
 == Change Log ==
+
+= 1.8 =
+* Changed "UserName is logged in" to "Welcome, UserName" and moved to top, under the title.
+* "Welcome, UserName" displays the username as chosen for "Display name publicly as" in the user profile.
+* Added link to "my profile" for logged in users.
+* Updated log in and log out links to return to the current page/post.
+* Changed the format of the admininstration panel to a cleaner presentation.
+* Created option to have linebreaks or not. (I prefer to have breaks between some sections of links - user actions, admin actions, and the orignal meta links - but others prefer all links to be a list without breaks. So now "Line breaks between sections" is an option.
+* Added hook to allow other plugins to run actions just before the end of the login form - do_action('login_form').
+* Corrected the order in which the options are presented on the admin page to reflect how they're presented on the sidebar.
+* Added Polish (pl_PL) language files.
+* Removed all question marks from the admin panel, leaving just "Display ..." statements.
+* Found and translated another missed phrase. I think all phrases are now coded for i18n. If you are using a different language and find a phrase I have missed, please let me know.
 
 = 1.7 =
 * I18n now works correctly.
@@ -103,6 +117,14 @@ Send your questions to neurodawg@hebers.us
 
 = 1.0 =
 * Initial release.
+
+== Languages and Translators ==
+
+= Languages - Translators - version for which translation is upto date = 
+
+* French (fr_FR) - [Florian Stoffel](http://florianstoffel.com/ "Florian Stoffel Architecture & Urbanisme") - 1.8
+* Polish (pl_PL) - [Daniel Poradnik](http://www.blog.taniekanarki.pl/ "Tanie Kanarki – Blog") - 1.7
+* Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.") - 1.8
 
 == Credits and Copyright ==
 Copyright 2009 NeuroDawg.

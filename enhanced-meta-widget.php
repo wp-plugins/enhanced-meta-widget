@@ -30,6 +30,7 @@ class meta_enhanced extends WP_Widget { //extends the base widget class
 function meta_enhanced() {
   unregister_widget ('WP_Widget_Meta'); //comment out or delete this line if you want to keep the default meta widget
   $widget_ops = array('classname' => 'meta_enhanced', 'description' => __('Adds various admin links for logged in users on every page.', 'enhanced-meta-widget'));
+  // $control_ops = array( 'width' => 400, 'height' => 200 ); //sets size of admin panel for widget options
   $this->WP_Widget('meta_enhanced', __('Enhanced Meta', 'enhanced-meta-widget'), $widget_ops);
 } //closes function meta_enhanced()
 /*
@@ -99,7 +100,7 @@ function widget( $args, $instance ) {
      * This section displays only when an administrator is logged in
     */
     if ($user_level == 10) { ?>
-      <?php if ((( $display_logout || $display_editthispost || $display_editthispage || $display_newpost) && ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings)) && ($display_linebreaks)) echo '<br />';
+      <?php if ((( $display_logout || $display_profile || $display_editthispost || $display_editthispage || $display_newpost) && ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings)) && ($display_linebreaks)) echo '<br />';
       if ($display_dashboard) {?>
         <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin"><?php _e('Site Admin', 'enhanced-meta-widget')?></a></li><?php }
       if ($display_manposts) {?>
@@ -127,7 +128,7 @@ function widget( $args, $instance ) {
       if ($display_settings) {?>
         <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/options-general.php"><?php _e('Settings', 'enhanced-meta-widget')?></a></li><?php }
     } // ends if user is admin sub-section and restarts options for all logged in users
-    if ((( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings) && ( $display_entrss || $display_commrss || $display_wplink)) && ($display_linebreaks)) echo '<br />';
+    if (((( $display_logout || $display_profile || $display_editthispost || $display_editthispage || $display_newpost) || ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings)) && ( $display_entrss || $display_commrss || $display_wplink)) && ($display_linebreaks)) echo '<br />';
     if ($display_entrss) {?>
       <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS 2.0', 'enhanced-meta-widget'); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li><?php }
     if ($display_commrss) {?>
@@ -174,9 +175,9 @@ function widget( $args, $instance ) {
         <input type="password" tabindex="20" size="20" value="" class="input" id="user_pass" name="pwd"/></label>
       </p>
       <?php
-        do_action('login_form_' . $action); // allow plugins to override the default actions, and to add extra actions if they want
+        do_action('login_form'); // creates a hook to allow other plugins to run actions just before the end of the login form
       ?>
-      <p class="forgetmenot"><label><input type="checkbox" tabindex="90" value="forever" id="rememberme" name="rememberme"/>Remember Me</label></p>
+      <p class="forgetmenot"><label><input type="checkbox" tabindex="90" value="forever" id="rememberme" name="rememberme"/><?php _e('Remember Me', 'enhanced-meta-widget'); ?></label></p>
       <p class="submit">
         <input type="submit" tabindex="100" value="Log In" id="wp-submit" name="wp-submit"/>
         <input type="hidden" value="<?php echo $_SERVER['REQUEST_URI']; ?>" name="redirect_to" class=""/>
@@ -258,64 +259,65 @@ function update($new_instance, $old_instance) {
   ?>
     <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'enhanced-meta-widget'); ?></label>
     <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></p>
-    <div style="text-align:right">
+    <div style="text-align:left">
     <?php $adminlocale = get_locale();
     if ($adminlocale=='fr_FR')
       echo '<p style="font-size: 10px;">';
     else
-      echo '<p>'; ?>
-    <label for="<?php echo $this->get_field_id('username'); ?>"><?php _e('Display user name', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['username'], true) ?> id="<?php echo $this->get_field_id('username'); ?>" name="<?php echo $this->get_field_name('username'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('profile'); ?>"><?php _e('Display profile link', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['profile'], true) ?> id="<?php echo $this->get_field_id('profile'); ?>" name="<?php echo $this->get_field_name('profile'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('login'); ?>"><?php _e('Show login link?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['login'], true) ?> id="<?php echo $this->get_field_id('login'); ?>" name="<?php echo $this->get_field_name('login'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('logout'); ?>"><?php _e('Show logout link?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['logout'], true) ?> id="<?php echo $this->get_field_id('logout'); ?>" name="<?php echo $this->get_field_name('logout'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('loginform'); ?>"><?php _e('Show login form?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['loginform'], true) ?> id="<?php echo $this->get_field_id('loginform'); ?>" name="<?php echo $this->get_field_name('loginform'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('register'); ?>"><?php _e('Show register link?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['register'], true) ?> id="<?php echo $this->get_field_id('register'); ?>" name="<?php echo $this->get_field_name('register'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('editthispost'); ?>"><?php _e('Show <em>edit this post</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['editthispost'], true) ?> id="<?php echo $this->get_field_id('editthispost'); ?>" name="<?php echo $this->get_field_name('editthispost'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('editthispage'); ?>"><?php _e('Show <em>edit this page</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['editthispage'], true) ?> id="<?php echo $this->get_field_id('editthispage'); ?>" name="<?php echo $this->get_field_name('editthispage'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('newpost'); ?>"><?php _e('Show <em>new post</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['newpost'], true) ?> id="<?php echo $this->get_field_id('newpost'); ?>" name="<?php echo $this->get_field_name('newpost'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('dashboard'); ?>"><?php _e('Show <em>site admin</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['dashboard'], true) ?> id="<?php echo $this->get_field_id('dashboard'); ?>" name="<?php echo $this->get_field_name('dashboard'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('manposts'); ?>"><?php _e('Show <em>manage posts</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['manposts'], true) ?> id="<?php echo $this->get_field_id('manposts'); ?>" name="<?php echo $this->get_field_name('manposts'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('mandrafts'); ?>"><?php _e('Show <em>manage drafts</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['mandrafts'], true) ?> id="<?php echo $this->get_field_id('mandrafts'); ?>" name="<?php echo $this->get_field_name('mandrafts'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('medialib'); ?>"><?php _e('Show <em>media library</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['medialib'], true) ?> id="<?php echo $this->get_field_id('medialib'); ?>" name="<?php echo $this->get_field_name('medialib'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('manlinks'); ?>"><?php _e('Show <em>manage links</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['manlinks'], true) ?> id="<?php echo $this->get_field_id('manlinks'); ?>" name="<?php echo $this->get_field_name('manlinks'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('manpages'); ?>"><?php _e('Show <em>manage pages</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['manpages'], true) ?> id="<?php echo $this->get_field_id('manpages'); ?>" name="<?php echo $this->get_field_name('manpages'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('mancomments'); ?>"><?php _e('Show <em>manage comments</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['mancomments'], true) ?> id="<?php echo $this->get_field_id('mancomments'); ?>" name="<?php echo $this->get_field_name('mancomments'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('manthemes'); ?>"><?php _e('Show <em>manage themes</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['manthemes'], true) ?> id="<?php echo $this->get_field_id('manthemes'); ?>" name="<?php echo $this->get_field_name('manthemes'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('manwidgets'); ?>"><?php _e('Show <em>manage widgets</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['manwidgets'], true) ?> id="<?php echo $this->get_field_id('manwidgets'); ?>" name="<?php echo $this->get_field_name('manwidgets'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('manplugins'); ?>"><?php _e('Show <em>manage plugins</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['manplugins'], true) ?> id="<?php echo $this->get_field_id('manplugins'); ?>" name="<?php echo $this->get_field_name('manplugins'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('manusers'); ?>"><?php _e('Show <em>manage users</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['manusers'], true) ?> id="<?php echo $this->get_field_id('manusers'); ?>" name="<?php echo $this->get_field_name('manusers'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('tools'); ?>"><?php _e('Show <em>tools</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['tools'], true) ?> id="<?php echo $this->get_field_id('tools'); ?>" name="<?php echo $this->get_field_name('tools'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('settings'); ?>"><?php _e('Show <em>settings</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['settings'], true) ?> id="<?php echo $this->get_field_id('settings'); ?>" name="<?php echo $this->get_field_name('settings'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('entrss'); ?>"><?php _e('Show <em>entries rss</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['entrss'], true) ?> id="<?php echo $this->get_field_id('entrss'); ?>" name="<?php echo $this->get_field_name('entrss'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('commrss'); ?>"><?php _e('Show <em>comments rss</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['commrss'], true) ?> id="<?php echo $this->get_field_id('commrss'); ?>" name="<?php echo $this->get_field_name('commrss'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('wplink'); ?>"><?php _e('Show <em>wordpress.org</em>?', 'enhanced-meta-widget'); ?></label>
-    <input class="checkbox" type="checkbox" <?php checked($instance['wplink'], true) ?> id="<?php echo $this->get_field_id('wplink'); ?>" name="<?php echo $this->get_field_name('wplink'); ?>" /><br />
-    <label for="<?php echo $this->get_field_id('linebreaks'); ?>"><?php _e('Line breaks between sections?', 'enhanced-meta-widget'); ?></label>
+      echo '<p>';
+    _e('Display:<br />', 'enhanced-meta-widget') ?>
+    <input class="checkbox" type="checkbox" <?php checked($instance['username'], true) ?> id="<?php echo $this->get_field_id('username'); ?>" name="<?php echo $this->get_field_name('username'); ?>" />
+    <label for="<?php echo $this->get_field_id('username'); ?>"><?php _e('user name', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['profile'], true) ?> id="<?php echo $this->get_field_id('profile'); ?>" name="<?php echo $this->get_field_name('profile'); ?>" />
+    <label for="<?php echo $this->get_field_id('profile'); ?>"><?php _e('<em>my profile</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['login'], true) ?> id="<?php echo $this->get_field_id('login'); ?>" name="<?php echo $this->get_field_name('login'); ?>" />
+    <label for="<?php echo $this->get_field_id('login'); ?>"><?php _e('login link', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['logout'], true) ?> id="<?php echo $this->get_field_id('logout'); ?>" name="<?php echo $this->get_field_name('logout'); ?>" />
+    <label for="<?php echo $this->get_field_id('logout'); ?>"><?php _e('logout link', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['loginform'], true) ?> id="<?php echo $this->get_field_id('loginform'); ?>" name="<?php echo $this->get_field_name('loginform'); ?>" />
+    <label for="<?php echo $this->get_field_id('loginform'); ?>"><?php _e('login form', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['register'], true) ?> id="<?php echo $this->get_field_id('register'); ?>" name="<?php echo $this->get_field_name('register'); ?>" />
+    <label for="<?php echo $this->get_field_id('register'); ?>"><?php _e('register link', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['newpost'], true) ?> id="<?php echo $this->get_field_id('newpost'); ?>" name="<?php echo $this->get_field_name('newpost'); ?>" />
+    <label for="<?php echo $this->get_field_id('newpost'); ?>"><?php _e('<em>new post</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['editthispost'], true) ?> id="<?php echo $this->get_field_id('editthispost'); ?>" name="<?php echo $this->get_field_name('editthispost'); ?>" />
+    <label for="<?php echo $this->get_field_id('editthispost'); ?>"><?php _e('<em>edit this post</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['editthispage'], true) ?> id="<?php echo $this->get_field_id('editthispage'); ?>" name="<?php echo $this->get_field_name('editthispage'); ?>" />
+    <label for="<?php echo $this->get_field_id('editthispage'); ?>"><?php _e('<em>edit this page</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['dashboard'], true) ?> id="<?php echo $this->get_field_id('dashboard'); ?>" name="<?php echo $this->get_field_name('dashboard'); ?>" />
+    <label for="<?php echo $this->get_field_id('dashboard'); ?>"><?php _e('<em>site admin</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['manposts'], true) ?> id="<?php echo $this->get_field_id('manposts'); ?>" name="<?php echo $this->get_field_name('manposts'); ?>" />
+    <label for="<?php echo $this->get_field_id('manposts'); ?>"><?php _e('<em>manage posts</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['mandrafts'], true) ?> id="<?php echo $this->get_field_id('mandrafts'); ?>" name="<?php echo $this->get_field_name('mandrafts'); ?>" />
+    <label for="<?php echo $this->get_field_id('mandrafts'); ?>"><?php _e('<em>manage drafts</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['medialib'], true) ?> id="<?php echo $this->get_field_id('medialib'); ?>" name="<?php echo $this->get_field_name('medialib'); ?>" />
+    <label for="<?php echo $this->get_field_id('medialib'); ?>"><?php _e('<em>media library</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['manlinks'], true) ?> id="<?php echo $this->get_field_id('manlinks'); ?>" name="<?php echo $this->get_field_name('manlinks'); ?>" />
+    <label for="<?php echo $this->get_field_id('manlinks'); ?>"><?php _e('<em>manage links</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['manpages'], true) ?> id="<?php echo $this->get_field_id('manpages'); ?>" name="<?php echo $this->get_field_name('manpages'); ?>" />
+    <label for="<?php echo $this->get_field_id('manpages'); ?>"><?php _e('<em>manage pages</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['mancomments'], true) ?> id="<?php echo $this->get_field_id('mancomments'); ?>" name="<?php echo $this->get_field_name('mancomments'); ?>" />
+    <label for="<?php echo $this->get_field_id('mancomments'); ?>"><?php _e('<em>manage comments</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['manthemes'], true) ?> id="<?php echo $this->get_field_id('manthemes'); ?>" name="<?php echo $this->get_field_name('manthemes'); ?>" />
+    <label for="<?php echo $this->get_field_id('manthemes'); ?>"><?php _e('<em>manage themes</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['manwidgets'], true) ?> id="<?php echo $this->get_field_id('manwidgets'); ?>" name="<?php echo $this->get_field_name('manwidgets'); ?>" />
+    <label for="<?php echo $this->get_field_id('manwidgets'); ?>"><?php _e('<em>manage widgets</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['manplugins'], true) ?> id="<?php echo $this->get_field_id('manplugins'); ?>" name="<?php echo $this->get_field_name('manplugins'); ?>" />
+    <label for="<?php echo $this->get_field_id('manplugins'); ?>"><?php _e('<em>manage plugins</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['manusers'], true) ?> id="<?php echo $this->get_field_id('manusers'); ?>" name="<?php echo $this->get_field_name('manusers'); ?>" />
+    <label for="<?php echo $this->get_field_id('manusers'); ?>"><?php _e('<em>manage users</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['tools'], true) ?> id="<?php echo $this->get_field_id('tools'); ?>" name="<?php echo $this->get_field_name('tools'); ?>" />
+    <label for="<?php echo $this->get_field_id('tools'); ?>"><?php _e('<em>tools</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['settings'], true) ?> id="<?php echo $this->get_field_id('settings'); ?>" name="<?php echo $this->get_field_name('settings'); ?>" />
+    <label for="<?php echo $this->get_field_id('settings'); ?>"><?php _e('<em>settings</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['entrss'], true) ?> id="<?php echo $this->get_field_id('entrss'); ?>" name="<?php echo $this->get_field_name('entrss'); ?>" />
+    <label for="<?php echo $this->get_field_id('entrss'); ?>"><?php _e('<em>entries rss</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['commrss'], true) ?> id="<?php echo $this->get_field_id('commrss'); ?>" name="<?php echo $this->get_field_name('commrss'); ?>" />
+    <label for="<?php echo $this->get_field_id('commrss'); ?>"><?php _e('<em>comments rss</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['wplink'], true) ?> id="<?php echo $this->get_field_id('wplink'); ?>" name="<?php echo $this->get_field_name('wplink'); ?>" />
+    <label for="<?php echo $this->get_field_id('wplink'); ?>"><?php _e('<em>wordpress.org</em>', 'enhanced-meta-widget'); ?></label><br />
     <input class="checkbox" type="checkbox" <?php checked($instance['linebreaks'], true) ?> id="<?php echo $this->get_field_id('linebreaks'); ?>" name="<?php echo $this->get_field_name('linebreaks'); ?>" />
+    <label for="<?php echo $this->get_field_id('linebreaks'); ?>"><?php _e('Line breaks between sections', 'enhanced-meta-widget'); ?></label>
     </div>
   <?php
   } // ends form function
