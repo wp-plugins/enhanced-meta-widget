@@ -11,7 +11,7 @@ License: GPL v.3
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
 
 == Description ==
-**Update -- This widget is now fully internationalized. A list of current languages can be found in [Other Notes](http://wordpress.org/extend/plugins/enhanced-meta-widget/other_notes/), the [Faq](http://wordpress.org/extend/plugins/enhanced-meta-widget/faq/), or at the end of the readme.txt file. If anyone is willing to translate for me, please contact me or follow the directions found at the plugin homepage (see [Faq](http://wordpress.org/extend/plugins/enhanced-meta-widget/faq/).**
+**Update -- This widget is now fully internationalized. A list of current languages can be found in [Other Notes](http://wordpress.org/extend/plugins/enhanced-meta-widget/other_notes/), the [Faq](http://wordpress.org/extend/plugins/enhanced-meta-widget/faq/), or at the end of the readme.txt file. If anyone is willing to translate for me, please contact me or follow the directions found at the plugin homepage (see [Faq](http://wordpress.org/extend/plugins/enhanced-meta-widget/faq/)).**
 
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles. 
 
