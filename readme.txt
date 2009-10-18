@@ -1,6 +1,6 @@
 === Enhanced Meta Widget===
 Contributors: NeuroDawg
-Donate Link: http://neurodawg.worpdress.com/enhanced-meta-widget/
+Donate Link: http://neurodawg.wordpress.com/enhanced-meta-widget/
 Version: 2.0
 Tags: meta, widget, links, admin, administration, dashboard, international, i18n
 Requires at least: 2.8
