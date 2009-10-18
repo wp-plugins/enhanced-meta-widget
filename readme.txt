@@ -69,7 +69,7 @@ Send your questions to neurodawg@hebers.us
 * "Welcome, UserName" displays the username as set with "Display name publicly as" in the user profile.
 * Added link to "my profile" for logged in users.
 * Updated log in and log out links to return to the current page/post.
-* Created option to have linebreaks or not. (I prefer to have breaks between some sections of links - user actions, admin actions, and the orignal meta links - but others prefer all links to be a list without breaks. So now "Line breaks between sections" is an option.
+* Created option to have linebreaks or not. (I prefer to have breaks between some sections of links - user actions, admin actions, and the orignal meta links - but others prefer all links to be a list without breaks. So now "Line breaks between sections" is an option.)
 * Added hook to allow other plugins to run actions just before the end of the login form - do_action('login_form').
 * Corrected the order in which the options are presented on the admin page to reflect how they're presented on the sidebar.
 * Added Polish (pl_PL) language files.
