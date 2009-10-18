@@ -1,3 +1,7 @@
+# Dutch language file for Enhanced Meta Widget.
+# Copyright (C) 2009 NeuroDawg
+# This file is distributed under the same license as the Enhanced Meta Widget package.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -47,7 +51,7 @@ msgstr "Deze Pagina Aanpassen"
 
 #: enhanced-meta-widget.php:105
 msgid "Site Admin"
-msgstr "Site Admin"
+msgstr "Blogbeheer"
 
 #: enhanced-meta-widget.php:107
 msgid "Manage Posts"

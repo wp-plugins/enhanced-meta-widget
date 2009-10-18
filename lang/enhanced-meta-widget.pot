@@ -3,17 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/enhanced-meta-widget\n"
 "POT-Creation-Date: 2009-10-17 15:50+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2009-10-18 07:12-0800\n"
+"Last-Translator: NeuroDawg <neurodawg@hebers.us>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: enhanced-meta-widget.php:32
@@ -37,6 +36,7 @@ msgstr ""
 msgid "My Profile"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:92
 msgid "New Post"
 msgstr ""
@@ -49,6 +49,7 @@ msgstr ""
 msgid "Edit This Page"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:105
 msgid "Site Admin"
 msgstr ""
@@ -61,6 +62,7 @@ msgstr ""
 msgid "Manage Drafts"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:111
 msgid "Media Library"
 msgstr ""
@@ -77,6 +79,7 @@ msgstr ""
 msgid "Manage Comments"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:119
 msgid "Manage Themes"
 msgstr ""
@@ -85,6 +88,7 @@ msgstr ""
 msgid "Manage Widgets"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:123
 msgid "Manage Plugins"
 msgstr ""
@@ -93,59 +97,77 @@ msgstr ""
 msgid "Manage Users"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:127
 msgid "Tools"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:129
 msgid "Settings"
 msgstr ""
 
-#: enhanced-meta-widget.php:133 enhanced-meta-widget.php:158
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:133
+#: enhanced-meta-widget.php:158
 msgid "Syndicate this site using RSS 2.0"
 msgstr ""
 
-#: enhanced-meta-widget.php:133 enhanced-meta-widget.php:158
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:133
+#: enhanced-meta-widget.php:158
 msgid "Entries <abbr title=\"Really Simple Syndication\">RSS</abbr>"
 msgstr ""
 
-#: enhanced-meta-widget.php:135 enhanced-meta-widget.php:160
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:135
+#: enhanced-meta-widget.php:160
 msgid "The latest comments to all posts in RSS"
 msgstr ""
 
-#: enhanced-meta-widget.php:135 enhanced-meta-widget.php:160
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:135
+#: enhanced-meta-widget.php:160
 msgid "Comments <abbr title=\"Really Simple Syndication\">RSS</abbr>"
 msgstr ""
 
-#: enhanced-meta-widget.php:137 enhanced-meta-widget.php:162
-msgid ""
-"Powered by WordPress, state-of-the-art semantic personal publishing platform."
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:137
+#: enhanced-meta-widget.php:162
+msgid "Powered by WordPress, state-of-the-art semantic personal publishing platform."
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:167
 msgid "Log In"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:170
 msgid "Username"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:174
 msgid "Password"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:180
 msgid "Remember Me"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:260
 msgid "Title:"
 msgstr ""
 
+# The word display exists, but not by itself, in the general language file for wordpress.
 #: enhanced-meta-widget.php:268
 msgid "Display:<br />"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:270
 msgid "user name"
 msgstr ""
@@ -170,6 +192,7 @@ msgstr ""
 msgid "register link"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:282
 msgid "<em>new post</em>"
 msgstr ""
@@ -182,6 +205,7 @@ msgstr ""
 msgid "<em>edit this page</em>"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:288
 msgid "<em>site admin</em>"
 msgstr ""
@@ -194,6 +218,7 @@ msgstr ""
 msgid "<em>manage drafts</em>"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:294
 msgid "<em>media library</em>"
 msgstr ""
@@ -210,6 +235,7 @@ msgstr ""
 msgid "<em>manage comments</em>"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:302
 msgid "<em>manage themes</em>"
 msgstr ""
@@ -218,6 +244,7 @@ msgstr ""
 msgid "<em>manage widgets</em>"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:306
 msgid "<em>manage plugins</em>"
 msgstr ""
@@ -226,10 +253,12 @@ msgstr ""
 msgid "<em>manage users</em>"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:310
 msgid "<em>tools</em>"
 msgstr ""
 
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:312
 msgid "<em>settings</em>"
 msgstr ""
@@ -259,9 +288,7 @@ msgid "http://neurodawg.wordpress.com/enhanced-meta-widget/"
 msgstr ""
 
 #. Description of an extension
-msgid ""
-"Replaces the meta sidebar included with WordPress, and displays various "
-"links based upon user roles."
+msgid "Replaces the meta sidebar included with WordPress, and displays various links based upon user roles."
 msgstr ""
 
 #. Author of an extension
@@ -271,3 +298,4 @@ msgstr ""
 #. Author URI of an extension
 msgid "http://neurodawg.wordpress.com"
 msgstr ""
+

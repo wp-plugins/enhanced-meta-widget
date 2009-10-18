@@ -43,12 +43,17 @@ Please inform me of any problems/issues. Recommendations for improvement are alw
 
 == Frequently Asked Questions ==
 
-= How can I translate this widget into my language? =
+= Into what languages has EMW been translated? =
+* French (fr_FR) - [Florian Stoffel](http://florianstoffel.com/ "Florian Stoffel Architecture & Urbanisme")
+* Polish (pl_PL) - [Daniel Poradnik](http://www.blog.taniekanarki.pl/ "Tanie Kanarki – Blog")
+* Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.")
+* Danish (da_DK) - Mette Olsen
+* German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
 
+= How can I translate this widget into my language? =
 I've written a fairly [detailed tutorial](http://neurodawg.wordpress.com/translating-emw/) on how to translate any WordPress plugin.
 
 = How can I contact you with a question, suggestion, or complaint? =
-
 Send your questions to neurodawg@hebers.us
 
 == Screenshots ==
@@ -119,11 +124,13 @@ Send your questions to neurodawg@hebers.us
 
 == Languages and Translators ==
 
-= Languages - Translators - version for which translation is upto date = 
+= Languages - Translators - version for which translation is up to date = 
 
-* French (fr_FR) - [Florian Stoffel](http://florianstoffel.com/ "Florian Stoffel Architecture & Urbanisme") - 1.8
-* Polish (pl_PL) - [Daniel Poradnik](http://www.blog.taniekanarki.pl/ "Tanie Kanarki – Blog") - 1.7
-* Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.") - 1.8
+* French (fr_FR) - [Florian Stoffel](http://florianstoffel.com/ "Florian Stoffel Architecture & Urbanisme") - 2.0
+* Polish (pl_PL) - [Daniel Poradnik](http://www.blog.taniekanarki.pl/ "Tanie Kanarki – Blog") - 2.0
+* Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.") - 2.0
+* Danish (da_DK) - Mette Olsen - 2.0
+* German (de_DE) - [Dirk Rasmussen](http://www.bevis.de) - 2.0
 
 == Credits and Copyright ==
 Copyright 2009 NeuroDawg.

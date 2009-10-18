@@ -1,14 +1,13 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR NeuroDawg
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Polish language file for Enhanced Meta Widget.
+# Copyright (C) 2009 NeuroDawg
+# This file is distributed under the same license as the Enhanced Meta Widget package.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Enhanced Meta Widgets\n"
+"Project-Id-Version: Enhanced Meta Widget\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/enhanced-meta-widget\n"
 "POT-Creation-Date: 2009-10-17 15:50+0000\n"
-"PO-Revision-Date: 2009-10-17 09:47-0800\n"
+"PO-Revision-Date: 2009-10-18 07:29-0800\n"
 "Last-Translator: NeuroDawg <neurodawg@hebers.us>\n"
 "Language-Team: Daniel Fruzynski <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -33,11 +32,12 @@ msgstr "Meta"
 #: enhanced-meta-widget.php:85
 #, php-format
 msgid "Welcome, <em>%s</em>."
-msgstr ""
+msgstr "Witaj, <em>%s</em>."
 
+# Translated by NeuroDawg using online translator.
 #: enhanced-meta-widget.php:89
 msgid "My Profile"
-msgstr ""
+msgstr "MojaSylwetka "
 
 #: enhanced-meta-widget.php:92
 msgid "New Post"
@@ -142,7 +142,7 @@ msgstr "Hasło"
 
 #: enhanced-meta-widget.php:180
 msgid "Remember Me"
-msgstr ""
+msgstr "Zapamiętaj nie"
 
 #: enhanced-meta-widget.php:260
 msgid "Title:"
@@ -156,9 +156,10 @@ msgstr "Pokaż:<br />"
 msgid "user name"
 msgstr "użytkownik"
 
+# Translated by NeuroDawg using online translator.
 #: enhanced-meta-widget.php:272
 msgid "<em>my profile</em>"
-msgstr ""
+msgstr "<em>moja sylwetka </em>"
 
 #: enhanced-meta-widget.php:274
 msgid "login link"
@@ -252,9 +253,10 @@ msgstr "<em>RSS komentarzy</em>"
 msgid "<em>wordpress.org</em>"
 msgstr "<em>wordpress.org</em>"
 
+# Translated by NeuroDawg using online translator.
 #: enhanced-meta-widget.php:320
 msgid "line breaks between sections"
-msgstr ""
+msgstr "linia łamie między rozdziałami "
 
 #. Plugin Name of an extension
 msgid "Enhanced Meta Widget"
