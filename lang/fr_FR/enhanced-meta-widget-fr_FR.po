@@ -252,7 +252,7 @@ msgstr "<em>wordpress.org</em>"
 
 #: enhanced-meta-widget.php:320
 msgid "line breaks between sections"
-msgstr "ligne coupures entre les sections"
+msgstr "une ligne entre les sections"
 
 #. Plugin Name of an extension
 msgid "Enhanced Meta Widget"
@@ -264,7 +264,7 @@ msgstr "http://neurodawg.wordpress.com/enhanced-meta-widget/"
 
 #. Description of an extension
 msgid "Replaces the meta sidebar included with WordPress, and displays various links based upon user roles."
-msgstr "Remplacer les metas de la barre latérale inclus avec Wordpress, et afficher différents liens selon les droits de l'utilisateur."
+msgstr "Remplace les metas de la barre latérale inclus avec Wordpress, et affiche différents liens selon les droits de l'utilisateur."
 
 #. Author of an extension
 msgid "NeuroDawg"

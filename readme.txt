@@ -1,11 +1,11 @@
 === Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.wordpress.com/enhanced-meta-widget/
-Version: 2.1
+Version: 2.0.1
 Tags: meta, widget, links, admin, administration, dashboard, international, i18n
 Requires at least: 2.8
 Tested up to: 2.8.4
-Stable Tag: 2.0
+Stable Tag: 2.0.1
 
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
 
@@ -44,8 +44,8 @@ Please inform me of any problems/issues. Recommendations for improvement are alw
 
 = Into what languages has EMW been translated? =
 * French (fr_FR) - [Florian Stoffel](http://florianstoffel.com/ "Florian Stoffel Architecture & Urbanisme")
-* Polish (pl_PL) - [Daniel Poradnik](http://www.blog.taniekanarki.pl/ "Tanie Kanarki � Blog")
 * Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.")
+* Polish (pl_PL) - [Daniel Daniel Frużyński](http://blog.poradnik-webmastera.com/)
 * Danish (da_DK) - Mette Olsen
 * German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
 
@@ -62,6 +62,11 @@ Send your questions to neurodawg@hebers.us
 4. **Options**: You can select which links you want displayed. No links are displayed unless they're relevant to the currently logged in user, on the page they're currently viewing.
 
 == Change Log ==
+
+= 2.0.1 =
+* Added German (de_DE) and Danish (da_DK) language files.
+* Polish language files updated.
+
 
 = 2.0 =
 * Changed the format of the administration panel to a cleaner presentation. Gone are the "Display..." or "Show..." statements/questions, and they have been replaced with just a simple "Display:" header with all the options simply listed as options with checkboxes.
@@ -123,13 +128,13 @@ Send your questions to neurodawg@hebers.us
 
 == Languages and Translators ==
 
-= Languages - Translators - version for which translation is up to date = 
+= Languages - Translators = 
 
-* French (fr_FR) - [Florian Stoffel](http://florianstoffel.com/ "Florian Stoffel Architecture & Urbanisme") - 2.0
-* Polish (pl_PL) - [Daniel Poradnik](http://www.blog.taniekanarki.pl/ "Tanie Kanarki � Blog") - 2.0
-* Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.") - 2.0
-* Danish (da_DK) - Mette Olsen - 2.0
-* German (de_DE) - [Dirk Rasmussen](http://www.bevis.de) - 2.0
+* French (fr_FR) - [Florian Stoffel](http://florianstoffel.com/ "Florian Stoffel Architecture & Urbanisme")
+* Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.")
+* Polish (pl_PL) - [Daniel Daniel Frużyński](http://blog.poradnik-webmastera.com/)
+* Danish (da_DK) - Mette Olsen
+* German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
 
 == Credits and Copyright ==
 Copyright 2009 NeuroDawg.
