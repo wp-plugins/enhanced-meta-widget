@@ -96,7 +96,6 @@ function widget( $args, $instance ) {
         <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/page.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Page', 'enhanced-meta-widget')?></a></li><?php }
     echo '</ul>';
     echo $after_widget; }
-  
   /* 
    *Displays the the complete sidebar if options other than just "edit this post" and/or "edit this page" are selected
   */
@@ -113,7 +112,7 @@ function widget( $args, $instance ) {
       <li><?php wp_loginout(wp_logout_url($_SERVER['REQUEST_URI']));?></li><?php }
     if ($display_profile) { ?>
       <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/profile.php"><?php _e('My Profile', 'enhanced-meta-widget')?></a></li><?php }
-    //if ($display_linebreaks) echo '<br />';
+    //if ($display_linebreaks) echo '</ul><br /><ul>';
     if (current_user_can('edit_posts') && $display_newpost) {?>
       <li><a href="<?php bloginfo('wpurl') ?>/wp-admin/post-new.php"><?php _e('New Post', 'enhanced-meta-widget')?></a></li> <?php }
     if (is_single() && $display_editthispost) {
@@ -126,7 +125,7 @@ function widget( $args, $instance ) {
      * This section displays only when an administrator is logged in
     */
     if ($user_level == 10) { ?>
-      <?php if ((( $display_logout || $display_profile || $display_editthispost || $display_editthispage || $display_newpost) && ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings)) && ($display_linebreaks)) echo '<br />';
+      <?php if ((( $display_logout || $display_profile || $display_editthispost || $display_editthispage || $display_newpost) && ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings)) && ($display_linebreaks)) echo '</ul><br /><ul>';
       if ($display_dashboard) {?>
         <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin"><?php _e('Site Admin', 'enhanced-meta-widget')?></a></li><?php }
       if ($display_manposts) {?>
@@ -154,7 +153,7 @@ function widget( $args, $instance ) {
       if ($display_settings) {?>
         <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/options-general.php"><?php _e('Settings', 'enhanced-meta-widget')?></a></li><?php }
     } // ends if user is admin sub-section and restarts options for all logged in users
-    if (((( $display_logout || $display_profile || $display_editthispost || $display_editthispage || $display_newpost) || ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings)) && ( $display_entrss || $display_commrss || $display_wplink)) && ($display_linebreaks)) echo '<br />';
+    if (((( $display_logout || $display_profile || $display_editthispost || $display_editthispage || $display_newpost) || ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings)) && ( $display_entrss || $display_commrss || $display_wplink)) && ($display_linebreaks)) echo '</ul><br /><ul>';
     if ($display_entrss) {?>
       <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS 2.0', 'enhanced-meta-widget'); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li><?php }
     if ($display_commrss) {?>
@@ -170,25 +169,22 @@ function widget( $args, $instance ) {
    * This Section displays the some links (register, RSS, and wordpress.org) and the login-in form if a user is not logged in
   */
   else {
-  if ($display_register || $display_entrss || $display_commrss || $display_wplink || $display_loginout) {
+  if (($display_register && get_option('users_can_register')) || $display_login || $display_entrss || $display_commrss || $display_wplink) {
     echo $before_widget;
     echo $before_title . $title . $after_title;
-    echo '<ul>'; 
+    echo '<ul><!--1-->'; 
     if ($display_login && !($display_loginform)) {?>
       <li><?php echo wp_loginout($_SERVER['REQUEST_URI']);?></li><?php }
     if (get_option('users_can_register') && $display_register) { //shows the register link if registration is allowed
-      wp_register();
-      echo '</ul>';
-      //not very elegant. Fix to start with if... rss and go from there
-      if ($display_linebreaks && ($display_entrss || $display_commrss)) echo '<br />';
-      if ($display_entrss || $display_commrss) echo '<ul>'; }
+      wp_register(); }
+    if ( ((($display_register && get_option('users_can_register')) || ($display_login && !($display_loginform))) && ($display_entrss || $display_commrss || $display_wplink)) && ($display_linebreaks) ) echo '</ul><br /><ul>';
     if ($display_entrss) {?>
-        <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS 2.0', 'enhanced-meta-widget'); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li><?php }
+      <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS 2.0', 'enhanced-meta-widget'); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li><?php }
     if ($display_commrss) {?>
       <li><a href="<?php bloginfo('comments_rss2_url'); ?>" title="<?php _e('The latest comments to all posts in RSS', 'enhanced-meta-widget'); ?>"><?php _e('Comments <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li><?php }
     if ($display_wplink) {?>
       <li><a href="http://wordpress.org/" title="<?php _e('Powered by WordPress, state-of-the-art semantic personal publishing platform.', 'enhanced-meta-widget'); ?>">WordPress.org</a></li><?php }
-    if ($display_entrss || $display_commrss) echo '</ul>';
+    echo '</ul><!--2-->';
     echo $after_widget; }
     if ($display_loginform) { /* Starts to generate the Login Form */
       echo $before_widget;
