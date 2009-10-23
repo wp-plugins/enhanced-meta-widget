@@ -3,7 +3,7 @@
 Plugin Name: Enhanced Meta Widget
 Plugin URI: http://neurodawg.wordpress.com/enhanced-meta-widget/
 Description: Replaces the meta sidebar included with WordPress, and displays various links based upon user roles.
-Version: 2.0.1
+Version: 2.1
 Text Domain: enhanced-meta-widget
 Author: NeuroDawg
 Author URI: http://neurodawg.wordpress.com
@@ -75,6 +75,32 @@ function widget( $args, $instance ) {
    * This sub-section outputs the sidebar
   */
   if (is_user_logged_in()) { //begins section for all logged in users
+  /*
+   * This section tests to see if only the "edit this post" or "edit this page" options have been selected
+   * and displays the form only in the appropriate places, without displaying an empty widget
+   * in the sidebar.
+  */
+  if (is_single() && $display_editthispost && !($display_username || $display_profile || $display_logout || $display_newpost || $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings || $display_entrss || $display_commrss || $display_wplink)) {
+    echo $before_widget;
+    echo $before_title . $title . $after_title;
+    echo '<ul>';
+      if (current_user_can('edit_others_posts') || ((current_user_can('edit_posts') && $user_ID == $post->post_author))) { ?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Post', 'enhanced-meta-widget')?></a></li><?php }
+    echo '</ul>';
+    echo $after_widget; }
+  elseif (is_page() && $display_editthispage && !($display_username || $display_profile || $display_logout || $display_newpost || $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings || $display_entrss || $display_commrss || $display_wplink)) {
+    echo $before_widget;
+    echo $before_title . $title . $after_title;
+    echo '<ul>';
+      if (current_user_can('edit_others_pages') || (current_user_can('edit_pages') && $user_ID == $post->post_author)) { ?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/page.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Page', 'enhanced-meta-widget')?></a></li><?php }
+    echo '</ul>';
+    echo $after_widget; }
+  
+  /* 
+   *Displays the the complete sidebar if options other than just "edit this post" and/or "edit this page" are selected
+  */
+  elseif ($display_username || $display_profile || $display_logout || $display_newpost || $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings || $display_entrss || $display_commrss || $display_wplink ) { //only shows form if one of thes options has been selected
     echo $before_widget;
     echo $before_title . $title . $after_title;
     echo '<ul>';
@@ -94,7 +120,7 @@ function widget( $args, $instance ) {
       if (current_user_can('edit_others_posts') || ((current_user_can('edit_posts') && $user_ID == $post->post_author))) { ?>
         <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Post', 'enhanced-meta-widget')?></a></li><?php }}
     if (is_page() && $display_editthispage) {
-      if (current_user_can('edit_others_pages') | (current_user_can('edit_pages') && $user_ID == $post->post_author)) { ?>
+      if (current_user_can('edit_others_pages') || (current_user_can('edit_pages') && $user_ID == $post->post_author)) { ?>
         <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/page.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Page', 'enhanced-meta-widget')?></a></li><?php }}
     /*
      * This section displays only when an administrator is logged in
@@ -138,6 +164,7 @@ function widget( $args, $instance ) {
       echo '</ul>';
       //var_dump($userdata); 
       echo $after_widget;
+  } // ends if requiring various display options
   } // ends if user logged in section
   /*
    * This Section displays the some links (register, RSS, and wordpress.org) and the login-in form if a user is not logged in
@@ -152,15 +179,16 @@ function widget( $args, $instance ) {
     if (get_option('users_can_register') && $display_register) { //shows the register link if registration is allowed
       wp_register();
       echo '</ul>';
-      if ($display_linebreaks) echo '<br />';
-      echo '<ul>'; }
+      //not very elegant. Fix to start with if... rss and go from there
+      if ($display_linebreaks && ($display_entrss || $display_commrss)) echo '<br />';
+      if ($display_entrss || $display_commrss) echo '<ul>'; }
     if ($display_entrss) {?>
         <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS 2.0', 'enhanced-meta-widget'); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li><?php }
     if ($display_commrss) {?>
       <li><a href="<?php bloginfo('comments_rss2_url'); ?>" title="<?php _e('The latest comments to all posts in RSS', 'enhanced-meta-widget'); ?>"><?php _e('Comments <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li><?php }
     if ($display_wplink) {?>
       <li><a href="http://wordpress.org/" title="<?php _e('Powered by WordPress, state-of-the-art semantic personal publishing platform.', 'enhanced-meta-widget'); ?>">WordPress.org</a></li><?php }
-    echo '</ul>';
+    if ($display_entrss || $display_commrss) echo '</ul>';
     echo $after_widget; }
     if ($display_loginform) { /* Starts to generate the Login Form */
       echo $before_widget;
@@ -327,5 +355,5 @@ add_action('widgets_init', create_function('', 'return register_widget("meta_enh
 * Set Locale and get appropriate language translation
 */
 $mylocale = get_locale();
-$localedir = "enhanced-meta-widget/lang/" . $mylocale;
+$localedir = 'enhanced-meta-widget/lang/' . $mylocale;
 load_plugin_textdomain('enhanced-meta-widget', '', $localedir);

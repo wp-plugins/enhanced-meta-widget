@@ -1,10 +1,10 @@
-=== Enhanced Meta Widget===
+﻿=== Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.wordpress.com/enhanced-meta-widget/
-Version: 2.0.1
+Version: 2.1
 Tags: meta, widget, links, admin, administration, dashboard, international, i18n
 Requires at least: 2.8
-Tested up to: 2.8.4
+Tested up to: 2.8.5
 Stable Tag: 2.0.1
 
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
@@ -62,6 +62,10 @@ Send your questions to neurodawg@hebers.us
 4. **Options**: You can select which links you want displayed. No links are displayed unless they're relevant to the currently logged in user, on the page they're currently viewing.
 
 == Change Log ==
+
+= 2.1 =
+* Fixed coding error that would generate empty unordered lists if certain options were not selected. This would cause the code to fail W3C validation. (Thanks Ian)
+* Fixed situations where an empty sidebar would be displayed, showing only a title, depending on what options were chosen for display. The most common was if _show login form_ was selected by itself (perhaps to have just a "log in" section of the sidebar). If this was done then logged in users would see an empty sidebar with just a title. Further testing identified some additional, likely rare, situations where this could occur as well, so those were all fixed.
 
 = 2.0.1 =
 * Added German (de_DE) and Danish (da_DK) language files.
