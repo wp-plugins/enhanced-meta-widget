@@ -1,0 +1,304 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR NeuroDawg
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/enhanced-meta-widget\n"
+"POT-Creation-Date: 2009-10-17 15:50+0000\n"
+"PO-Revision-Date: 2009-10-18 21:28-0800\n"
+"Last-Translator: NeuroDawg <neurodawg@hebers.us>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: enhanced-meta-widget.php:32
+msgid "Adds various admin links for logged in users on every page."
+msgstr ""
+
+#: enhanced-meta-widget.php:34
+msgid "Enhanced Meta"
+msgstr ""
+
+#: enhanced-meta-widget.php:46
+msgid "Meta"
+msgstr ""
+
+# 'Welcome' should exist in language file for WordPress
+#: enhanced-meta-widget.php:85
+#, php-format
+msgid "Welcome, <em>%s</em>."
+msgstr ""
+
+#: enhanced-meta-widget.php:89
+msgid "My Profile"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:92
+msgid "New Post"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:95
+msgid "Edit This Post"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:98
+msgid "Edit This Page"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:105
+msgid "Site Admin"
+msgstr ""
+
+#: enhanced-meta-widget.php:107
+msgid "Manage Posts"
+msgstr ""
+
+#: enhanced-meta-widget.php:109
+msgid "Manage Drafts"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:111
+msgid "Media Library"
+msgstr ""
+
+#: enhanced-meta-widget.php:113
+msgid "Manage Links"
+msgstr ""
+
+#: enhanced-meta-widget.php:115
+msgid "Manage Pages"
+msgstr ""
+
+#: enhanced-meta-widget.php:117
+msgid "Manage Comments"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:119
+msgid "Manage Themes"
+msgstr ""
+
+#: enhanced-meta-widget.php:121
+msgid "Manage Widgets"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:123
+msgid "Manage Plugins"
+msgstr ""
+
+#: enhanced-meta-widget.php:125
+msgid "Manage Users"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:127
+msgid "Tools"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:129
+msgid "Settings"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:133
+#: enhanced-meta-widget.php:158
+msgid "Syndicate this site using RSS 2.0"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:133
+#: enhanced-meta-widget.php:158
+msgid "Entries <abbr title=\"Really Simple Syndication\">RSS</abbr>"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:135
+#: enhanced-meta-widget.php:160
+msgid "The latest comments to all posts in RSS"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:135
+#: enhanced-meta-widget.php:160
+msgid "Comments <abbr title=\"Really Simple Syndication\">RSS</abbr>"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:137
+#: enhanced-meta-widget.php:162
+msgid "Powered by WordPress, state-of-the-art semantic personal publishing platform."
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:167
+msgid "Log In"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:170
+msgid "Username"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:174
+msgid "Password"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:180
+msgid "Remember Me"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:260
+msgid "Title:"
+msgstr ""
+
+# The word display exists, but not by itself, in the general language file for wordpress.
+#: enhanced-meta-widget.php:268
+msgid "Display:<br />"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:270
+msgid "user name"
+msgstr ""
+
+#: enhanced-meta-widget.php:272
+msgid "<em>my profile</em>"
+msgstr ""
+
+#: enhanced-meta-widget.php:274
+msgid "login link"
+msgstr ""
+
+#: enhanced-meta-widget.php:276
+msgid "logout link"
+msgstr ""
+
+#: enhanced-meta-widget.php:278
+msgid "login form"
+msgstr ""
+
+#: enhanced-meta-widget.php:280
+msgid "register link"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:282
+msgid "<em>new post</em>"
+msgstr ""
+
+#: enhanced-meta-widget.php:284
+msgid "<em>edit this post</em>"
+msgstr ""
+
+#: enhanced-meta-widget.php:286
+msgid "<em>edit this page</em>"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:288
+msgid "<em>site admin</em>"
+msgstr ""
+
+#: enhanced-meta-widget.php:290
+msgid "<em>manage posts</em>"
+msgstr ""
+
+#: enhanced-meta-widget.php:292
+msgid "<em>manage drafts</em>"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:294
+msgid "<em>media library</em>"
+msgstr ""
+
+#: enhanced-meta-widget.php:296
+msgid "<em>manage links</em>"
+msgstr ""
+
+#: enhanced-meta-widget.php:298
+msgid "<em>manage pages</em>"
+msgstr ""
+
+#: enhanced-meta-widget.php:300
+msgid "<em>manage comments</em>"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:302
+msgid "<em>manage themes</em>"
+msgstr ""
+
+#: enhanced-meta-widget.php:304
+msgid "<em>manage widgets</em>"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:306
+msgid "<em>manage plugins</em>"
+msgstr ""
+
+#: enhanced-meta-widget.php:308
+msgid "<em>manage users</em>"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:310
+msgid "<em>tools</em>"
+msgstr ""
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:312
+msgid "<em>settings</em>"
+msgstr ""
+
+#: enhanced-meta-widget.php:314
+msgid "<em>entries rss</em>"
+msgstr ""
+
+#: enhanced-meta-widget.php:316
+msgid "<em>comments rss</em>"
+msgstr ""
+
+#: enhanced-meta-widget.php:318
+msgid "<em>wordpress.org</em>"
+msgstr ""
+
+#: enhanced-meta-widget.php:320
+msgid "line breaks between sections"
+msgstr ""
+
+#. Plugin Name of an extension
+msgid "Enhanced Meta Widget"
+msgstr ""
+
+#. Plugin URI of an extension
+msgid "http://neurodawg.wordpress.com/enhanced-meta-widget/"
+msgstr ""
+
+#. Description of an extension
+msgid "Replaces the meta sidebar included with WordPress, and displays various links based upon user roles."
+msgstr ""
+
+#. Author of an extension
+msgid "NeuroDawg"
+msgstr ""
+
+#. Author URI of an extension
+msgid "http://neurodawg.wordpress.com"
+msgstr ""
+
