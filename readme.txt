@@ -64,15 +64,14 @@ Send your questions to neurodawg@hebers.us
 == Change Log ==
 
 = 2.1 =
-* Fixed coding error that would generate empty unordered lists if certain options were not selected. This would cause the code to fail W3C validation. (Thanks Ian)
-* All html should now be XHTML 1.0 Transitional.
 * Fixed situations where an empty sidebar would be displayed, showing only a title, depending on what options were chosen for display. The most common was if _show login form_ was selected by itself (perhaps to have just a "log in" section of the sidebar). If this was done then logged in users would see an empty sidebar with just a title. Further testing identified some additional, likely rare, situations where this could occur as well, so those were all fixed.
-* If W3C validation is important, do not use the login form with other options if your $before_widget function sets id="%1$s". This will call the validation to fail as I use $before_widget, $before_title, $after_title, and $after_widget to display the login form as identical to other sidebar widgets. In order to use the login form and have it validate in this situation, add a second widget to your sidebar and select only the login form (or change your settings for $before_widget).
+* All html should now be XHTML 1.0 Transitional, unless login form is used with other links in certain situations (see below).
+* Fixed coding error that would generate empty unordered lists if certain options were not selected, which is not valid XHTML. (Thanks Ian)
+* If W3C validation is important, do not use the login form with other options if your $before_widget variable uses id="%1$s" in its tag (usually a div or li). This widget uses $before_widget, $before_title, $after_title, and $after_widget to display the login form to be identical to other sidebar widgets, and thus there will be two tags with the same id which is not valid XHTML. In order to use the login form and have it validate in this situation, add a second widget to your sidebar and select only the login form (or change your settings for $before_widget).
 
 = 2.0.1 =
 * Added German (de_DE) and Danish (da_DK) language files.
 * Polish language files updated.
-
 
 = 2.0 =
 * Changed the format of the administration panel to a cleaner presentation. Gone are the "Display..." or "Show..." statements/questions, and they have been replaced with just a simple "Display:" header with all the options simply listed as options with checkboxes.
