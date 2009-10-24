@@ -80,31 +80,30 @@ function widget( $args, $instance ) {
    * and displays the form only in the appropriate places, without displaying an empty widget
    * in the sidebar.
   */
-  if (is_single() && $display_editthispost && !($display_username || $display_profile || $display_logout || $display_newpost || $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings || $display_entrss || $display_commrss || $display_wplink)) {
+  if (is_single() && !($display_username || $display_profile || $display_logout || $display_newpost || $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings || $display_entrss || $display_commrss || $display_wplink) && $display_editthispost && (current_user_can('edit_others_posts') || (current_user_can('edit_posts') && $user_ID == $post->post_author))) {
     echo $before_widget;
     echo $before_title . $title . $after_title;
-    echo '<ul>';
-      if (current_user_can('edit_others_posts') || ((current_user_can('edit_posts') && $user_ID == $post->post_author))) { ?>
-        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Post', 'enhanced-meta-widget')?></a></li><?php }
+    echo '<ul>'; ?>
+      <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Post', 'enhanced-meta-widget')?></a></li><?php
     echo '</ul>';
     echo $after_widget; }
-  elseif (is_page() && $display_editthispage && !($display_username || $display_profile || $display_logout || $display_newpost || $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings || $display_entrss || $display_commrss || $display_wplink)) {
+  elseif (is_page() && !($display_username || $display_profile || $display_logout || $display_newpost || $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings || $display_entrss || $display_commrss || $display_wplink) && $display_editthispage && (current_user_can('edit_others_pages') || (current_user_can('edit_pages') && $user_ID == $post->post_author))) {
     echo $before_widget;
     echo $before_title . $title . $after_title;
-    echo '<ul>';
-      if (current_user_can('edit_others_pages') || (current_user_can('edit_pages') && $user_ID == $post->post_author)) { ?>
-        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/page.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Page', 'enhanced-meta-widget')?></a></li><?php }
+    echo '<ul>'; ?>
+      <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/page.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Page', 'enhanced-meta-widget')?></a></li><?php
     echo '</ul>';
     echo $after_widget; }
   /* 
    *Displays the the complete sidebar if options other than just "edit this post" and/or "edit this page" are selected
   */
-  elseif ($display_username || $display_profile || $display_logout || $display_newpost || $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings || $display_entrss || $display_commrss || $display_wplink ) { //only shows form if one of thes options has been selected
+  elseif ($display_username || $display_profile || $display_logout || $display_newpost || $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings || $display_entrss || $display_commrss || $display_wplink ) { //only shows form if one of these options has been selected
     echo $before_widget;
     echo $before_title . $title . $after_title;
     echo '<ul>';
     /*
      * This section is for all logged in users based upon their roles/permissions
+     * and does not include any links that require adminstrator status
     */
     if ($display_username) { ?>
       <p><?php printf(__('Welcome, <em>%s</em>.', 'enhanced-meta-widget'), $userdata->display_name);?></p><?php }
@@ -115,17 +114,15 @@ function widget( $args, $instance ) {
     //if ($display_linebreaks) echo '</ul><br /><ul>';
     if (current_user_can('edit_posts') && $display_newpost) {?>
       <li><a href="<?php bloginfo('wpurl') ?>/wp-admin/post-new.php"><?php _e('New Post', 'enhanced-meta-widget')?></a></li> <?php }
-    if (is_single() && $display_editthispost) {
-      if (current_user_can('edit_others_posts') || ((current_user_can('edit_posts') && $user_ID == $post->post_author))) { ?>
-        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Post', 'enhanced-meta-widget')?></a></li><?php }}
-    if (is_page() && $display_editthispage) {
-      if (current_user_can('edit_others_pages') || (current_user_can('edit_pages') && $user_ID == $post->post_author)) { ?>
-        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/page.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Page', 'enhanced-meta-widget')?></a></li><?php }}
+    if ((is_single() && $display_editthispost) && (current_user_can('edit_others_posts') || (current_user_can('edit_posts') && $user_ID == $post->post_author))) { ?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Post', 'enhanced-meta-widget')?></a></li><?php }
+    if ((is_page() && $display_editthispage) && (current_user_can('edit_others_pages') || (current_user_can('edit_pages') && $user_ID == $post->post_author))) { ?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/page.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Page', 'enhanced-meta-widget')?></a></li><?php }
     /*
      * This section displays only when an administrator is logged in
     */
     if ($user_level == 10) { ?>
-      <?php if ((( $display_logout || $display_profile || $display_editthispost || $display_editthispage || $display_newpost) && ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings)) && ($display_linebreaks)) echo '</ul><br /><ul>';
+      <?php if ((( $display_logout || $display_profile || (is_single() && $display_editthispost) || (is_page() && $display_editthispage) || $display_newpost) && ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings)) && ($display_linebreaks)) echo '</ul><br /><ul>';
       if ($display_dashboard) {?>
         <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin"><?php _e('Site Admin', 'enhanced-meta-widget')?></a></li><?php }
       if ($display_manposts) {?>
@@ -153,7 +150,7 @@ function widget( $args, $instance ) {
       if ($display_settings) {?>
         <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/options-general.php"><?php _e('Settings', 'enhanced-meta-widget')?></a></li><?php }
     } // ends if user is admin sub-section and restarts options for all logged in users
-    if (((( $display_logout || $display_profile || $display_editthispost || $display_editthispage || $display_newpost) || ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings)) && ( $display_entrss || $display_commrss || $display_wplink)) && ($display_linebreaks)) echo '</ul><br /><ul>';
+    if (((( $display_logout || $display_profile || (is_single() && $display_editthispost) || (is_page() && $display_editthispage) || $display_newpost) || ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings)) && ( $display_entrss || $display_commrss || $display_wplink)) && ($display_linebreaks)) echo '</ul><br /><ul>';
     if ($display_entrss) {?>
       <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS 2.0', 'enhanced-meta-widget'); ?>"><?php _e('Entries <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li><?php }
     if ($display_commrss) {?>
@@ -172,7 +169,7 @@ function widget( $args, $instance ) {
   if (($display_register && get_option('users_can_register')) || $display_login || $display_entrss || $display_commrss || $display_wplink) {
     echo $before_widget;
     echo $before_title . $title . $after_title;
-    echo '<ul><!--1-->'; 
+    echo '<ul>'; 
     if ($display_login && !($display_loginform)) {?>
       <li><?php echo wp_loginout($_SERVER['REQUEST_URI']);?></li><?php }
     if (get_option('users_can_register') && $display_register) { //shows the register link if registration is allowed
@@ -184,7 +181,7 @@ function widget( $args, $instance ) {
       <li><a href="<?php bloginfo('comments_rss2_url'); ?>" title="<?php _e('The latest comments to all posts in RSS', 'enhanced-meta-widget'); ?>"><?php _e('Comments <abbr title="Really Simple Syndication">RSS</abbr>', 'enhanced-meta-widget'); ?></a></li><?php }
     if ($display_wplink) {?>
       <li><a href="http://wordpress.org/" title="<?php _e('Powered by WordPress, state-of-the-art semantic personal publishing platform.', 'enhanced-meta-widget'); ?>">WordPress.org</a></li><?php }
-    echo '</ul><!--2-->';
+    echo '</ul>';
     echo $after_widget; }
     if ($display_loginform) { /* Starts to generate the Login Form */
       echo $before_widget;
