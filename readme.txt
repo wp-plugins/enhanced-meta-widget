@@ -5,7 +5,7 @@ Version: 2.1
 Tags: meta, widget, links, admin, administration, dashboard, international, i18n
 Requires at least: 2.8
 Tested up to: 2.8.5
-Stable Tag: 2.0.1
+Stable Tag: 2.1
 
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
 
