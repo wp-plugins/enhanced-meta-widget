@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EMW 2.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/enhanced-meta-widget\n"
-"POT-Creation-Date: 2009-10-17 15:50+0000\n"
+"POT-Creation-Date: 2009-10-25 17:39+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: NeuroDawg <neurodawg@hebers.us>\n"
 "Language-Team: Gokce Ozan Toptas <occultsearcher@gmail.com>\n"
@@ -21,262 +21,273 @@ msgstr "Giriş yapmış kullanıcılar için her sayfada bazı yönetici bağlan
 msgid "Enhanced Meta"
 msgstr "Geliştirilmiş Meta"
 
-#: enhanced-meta-widget.php:46
+#: enhanced-meta-widget.php:47
 msgid "Meta"
 msgstr "Meta"
 
-# 'Welcome' should exist in language file for WordPress
-#: enhanced-meta-widget.php:85
-#, php-format
-msgid "Welcome, <em>%s</em>."
-msgstr "Merhaba, <em>%s</em>."
-
+# Should exist in language file for WordPress
 #: enhanced-meta-widget.php:89
-msgid "My Profile"
-msgstr "Profilim"
-
-# Should exist in language file for WordPress
-#: enhanced-meta-widget.php:92
-msgid "New Post"
-msgstr "Yeni Yazı"
-
-# Should exist in language file for WordPress
-#: enhanced-meta-widget.php:95
+#: enhanced-meta-widget.php:125
 msgid "Edit This Post"
 msgstr "Yazıyı Düzenle"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:98
+#: enhanced-meta-widget.php:96
+#: enhanced-meta-widget.php:127
 msgid "Edit This Page"
 msgstr "Sayfayı Düzenle"
 
-# Should exist in language file for WordPress
-#: enhanced-meta-widget.php:105
-msgid "Site Admin"
-msgstr "Site Yönetimi"
+#: enhanced-meta-widget.php:112
+#, php-format
+msgid "Welcome, <a href=\"%1$s/wp-admin/profile.php\"><em>%2$s</em></a>"
+msgstr "Merhaba, <a href=\"%1$s/wp-admin/profile.php\"><em>%2$s</em></a>"
 
-#: enhanced-meta-widget.php:107
+# 'Welcome' should exist in language file for WordPress
+#: enhanced-meta-widget.php:114
+#, php-format
+msgid "Welcome, <em>%s</em>"
+msgstr "Merhaba, <em>%s</em>"
+
+#: enhanced-meta-widget.php:118
+msgid "My Profile"
+msgstr "Profilim"
+
+#: enhanced-meta-widget.php:121
+#: enhanced-meta-widget.php:134
+msgid "Dashboard"
+msgstr "Başlangıç"
+
+# Should exist in language file for WordPress
+#: enhanced-meta-widget.php:123
+msgid "New Post"
+msgstr "Yeni Yazı"
+
+#: enhanced-meta-widget.php:136
 msgid "Manage Posts"
 msgstr "Yazıları Yönet"
 
-#: enhanced-meta-widget.php:109
+#: enhanced-meta-widget.php:138
 msgid "Manage Drafts"
 msgstr "Taslakları Yönet"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:111
+#: enhanced-meta-widget.php:140
 msgid "Media Library"
 msgstr "Medya Kütüphanesi"
 
-#: enhanced-meta-widget.php:113
+#: enhanced-meta-widget.php:142
 msgid "Manage Links"
 msgstr "Bağlantıları Yönet"
 
-#: enhanced-meta-widget.php:115
+#: enhanced-meta-widget.php:144
 msgid "Manage Pages"
 msgstr "Sayfaları Yönet"
 
-#: enhanced-meta-widget.php:117
+#: enhanced-meta-widget.php:146
 msgid "Manage Comments"
 msgstr "Yorumları Yönet"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:119
+#: enhanced-meta-widget.php:148
 msgid "Manage Themes"
 msgstr "Temaları Yönet"
 
-#: enhanced-meta-widget.php:121
+#: enhanced-meta-widget.php:150
 msgid "Manage Widgets"
 msgstr "Bileşenleri Yönet"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:123
+#: enhanced-meta-widget.php:152
 msgid "Manage Plugins"
 msgstr "Eklentileri Yönet"
 
-#: enhanced-meta-widget.php:125
+#: enhanced-meta-widget.php:154
 msgid "Manage Users"
 msgstr "Kullanıcıları Yönet"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:127
+#: enhanced-meta-widget.php:156
 msgid "Tools"
 msgstr "Araçlar"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:129
+#: enhanced-meta-widget.php:158
 msgid "Settings"
 msgstr "Ayarlar"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:133
-#: enhanced-meta-widget.php:158
+#: enhanced-meta-widget.php:162
+#: enhanced-meta-widget.php:186
 msgid "Syndicate this site using RSS 2.0"
 msgstr "Bu sayfaya RSS 2.0 ile abone ol"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:133
-#: enhanced-meta-widget.php:158
+#: enhanced-meta-widget.php:162
+#: enhanced-meta-widget.php:186
 msgid "Entries <abbr title=\"Really Simple Syndication\">RSS</abbr>"
 msgstr "Yazı <abbr title=\"Really Simple Syndication\">RSS</abbr>"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:135
-#: enhanced-meta-widget.php:160
+#: enhanced-meta-widget.php:164
+#: enhanced-meta-widget.php:188
 msgid "The latest comments to all posts in RSS"
 msgstr "Tüm yazılara yapılmış son yorumların RSS'i"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:135
-#: enhanced-meta-widget.php:160
+#: enhanced-meta-widget.php:164
+#: enhanced-meta-widget.php:188
 msgid "Comments <abbr title=\"Really Simple Syndication\">RSS</abbr>"
 msgstr "Yorum <abbr title=\"Really Simple Syndication\">RSS</abbr>"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:137
-#: enhanced-meta-widget.php:162
+#: enhanced-meta-widget.php:166
+#: enhanced-meta-widget.php:190
 msgid "Powered by WordPress, state-of-the-art semantic personal publishing platform."
 msgstr "WordPress'in desteğiyle, kişisel yayımlama ortamı"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:167
+#: enhanced-meta-widget.php:195
 msgid "Log In"
 msgstr "Giriş Yap"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:170
+#: enhanced-meta-widget.php:198
 msgid "Username"
 msgstr "Kullanıcı Adı"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:174
+#: enhanced-meta-widget.php:202
 msgid "Password"
 msgstr "Şifre"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:180
+#: enhanced-meta-widget.php:208
 msgid "Remember Me"
 msgstr "Beni Anımsa"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:260
+#: enhanced-meta-widget.php:290
 msgid "Title:"
 msgstr "Başlık:"
 
 # The word display exists, but not by itself, in the general language file for wordpress.
-#: enhanced-meta-widget.php:268
+#: enhanced-meta-widget.php:298
 msgid "Display:<br />"
 msgstr "Görünüm:<br />"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:270
+#: enhanced-meta-widget.php:300
 msgid "user name"
 msgstr "kullanıcı adı"
 
-#: enhanced-meta-widget.php:272
+#: enhanced-meta-widget.php:302
+msgid "user name as profile link"
+msgstr ""
+
+#: enhanced-meta-widget.php:304
 msgid "<em>my profile</em>"
 msgstr "<em>profilim</em>"
 
-#: enhanced-meta-widget.php:274
+#: enhanced-meta-widget.php:306
 msgid "login link"
 msgstr "giriş bağlantısı"
 
-#: enhanced-meta-widget.php:276
+#: enhanced-meta-widget.php:308
 msgid "logout link"
 msgstr "çıkış bağlantısı"
 
-#: enhanced-meta-widget.php:278
+#: enhanced-meta-widget.php:310
 msgid "login form"
 msgstr "giriş formu"
 
-#: enhanced-meta-widget.php:280
+#: enhanced-meta-widget.php:312
 msgid "register link"
 msgstr "kayıt bağlantısı"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:282
+#: enhanced-meta-widget.php:314
 msgid "<em>new post</em>"
 msgstr "<em>yeni yazı</em>"
 
-#: enhanced-meta-widget.php:284
+#: enhanced-meta-widget.php:316
 msgid "<em>edit this post</em>"
 msgstr "<em>bu yazıyı düzenle</em>"
 
-#: enhanced-meta-widget.php:286
+#: enhanced-meta-widget.php:318
 msgid "<em>edit this page</em>"
 msgstr "<em>bu sayfayı düzenle</em>"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:288
+#: enhanced-meta-widget.php:320
 msgid "<em>site admin</em>"
 msgstr "<em>site yönetimi</em>"
 
-#: enhanced-meta-widget.php:290
+#: enhanced-meta-widget.php:322
 msgid "<em>manage posts</em>"
 msgstr "<em>yazıları yönet</em>"
 
-#: enhanced-meta-widget.php:292
+#: enhanced-meta-widget.php:324
 msgid "<em>manage drafts</em>"
 msgstr "<em>taslakları yönet</em>"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:294
+#: enhanced-meta-widget.php:326
 msgid "<em>media library</em>"
 msgstr "<em>medya kütüphanesi</em>"
 
-#: enhanced-meta-widget.php:296
+#: enhanced-meta-widget.php:328
 msgid "<em>manage links</em>"
 msgstr "<em>bağlantıları yönet</em>"
 
-#: enhanced-meta-widget.php:298
+#: enhanced-meta-widget.php:330
 msgid "<em>manage pages</em>"
 msgstr "<em>sayfaları yönet</em>"
 
-#: enhanced-meta-widget.php:300
+#: enhanced-meta-widget.php:332
 msgid "<em>manage comments</em>"
 msgstr "<em>yorumları yönet</em>"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:302
+#: enhanced-meta-widget.php:334
 msgid "<em>manage themes</em>"
 msgstr "<em>temaları yönet</em>"
 
-#: enhanced-meta-widget.php:304
+#: enhanced-meta-widget.php:336
 msgid "<em>manage widgets</em>"
 msgstr "<em>bileşenleri yönet</em>"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:306
+#: enhanced-meta-widget.php:338
 msgid "<em>manage plugins</em>"
 msgstr "<em>eklentileri yönet</em>"
 
-#: enhanced-meta-widget.php:308
+#: enhanced-meta-widget.php:340
 msgid "<em>manage users</em>"
 msgstr "<em>kullanıcıları yönet</em>"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:310
+#: enhanced-meta-widget.php:342
 msgid "<em>tools</em>"
 msgstr "<em>araçlar</em>"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:312
+#: enhanced-meta-widget.php:344
 msgid "<em>settings</em>"
 msgstr "<em>ayarlar</em>"
 
-#: enhanced-meta-widget.php:314
+#: enhanced-meta-widget.php:346
 msgid "<em>entries rss</em>"
 msgstr "<em>yazı rss</em>"
 
-#: enhanced-meta-widget.php:316
+#: enhanced-meta-widget.php:348
 msgid "<em>comments rss</em>"
 msgstr "<em>yorum rss</em>"
 
-#: enhanced-meta-widget.php:318
+#: enhanced-meta-widget.php:350
 msgid "<em>wordpress.org</em>"
 msgstr "<em>wordpress.org</em>"
 
-#: enhanced-meta-widget.php:320
+#: enhanced-meta-widget.php:352
 msgid "line breaks between sections"
 msgstr "bölümler arasında satır kesilmesi"
 
