@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/enhanced-meta-widget\n"
-"POT-Creation-Date: 2009-10-25 17:39+0000\n"
+"POT-Creation-Date: 2009-10-25 22:30+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: NeuroDawg <neurodawg@hebers.us>\n"
 "Language-Team: \n"
@@ -159,36 +159,36 @@ msgid "Display:<br />"
 msgstr "Afficher:<br />"
 
 #: enhanced-meta-widget.php:300
-msgid "user name"
+msgid "username"
 msgstr "pseudo"
 
 #: enhanced-meta-widget.php:302
-msgid "user name as profile link"
+msgid "username as profile link"
 msgstr ""
 
 #: enhanced-meta-widget.php:304
-msgid "<em>my profile</em>"
-msgstr "<em>mon profil</em>"
-
-#: enhanced-meta-widget.php:306
 msgid "login link"
 msgstr "le lien de connexion"
 
-#: enhanced-meta-widget.php:308
+#: enhanced-meta-widget.php:306
 msgid "logout link"
 msgstr "le lien de déconnexion"
 
-#: enhanced-meta-widget.php:310
+#: enhanced-meta-widget.php:308
 msgid "login form"
 msgstr "le formulaire de connexion"
 
-#: enhanced-meta-widget.php:312
+#: enhanced-meta-widget.php:310
 msgid "register link"
 msgstr "le lien pour s'enregistrer"
 
-#: enhanced-meta-widget.php:314
+#: enhanced-meta-widget.php:312
 msgid "<em>new post</em>"
 msgstr "<em>écrire une actualité</em>"
+
+#: enhanced-meta-widget.php:314
+msgid "<em>my profile</em>"
+msgstr "<em>mon profil</em>"
 
 #: enhanced-meta-widget.php:316
 msgid "<em>edit this post</em>"
@@ -212,7 +212,7 @@ msgstr "<em>gestion des brouillons</em>"
 
 #: enhanced-meta-widget.php:326
 msgid "<em>media library</em>"
-msgstr "<em>Librairie des médias</em>"
+msgstr "<em>librairie des médias</em>"
 
 #: enhanced-meta-widget.php:328
 msgid "<em>manage links</em>"

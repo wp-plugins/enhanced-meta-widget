@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EMW 2.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/enhanced-meta-widget\n"
-"POT-Creation-Date: 2009-10-25 17:39+0000\n"
+"POT-Creation-Date: 2009-10-25 22:30+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: NeuroDawg <neurodawg@hebers.us>\n"
 "Language-Team: Gokce Ozan Toptas <occultsearcher@gmail.com>\n"
@@ -177,37 +177,37 @@ msgstr "Görünüm:<br />"
 
 # Should exist in language file for WordPress
 #: enhanced-meta-widget.php:300
-msgid "user name"
+msgid "username"
 msgstr "kullanıcı adı"
 
 #: enhanced-meta-widget.php:302
-msgid "user name as profile link"
+msgid "username as profile link"
 msgstr ""
 
 #: enhanced-meta-widget.php:304
-msgid "<em>my profile</em>"
-msgstr "<em>profilim</em>"
-
-#: enhanced-meta-widget.php:306
 msgid "login link"
 msgstr "giriş bağlantısı"
 
-#: enhanced-meta-widget.php:308
+#: enhanced-meta-widget.php:306
 msgid "logout link"
 msgstr "çıkış bağlantısı"
 
-#: enhanced-meta-widget.php:310
+#: enhanced-meta-widget.php:308
 msgid "login form"
 msgstr "giriş formu"
 
-#: enhanced-meta-widget.php:312
+#: enhanced-meta-widget.php:310
 msgid "register link"
 msgstr "kayıt bağlantısı"
 
 # Should exist in language file for WordPress
-#: enhanced-meta-widget.php:314
+#: enhanced-meta-widget.php:312
 msgid "<em>new post</em>"
 msgstr "<em>yeni yazı</em>"
+
+#: enhanced-meta-widget.php:314
+msgid "<em>my profile</em>"
+msgstr "<em>profilim</em>"
 
 #: enhanced-meta-widget.php:316
 msgid "<em>edit this post</em>"

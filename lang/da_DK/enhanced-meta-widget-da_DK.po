@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/enhanced-meta-widget\n"
-"POT-Creation-Date: 2009-10-25 17:39+0000\n"
-"PO-Revision-Date: 2009-10-25 10:45-0800\n"
+"POT-Creation-Date: 2009-10-25 22:30+0000\n"
+"PO-Revision-Date: 2009-10-25 15:31-0800\n"
 "Last-Translator: NeuroDawg <neurodawg@hebers.us>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -159,36 +159,36 @@ msgid "Display:<br />"
 msgstr "Vis:<br />"
 
 #: enhanced-meta-widget.php:300
-msgid "user name"
+msgid "username"
 msgstr "brugernavn"
 
 #: enhanced-meta-widget.php:302
-msgid "user name as profile link"
+msgid "username as profile link"
 msgstr "brugernavn nemlig profil link"
 
 #: enhanced-meta-widget.php:304
-msgid "<em>my profile</em>"
-msgstr "<em>min profil</em>"
-
-#: enhanced-meta-widget.php:306
 msgid "login link"
 msgstr "log på link"
 
-#: enhanced-meta-widget.php:308
+#: enhanced-meta-widget.php:306
 msgid "logout link"
 msgstr "log af link"
 
-#: enhanced-meta-widget.php:310
+#: enhanced-meta-widget.php:308
 msgid "login form"
 msgstr "log på form"
 
-#: enhanced-meta-widget.php:312
+#: enhanced-meta-widget.php:310
 msgid "register link"
 msgstr "registrer link"
 
-#: enhanced-meta-widget.php:314
+#: enhanced-meta-widget.php:312
 msgid "<em>new post</em>"
 msgstr "<em>nyt indlæg</em>"
+
+#: enhanced-meta-widget.php:314
+msgid "<em>my profile</em>"
+msgstr "<em>min profil</em>"
 
 #: enhanced-meta-widget.php:316
 msgid "<em>edit this post</em>"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/enhanced-meta-widget\n"
-"POT-Creation-Date: 2009-10-25 17:39+0000\n"
+"POT-Creation-Date: 2009-10-25 22:30+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: NeuroDawg <neurodawg@hebers.us>\n"
 "Language-Team: \n"
@@ -155,44 +155,44 @@ msgid "Display:<br />"
 msgstr "Anzeige:<br />"
 
 #: enhanced-meta-widget.php:300
-msgid "user name"
-msgstr "Benutzername"
+msgid "username"
+msgstr "benutzername"
 
 #: enhanced-meta-widget.php:302
-msgid "user name as profile link"
+msgid "username as profile link"
 msgstr ""
 
 #: enhanced-meta-widget.php:304
-msgid "<em>my profile</em>"
-msgstr "<em>mein Profil</em>"
+msgid "login link"
+msgstr "login link"
 
 #: enhanced-meta-widget.php:306
-msgid "login link"
-msgstr "Login Link"
+msgid "logout link"
+msgstr "logout link"
 
 #: enhanced-meta-widget.php:308
-msgid "logout link"
-msgstr "Logout Link"
+msgid "login form"
+msgstr "login maske"
 
 #: enhanced-meta-widget.php:310
-msgid "login form"
-msgstr "Login Maske"
+msgid "register link"
+msgstr "registrieren link"
 
 #: enhanced-meta-widget.php:312
-msgid "register link"
-msgstr "Registrieren Link"
+msgid "<em>new post</em>"
+msgstr "<em>neuen artikel erfassen</em>"
 
 #: enhanced-meta-widget.php:314
-msgid "<em>new post</em>"
-msgstr "<em>Neuen Artikel erfassen</em>"
+msgid "<em>my profile</em>"
+msgstr "<em>mein profil</em>"
 
 #: enhanced-meta-widget.php:316
 msgid "<em>edit this post</em>"
-msgstr "<em>Diesen Artikel editieren</em>"
+msgstr "<em>diesen artikel editieren</em>"
 
 #: enhanced-meta-widget.php:318
 msgid "<em>edit this page</em>"
-msgstr "<em>Diese Seite editieren</em>"
+msgstr "<em>diese seite editieren</em>"
 
 #: enhanced-meta-widget.php:320
 msgid "<em>site admin</em>"
@@ -200,59 +200,59 @@ msgstr "<em>administration</em>"
 
 #: enhanced-meta-widget.php:322
 msgid "<em>manage posts</em>"
-msgstr "<em>Artikel verwalten</em>"
+msgstr "<em>artikel verwalten</em>"
 
 #: enhanced-meta-widget.php:324
 msgid "<em>manage drafts</em>"
-msgstr "<em>Entwürfe verwalten</em>"
+msgstr "<em>entwürfe verwalten</em>"
 
 #: enhanced-meta-widget.php:326
 msgid "<em>media library</em>"
-msgstr "<em>Medienbibliothek</em>"
+msgstr "<em>medienbibliothek</em>"
 
 #: enhanced-meta-widget.php:328
 msgid "<em>manage links</em>"
-msgstr "<em>Links verwalten</em>"
+msgstr "<em>links verwalten</em>"
 
 #: enhanced-meta-widget.php:330
 msgid "<em>manage pages</em>"
-msgstr "<em>Seiten verwalten</em>"
+msgstr "<em>seiten verwalten</em>"
 
 #: enhanced-meta-widget.php:332
 msgid "<em>manage comments</em>"
-msgstr "<em>Kommentare verwalten</em>"
+msgstr "<em>kommentare verwalten</em>"
 
 #: enhanced-meta-widget.php:334
 msgid "<em>manage themes</em>"
-msgstr "<em>Themes verwalten</em>"
+msgstr "<em>themes verwalten</em>"
 
 #: enhanced-meta-widget.php:336
 msgid "<em>manage widgets</em>"
-msgstr "<em>Widgets verwalten</em>"
+msgstr "<em>widgets verwalten</em>"
 
 #: enhanced-meta-widget.php:338
 msgid "<em>manage plugins</em>"
-msgstr "<em>Plugins verwalten</em>"
+msgstr "<em>plugins verwalten</em>"
 
 #: enhanced-meta-widget.php:340
 msgid "<em>manage users</em>"
-msgstr "<em>Benutzer verwalten</em>"
+msgstr "<em>benutzer verwalten</em>"
 
 #: enhanced-meta-widget.php:342
 msgid "<em>tools</em>"
-msgstr "<em>Werkzeuge</em>"
+msgstr "<em>werkzeuge</em>"
 
 #: enhanced-meta-widget.php:344
 msgid "<em>settings</em>"
-msgstr "<em>Einstellungen</em>"
+msgstr "<em>einstellungen</em>"
 
 #: enhanced-meta-widget.php:346
 msgid "<em>entries rss</em>"
-msgstr "<em>rss Einträge</em>"
+msgstr "<em>rss einträge</em>"
 
 #: enhanced-meta-widget.php:348
 msgid "<em>comments rss</em>"
-msgstr "<em>rss Kommentare</em>"
+msgstr "<em>rss kommentare</em>"
 
 #: enhanced-meta-widget.php:350
 msgid "<em>wordpress.org</em>"
@@ -260,7 +260,7 @@ msgstr "<em>de.wordpress.com</em>"
 
 #: enhanced-meta-widget.php:352
 msgid "line breaks between sections"
-msgstr "Zeilenumbrüche zw. Sektionen"
+msgstr "zeilenumbrüche zw. sektionen"
 
 #. Plugin Name of an extension
 msgid "Enhanced Meta Widget"
