@@ -5,7 +5,7 @@ Version: 2.2
 Tags: meta, widget, links, admin, administration, dashboard, international, i18n
 Requires at least: 2.8
 Tested up to: 2.8.5
-Stable Tag: 2.1
+Stable Tag: 2.2
 
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
 
@@ -66,7 +66,7 @@ Send your questions to neurodawg@hebers.us
 
 = 2.2 =
 * Changed wording from _site admin_ to _dashboard_ in both the options and the links.
-* If dashboard is selected, the link will appear for all logged-in users, not just admins. This allows non-admin users access to all settings for which they have permissions.
+* If display dashboard is selected, the link will appear for all logged-in users, not just admins. This allows non-admin users access to all settings for which they have permissions.
 * For admin, the link to the dashboard still appears at the top of all admin links. For non-admin logged-in users it appears just after _my profile_.
 * In the "Welcome, UserName" phrase, it is now an option to have the username link to the user profile.
 * Added Turkish (tr\_TR) language files
