@@ -3,7 +3,7 @@
 Plugin Name: Enhanced Meta Widget
 Plugin URI: http://neurodawg.wordpress.com/enhanced-meta-widget/
 Description: Replaces the meta sidebar included with WordPress, and displays various links based upon user roles.
-Version: 2.1
+Version: 2.2
 Text Domain: enhanced-meta-widget
 Author: NeuroDawg
 Author URI: http://neurodawg.wordpress.com
