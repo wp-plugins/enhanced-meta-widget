@@ -64,13 +64,13 @@ Send your questions to neurodawg@hebers.us
 == Change Log ==
 
 = 2.1 =
-* Fixed situations where an empty sidebar would be displayed, showing only a title, depending on what options were chosen for display. The most common was if _show login form_ was selected by itself (perhaps to have just a "log in" section of the sidebar). If this was done then logged in users would see an empty sidebar with just a title. Further testing identified some additional, likely rare, situations where this could occur as well, so those were all fixed.
+* Fixed situations where an empty sidebar would be displayed, showing only a title, depending on what options were chosen for display. The most common was if \_show login form\_ was selected by itself (perhaps to have just a "log in" section of the sidebar). If this was done then logged in users would see an empty sidebar with just a title. Further testing identified some additional, likely rare, situations where this could occur as well, so those were all fixed.
 * All html should now be XHTML 1.0 Transitional, unless login form is used with other links in certain situations (see below).
 * Fixed coding error that would generate empty unordered lists if certain options were not selected, which is not valid XHTML. (Thanks Ian)
-* If W3C validation is important, do not use the login form with other options if your $before_widget variable uses id="%1$s" in its tag (usually a div or li). This widget uses $before_widget, $before_title, $after_title, and $after_widget to display the login form to be identical to other sidebar widgets, and thus there will be two tags with the same id which is not valid XHTML. In order to use the login form and have it validate in this situation, add a second widget to your sidebar and select only the login form (or change your settings for $before_widget).
+* If W3C validation is important, do not use the login form with other options if your $before\_widget variable uses id="%1$s" in its tag (usually a div or li). This widget uses $before\_widget, $before\_title, $after\_title, and $after\_widget to display the login form to be identical to other sidebar widgets, and thus there will be two tags with the same id which is not valid XHTML. In order to use the login form and have it validate in this situation, add a second widget to your sidebar and select only the login form (or change your settings for $before\_widget).
 
 = 2.0.1 =
-* Added German (de_DE) and Danish (da_DK) language files.
+* Added German (de\_DE) and Danish (da\_DK) language files.
 * Polish language files updated.
 
 = 2.0 =
@@ -80,10 +80,10 @@ Send your questions to neurodawg@hebers.us
 * Added link to "my profile" for logged in users.
 * Updated log in and log out links to return to the current page/post.
 * Created option to have linebreaks or not. (I prefer to have breaks between some sections of links - user actions, admin actions, and the orignal meta links - but others prefer all links to be a list without breaks. So now "Line breaks between sections" is an option.)
-* Added hook to allow other plugins to run actions just before the end of the login form - do_action('login_form').
+* Added hook to allow other plugins to run actions just before the end of the login form - do\_action('login\_form').
 * Corrected the order in which the options are presented on the admin page to reflect how they're presented on the sidebar.
-* Added Polish (pl_PL) language files.
-* Updated French (fr_FR) and Dutch (nl_NL) language files.
+* Added Polish (pl\_PL) language files.
+* Updated French (fr\_FR) and Dutch (nl\_NL) language files.
 * Found and translated another missed phrase. I think all phrases are now coded for i18n. If you are using a different language and find a phrase I have missed, please let me know.
 
 = 1.7 =
@@ -100,15 +100,15 @@ Send your questions to neurodawg@hebers.us
 = 1.6 =
 * Coded for I18n. Now just looking for translators.
 * As part of I18n, the POT file is included with each distribution.
-* Fixed bug where $after_widget was being displayed inappropriately. (Thanks Jose.)
+* Fixed bug where $after\_widget was being displayed inappropriately. (Thanks Jose.)
 * Fixed improper insertion of a couple of br tags.
 * Moved the display of "username is logged in." to the bottom of the sidebar widget. I didn't like it at the top.
 
 = 1.5 =
 * Added New Features
-  *Can choose to display login link or login form*
-  *Separated logout link from login link/form*
-  *Display "username is logged in."*
+   + *Can choose to display login link or login form*
+   + *Separated logout link from login link/form*
+   + *Display "username is logged in."*
 * Fixed display of login form if it's the only thing showing on the sidebar (now surrounded by $before_widget and $after_widget).
 
 = 1.4.1 =
@@ -144,7 +144,7 @@ Send your questions to neurodawg@hebers.us
 == Credits and Copyright ==
 Copyright 2009 NeuroDawg.
 
-The devlopment of this plugin took inspiration from the plugins, Admin Links Plus (http://alicious.com/admin-links-plus-sidebar-widget/), Admin Links (http://kdmurray.net/2007/08/14/wordpress-plugin-admin-links-widget/) and Quick Admin Links (http://www.4-14.org.uk/wordpress-plugins/quick-admin-links), created by pbhj, Keith Murray (kdmurray), and Mark Barnes, respectively.
+The devlopment of this plugin took inspiration from the plugins, [Admin Links Plus](http://alicious.com/admin-links-plus-sidebar-widget/), [Admin Links](http://kdmurray.net/2007/08/14/wordpress-plugin-admin-links-widget/) and [Quick Admin Links](http://www.4-14.org.uk/wordpress-plugins/quick-admin-links), created by pbhj, Keith Murray (kdmurray), and Mark Barnes, respectively.
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
