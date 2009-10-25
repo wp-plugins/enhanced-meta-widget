@@ -1,7 +1,7 @@
 ﻿=== Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.wordpress.com/enhanced-meta-widget/
-Version: 2.1
+Version: 2.2
 Tags: meta, widget, links, admin, administration, dashboard, international, i18n
 Requires at least: 2.8
 Tested up to: 2.8.5
@@ -63,6 +63,14 @@ Send your questions to neurodawg@hebers.us
 4. **Options**: You can select which links you want displayed. No links are displayed unless they're relevant to the currently logged in user, on the page they're currently viewing.
 
 == Change Log ==
+
+= 2.2 =
+* Changed wording from _site admin_ to _dashboard_ in both the options and the links.
+* If dashboard is selected, the link will appear for all logged-in users, not just admins. This allows non-admin users access to all settings for which they have permissions.
+* For admin, the link to the dashboard still appears at the top of all admin links. For non-admin logged-in users it appears just after _my profile_.
+* In the "Welcome, UserName" phrase, it is now an option to have the username link to the user profile.
+* Added Turkish (tr\_TR) language files
+* All language files updated to reflect the changes listed above.
 
 = 2.1 =
 * Fixed situations where an empty sidebar would be displayed, showing only a title, depending on what options were chosen for display. The most common was if \_show login form\_ was selected by itself (perhaps to have just a "log in" section of the sidebar). If this was done then logged in users would see an empty sidebar with just a title. Further testing identified some additional, likely rare, situations where this could occur as well, so those were all fixed.
@@ -146,7 +154,7 @@ Send your questions to neurodawg@hebers.us
 == Credits and Copyright ==
 Copyright 2009 NeuroDawg.
 
-The devlopment of this plugin took inspiration from the plugins, [Admin Links Plus](http://alicious.com/admin-links-plus-sidebar-widget/), [Admin Links](http://kdmurray.net/2007/08/14/wordpress-plugin-admin-links-widget/) and [Quick Admin Links](http://www.4-14.org.uk/wordpress-plugins/quick-admin-links), created by pbhj, Keith Murray (kdmurray), and Mark Barnes, respectively.
+The devlopment of this plugin took inspiration from the plugins [Admin Links Plus](http://alicious.com/admin-links-plus-sidebar-widget/), [Admin Links](http://kdmurray.net/2007/08/14/wordpress-plugin-admin-links-widget/) and [Quick Admin Links](http://www.4-14.org.uk/wordpress-plugins/quick-admin-links), created by pbhj, Keith Murray (kdmurray), and Mark Barnes, respectively.
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 

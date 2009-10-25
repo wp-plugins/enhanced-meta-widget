@@ -40,11 +40,13 @@ function widget( $args, $instance ) {
   extract($args, EXTR_SKIP);  //gets the before_widget, after_widget, before_title, after_title tags if defined in a theme's functions.php
                               //otherwise uses the defaults for these tags
   global $post, $user_ID, $user_level, $user_login, $userdata; // This gets the post and user information
+  $base_url = get_bloginfo('wpurl');
   /* 
    * This sub-section gets the variables
   */
   $title = apply_filters('widget_title', empty($instance['title']) ? __('Meta', 'enhanced-meta-widget') : $instance['title']);
   $display_username     = $instance['username'] ? '1' : '0';
+  $display_userlink     = $instance['userlink'] ? '1' : '0';
   $display_profile      = $instance['profile'] ? '1' : '0';
   $display_login        = $instance['login'] ? '1' : '0';
   $display_logout       = $instance['logout'] ? '1' : '0';
@@ -105,13 +107,18 @@ function widget( $args, $instance ) {
      * This section is for all logged in users based upon their roles/permissions
      * and does not include any links that require adminstrator status
     */
-    if ($display_username) { ?>
-      <p><?php printf(__('Welcome, <em>%s</em>.', 'enhanced-meta-widget'), $userdata->display_name);?></p><?php }
+    if ($display_username) {
+      if ($display_userlink) { ?>
+        <p><?php printf(__('Welcome, <a href="%1$s/wp-admin/profile.php"><em>%2$s</em></a>', 'enhanced-meta-widget'), $base_url, $userdata->display_name);?></p><?php }
+      else { ?>
+        <p><?php printf(__('Welcome, <em>%s</em>', 'enhanced-meta-widget'), $userdata->display_name);?></p><?php }}
     if ($display_logout) { ?>
       <li><?php wp_loginout(wp_logout_url($_SERVER['REQUEST_URI']));?></li><?php }
     if ($display_profile) { ?>
       <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/profile.php"><?php _e('My Profile', 'enhanced-meta-widget')?></a></li><?php }
     //if ($display_linebreaks) echo '</ul><br /><ul>';
+    if ($display_dashboard && ($user_level <= 9)) {?>
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin"><?php _e('Dashboard', 'enhanced-meta-widget')?></a></li><?php }
     if (current_user_can('edit_posts') && $display_newpost) {?>
       <li><a href="<?php bloginfo('wpurl') ?>/wp-admin/post-new.php"><?php _e('New Post', 'enhanced-meta-widget')?></a></li> <?php }
     if ((is_single() && $display_editthispost) && (current_user_can('edit_others_posts') || (current_user_can('edit_posts') && $user_ID == $post->post_author))) { ?>
@@ -124,7 +131,7 @@ function widget( $args, $instance ) {
     if ($user_level == 10) { ?>
       <?php if ((( $display_logout || $display_profile || (is_single() && $display_editthispost) || (is_page() && $display_editthispage) || $display_newpost) && ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings)) && ($display_linebreaks)) echo '</ul><br /><ul>';
       if ($display_dashboard) {?>
-        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin"><?php _e('Site Admin', 'enhanced-meta-widget')?></a></li><?php }
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin"><?php _e('Dashboard', 'enhanced-meta-widget')?></a></li><?php }
       if ($display_manposts) {?>
         <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit.php"><?php _e('Manage Posts', 'enhanced-meta-widget')?></a></li><?php }
       if ($display_mandrafts) {?>
@@ -215,9 +222,10 @@ function widget( $args, $instance ) {
 */
 function update($new_instance, $old_instance) {
   $instance = $old_instance;
-  $new_instance = wp_parse_args((array) $new_instance, array('title' => '', 'username' => 0, 'profile' => 0, 'login' => 0, 'logout' => 0, 'loginform' => 0, 'register' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 0, 'manposts' => 0, 'mandrafts' =>0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0, 'linebreaks' => 0));
+  $new_instance = wp_parse_args((array) $new_instance, array('title' => '', 'username' => 0, 'userlink' => 0, 'profile' => 0, 'login' => 0, 'logout' => 0, 'loginform' => 0, 'register' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 0, 'manposts' => 0, 'mandrafts' =>0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0, 'linebreaks' => 0));
     $instance['title']        = strip_tags($new_instance['title']);
     $instance['username']     = $new_instance['username'] ? '1' : '0';
+    $instance['userlink']     = $new_instance['userlink'] ? '1' : '0';
     $instance['profile']      = $new_instance['profile'] ? '1' : '0';
     $instance['login']        = $new_instance['login'] ? '1' : '0';
     $instance['logout']       = $new_instance['logout'] ? '1' : '0';
@@ -249,9 +257,10 @@ function update($new_instance, $old_instance) {
    * Creates the widget admin options form
   */
   function form( $instance ) {
-    $instance = wp_parse_args((array) $instance, array('title' => '', 'username' => 0, 'profile' => 0, 'login' => 1, 'logout' => 1, 'loginform' => 0, 'register' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 1, 'manposts' => 0, 'mandrafts' => 0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0, 'linebreaks' => 0));
+    $instance = wp_parse_args((array) $instance, array('title' => '', 'username' => 0, 'userlink' => 0, 'profile' => 0, 'login' => 0, 'logout' => 0, 'loginform' => 0, 'register' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 0, 'manposts' => 0, 'mandrafts' => 0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0, 'linebreaks' => 0));
     $title        = strip_tags($instance['title']);
     $username     = $instance['username'] ? 'checked="checked"' : '';
+    $userlink     = $instance['userlink'] ? 'checked="checked"' : '';
     $profile      = $instance['profile'] ? 'checked="checked"' : '';
     $login        = $instance['login'] ? 'checked="checked"' : '';
     $logout       = $instance['logout'] ? 'checked="checked"' : '';
@@ -289,6 +298,8 @@ function update($new_instance, $old_instance) {
     _e('Display:<br />', 'enhanced-meta-widget') ?>
     <input class="checkbox" type="checkbox" <?php checked($instance['username'], true) ?> id="<?php echo $this->get_field_id('username'); ?>" name="<?php echo $this->get_field_name('username'); ?>" />
     <label for="<?php echo $this->get_field_id('username'); ?>"><?php _e('user name', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['userlink'], true) ?> id="<?php echo $this->get_field_id('userlink'); ?>" name="<?php echo $this->get_field_name('userlink'); ?>" />
+    <label for="<?php echo $this->get_field_id('userlink'); ?>"><?php _e('user name as profile link', 'enhanced-meta-widget'); ?></label><br />
     <input class="checkbox" type="checkbox" <?php checked($instance['profile'], true) ?> id="<?php echo $this->get_field_id('profile'); ?>" name="<?php echo $this->get_field_name('profile'); ?>" />
     <label for="<?php echo $this->get_field_id('profile'); ?>"><?php _e('<em>my profile</em>', 'enhanced-meta-widget'); ?></label><br />
     <input class="checkbox" type="checkbox" <?php checked($instance['login'], true) ?> id="<?php echo $this->get_field_id('login'); ?>" name="<?php echo $this->get_field_name('login'); ?>" />
