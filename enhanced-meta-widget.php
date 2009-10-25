@@ -297,11 +297,9 @@ function update($new_instance, $old_instance) {
       echo '<p>';
     _e('Display:<br />', 'enhanced-meta-widget') ?>
     <input class="checkbox" type="checkbox" <?php checked($instance['username'], true) ?> id="<?php echo $this->get_field_id('username'); ?>" name="<?php echo $this->get_field_name('username'); ?>" />
-    <label for="<?php echo $this->get_field_id('username'); ?>"><?php _e('user name', 'enhanced-meta-widget'); ?></label><br />
+    <label for="<?php echo $this->get_field_id('username'); ?>"><?php _e('username', 'enhanced-meta-widget'); ?></label><br />
     <input class="checkbox" type="checkbox" <?php checked($instance['userlink'], true) ?> id="<?php echo $this->get_field_id('userlink'); ?>" name="<?php echo $this->get_field_name('userlink'); ?>" />
-    <label for="<?php echo $this->get_field_id('userlink'); ?>"><?php _e('user name as profile link', 'enhanced-meta-widget'); ?></label><br />
-    <input class="checkbox" type="checkbox" <?php checked($instance['profile'], true) ?> id="<?php echo $this->get_field_id('profile'); ?>" name="<?php echo $this->get_field_name('profile'); ?>" />
-    <label for="<?php echo $this->get_field_id('profile'); ?>"><?php _e('<em>my profile</em>', 'enhanced-meta-widget'); ?></label><br />
+    <label for="<?php echo $this->get_field_id('userlink'); ?>"><?php _e('username as profile link', 'enhanced-meta-widget'); ?></label><br />
     <input class="checkbox" type="checkbox" <?php checked($instance['login'], true) ?> id="<?php echo $this->get_field_id('login'); ?>" name="<?php echo $this->get_field_name('login'); ?>" />
     <label for="<?php echo $this->get_field_id('login'); ?>"><?php _e('login link', 'enhanced-meta-widget'); ?></label><br />
     <input class="checkbox" type="checkbox" <?php checked($instance['logout'], true) ?> id="<?php echo $this->get_field_id('logout'); ?>" name="<?php echo $this->get_field_name('logout'); ?>" />
@@ -312,6 +310,8 @@ function update($new_instance, $old_instance) {
     <label for="<?php echo $this->get_field_id('register'); ?>"><?php _e('register link', 'enhanced-meta-widget'); ?></label><br />
     <input class="checkbox" type="checkbox" <?php checked($instance['newpost'], true) ?> id="<?php echo $this->get_field_id('newpost'); ?>" name="<?php echo $this->get_field_name('newpost'); ?>" />
     <label for="<?php echo $this->get_field_id('newpost'); ?>"><?php _e('<em>new post</em>', 'enhanced-meta-widget'); ?></label><br />
+    <input class="checkbox" type="checkbox" <?php checked($instance['profile'], true) ?> id="<?php echo $this->get_field_id('profile'); ?>" name="<?php echo $this->get_field_name('profile'); ?>" />
+    <label for="<?php echo $this->get_field_id('profile'); ?>"><?php _e('<em>my profile</em>', 'enhanced-meta-widget'); ?></label><br />
     <input class="checkbox" type="checkbox" <?php checked($instance['editthispost'], true) ?> id="<?php echo $this->get_field_id('editthispost'); ?>" name="<?php echo $this->get_field_name('editthispost'); ?>" />
     <label for="<?php echo $this->get_field_id('editthispost'); ?>"><?php _e('<em>edit this post</em>', 'enhanced-meta-widget'); ?></label><br />
     <input class="checkbox" type="checkbox" <?php checked($instance['editthispage'], true) ?> id="<?php echo $this->get_field_id('editthispage'); ?>" name="<?php echo $this->get_field_name('editthispage'); ?>" />

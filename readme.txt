@@ -70,7 +70,6 @@ Send your questions to neurodawg@hebers.us
 * For admin, the link to the dashboard still appears at the top of all admin links. For non-admin logged-in users it appears just after _my profile_.
 * In the "Welcome, UserName" phrase, it is now an option to have the username link to the user profile.
 * Added Turkish (tr\_TR) language files
-* All language files updated to reflect the changes listed above.
 
 = 2.1 =
 * Fixed situations where an empty sidebar would be displayed, showing only a title, depending on what options were chosen for display. The most common was if \_show login form\_ was selected by itself (perhaps to have just a "log in" section of the sidebar). If this was done then logged in users would see an empty sidebar with just a title. Further testing identified some additional, likely rare, situations where this could occur as well, so those were all fixed.
