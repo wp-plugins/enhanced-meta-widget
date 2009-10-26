@@ -45,7 +45,7 @@ Please inform me of any problems/issues. Recommendations for improvement are alw
 = Into what languages has EMW been translated? =
 * French (fr_FR) - [Florian Stoffel](http://florianstoffel.com/ "Florian Stoffel Architecture & Urbanisme")
 * Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.")
-* Polish (pl_PL) - [Daniel Daniel Frużyński](http://blog.poradnik-webmastera.com/)
+* Polish (pl_PL) - [Daniel Frużyński](http://blog.poradnik-webmastera.com/)
 * Danish (da_DK) - Mette Olsen
 * German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
 
