@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/enhanced-meta-widget\n"
 "POT-Creation-Date: 2009-10-25 22:30+0000\n"
-"PO-Revision-Date: 2009-10-25 15:31-0800\n"
+"PO-Revision-Date: 2009-10-25 17:59-0800\n"
 "Last-Translator: NeuroDawg <neurodawg@hebers.us>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -164,7 +164,7 @@ msgstr "brugernavn"
 
 #: enhanced-meta-widget.php:302
 msgid "username as profile link"
-msgstr "brugernavn nemlig profil link"
+msgstr "brugernavn som profil link"
 
 #: enhanced-meta-widget.php:304
 msgid "login link"
