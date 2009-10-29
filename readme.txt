@@ -1,8 +1,8 @@
-﻿=== Enhanced Meta Widget===
+=== Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.wordpress.com/enhanced-meta-widget/
 Version: 2.2
-Tags: meta, widget, links, admin, administration, dashboard, international, i18n
+Tags: meta, customize, custom, widget
 Requires at least: 2.8
 Tested up to: 2.8.5
 Stable Tag: 2.2
@@ -45,10 +45,10 @@ Please inform me of any problems/issues. Recommendations for improvement are alw
 = Into what languages has EMW been translated? =
 * French (fr_FR) - [Florian Stoffel](http://florianstoffel.com/ "Florian Stoffel Architecture & Urbanisme")
 * Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.")
-* Polish (pl_PL) - [Daniel Frużyński](http://blog.poradnik-webmastera.com/)
+* Polish (pl_PL) - [Daniel Fru?y?ski](http://blog.poradnik-webmastera.com/)
 * Danish (da_DK) - Mette Olsen
 * German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
-* Turkish (tr_TR) - Gökçe Ozan Toptas
+* Turkish (tr_TR) - G�k�e Ozan Toptas
 
 = How can I translate this widget into my language? =
 I've written a fairly [detailed tutorial](http://neurodawg.wordpress.com/translating-emw/) on how to translate any WordPress plugin.
@@ -143,10 +143,10 @@ Send your questions to neurodawg@hebers.us
 
 * French (fr_FR) - [Florian Stoffel](http://florianstoffel.com/ "Florian Stoffel Architecture & Urbanisme")
 * Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.")
-* Polish (pl_PL) - [Daniel Frużyński](http://blog.poradnik-webmastera.com/)
+* Polish (pl_PL) - [Daniel Fru?y?ski](http://blog.poradnik-webmastera.com/)
 * Danish (da_DK) - Mette Olsen
 * German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
-* Turkish (tr_TR) - Gökçe Ozan Toptas
+* Turkish (tr_TR) - G�k�e Ozan Toptas
 
 == Credits and Copyright ==
 Copyright 2009 NeuroDawg.
