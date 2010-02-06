@@ -1,4 +1,4 @@
-=== Enhanced Meta Widget===
+ï»¿=== Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.wordpress.com/enhanced-meta-widget/
 Version: 2.2
@@ -48,7 +48,7 @@ Please inform me of any problems/issues. Recommendations for improvement are alw
 * Polish (pl_PL) - [Daniel Fru?y?ski](http://blog.poradnik-webmastera.com/)
 * Danish (da_DK) - Mette Olsen
 * German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
-* Turkish (tr_TR) - Gökçe Ozan Toptas
+* Turkish (tr_TR) - GÃ¶kÃ§e Ozan Toptas
 
 = How can I translate this widget into my language? =
 I've written a fairly [detailed tutorial](http://neurodawg.wordpress.com/translating-emw/) on how to translate any WordPress plugin.
@@ -63,6 +63,11 @@ Send your questions to neurodawg@hebers.us
 4. **Options**: You can select which links you want displayed. No links are displayed unless they're relevant to the currently logged in user, on the page they're currently viewing.
 
 == Change Log ==
+
+= 2.3 =
+* Added option to add a new page.
+* Fixed link to Dashboard to link to the index.php file rather than just the wp-admin directory.
+* Language files updated with most recent changes.
 
 = 2.2 =
 * Changed wording from _site admin_ to _dashboard_ in both the options and the links.
@@ -143,10 +148,10 @@ Send your questions to neurodawg@hebers.us
 
 * French (fr_FR) - [Florian Stoffel](http://florianstoffel.com/ "Florian Stoffel Architecture & Urbanisme")
 * Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.")
-* Polish (pl_PL) - [Daniel Fru?y?ski](http://blog.poradnik-webmastera.com/)
+* Polish (pl_PL) - [Daniel FruÅ¼yÅ„ski](http://blog.poradnik-webmastera.com/)
 * Danish (da_DK) - Mette Olsen
 * German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
-* Turkish (tr_TR) - Gökçe Ozan Toptas
+* Turkish (tr_TR) - GÃ¶kÃ§e Ozan Toptas
 
 == Credits and Copyright ==
 Copyright 2009 NeuroDawg.
