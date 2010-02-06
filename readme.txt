@@ -144,6 +144,12 @@ Send your questions to neurodawg@hebers.us
 = 1.0 =
 * Initial release.
 
+== Upgrade Notice ==
+
+= 2.3 =
+This version fixes a problem some users had with the dashboard link. Instead of just linking to the /wp-admin directory, the link now directs to the /wp-admin/index.php file directly.
+
+
 == Languages and Translators ==
 
 * French (fr_FR) - [Florian Stoffel](http://florianstoffel.com/ "Florian Stoffel Architecture & Urbanisme")
