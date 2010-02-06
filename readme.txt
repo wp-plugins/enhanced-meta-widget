@@ -1,11 +1,11 @@
 ﻿=== Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.wordpress.com/enhanced-meta-widget/
-Version: 2.2
+Version: 2.3
 Tags: meta, customize, custom, widget
 Requires at least: 2.8
 Tested up to: 2.9.1
-Stable Tag: 2.2
+Stable Tag: 2.3
 
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
 
@@ -45,7 +45,7 @@ Please inform me of any problems/issues. Recommendations for improvement are alw
 = Into what languages has EMW been translated? =
 * French (fr_FR) - [Florian Stoffel](http://florianstoffel.com/ "Florian Stoffel Architecture & Urbanisme")
 * Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.")
-* Polish (pl_PL) - [Daniel Fru?y?ski](http://blog.poradnik-webmastera.com/)
+* Polish (pl_PL) - [Daniel Frużyński](http://blog.poradnik-webmastera.com/)
 * Danish (da_DK) - Mette Olsen
 * German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
 * Turkish (tr_TR) - Gökçe Ozan Toptas
