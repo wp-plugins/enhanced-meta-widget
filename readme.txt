@@ -4,7 +4,7 @@ Donate Link: http://neurodawg.wordpress.com/enhanced-meta-widget/
 Version: 2.2
 Tags: meta, customize, custom, widget
 Requires at least: 2.8
-Tested up to: 2.8.5
+Tested up to: 2.9.1
 Stable Tag: 2.2
 
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.

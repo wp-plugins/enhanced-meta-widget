@@ -55,6 +55,7 @@ function widget( $args, $instance ) {
   $display_editthispost = $instance['editthispost'] ? '1' : '0';
   $display_editthispage = $instance['editthispage'] ? '1' : '0';
   $display_newpost      = $instance['newpost'] ? '1' : '0';
+  $display_newpage      = $instance['newpage'] ? '1' : '0';
   $display_dashboard    = $instance['dashboard'] ? '1' : '0';
   $display_manposts     = $instance['manposts'] ? '1' : '0';
   $display_mandrafts    = $instance['mandrafts'] ? '1' : '0';
@@ -82,14 +83,14 @@ function widget( $args, $instance ) {
    * and displays the form only in the appropriate places, without displaying an empty widget
    * in the sidebar.
   */
-  if (is_single() && !($display_username || $display_profile || $display_logout || $display_newpost || $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings || $display_entrss || $display_commrss || $display_wplink) && $display_editthispost && (current_user_can('edit_others_posts') || (current_user_can('edit_posts') && $user_ID == $post->post_author))) {
+  if (is_single() && !($display_username || $display_profile || $display_logout || $display_newpost || $display_newpage || $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings || $display_entrss || $display_commrss || $display_wplink) && $display_editthispost && (current_user_can('edit_others_posts') || (current_user_can('edit_posts') && $user_ID == $post->post_author))) {
     echo $before_widget;
     echo $before_title . $title . $after_title;
     echo '<ul>'; ?>
       <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Post', 'enhanced-meta-widget')?></a></li><?php
     echo '</ul>';
     echo $after_widget; }
-  elseif (is_page() && !($display_username || $display_profile || $display_logout || $display_newpost || $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings || $display_entrss || $display_commrss || $display_wplink) && $display_editthispage && (current_user_can('edit_others_pages') || (current_user_can('edit_pages') && $user_ID == $post->post_author))) {
+  elseif (is_page() && !($display_username || $display_profile || $display_logout || $display_newpost || $dipslay_newpage || $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings || $display_entrss || $display_commrss || $display_wplink) && $display_editthispage && (current_user_can('edit_others_pages') || (current_user_can('edit_pages') && $user_ID == $post->post_author))) {
     echo $before_widget;
     echo $before_title . $title . $after_title;
     echo '<ul>'; ?>
@@ -99,7 +100,7 @@ function widget( $args, $instance ) {
   /* 
    *Displays the the complete sidebar if options other than just "edit this post" and/or "edit this page" are selected
   */
-  elseif ($display_username || $display_profile || $display_logout || $display_newpost || $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings || $display_entrss || $display_commrss || $display_wplink ) { //only shows form if one of these options has been selected
+  elseif ($display_username || $display_profile || $display_logout || $display_newpost || $display_newpage || $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings || $display_entrss || $display_commrss || $display_wplink ) { //only shows form if one of these options has been selected
     echo $before_widget;
     echo $before_title . $title . $after_title;
     echo '<ul>';
