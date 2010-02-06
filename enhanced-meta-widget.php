@@ -3,7 +3,7 @@
 Plugin Name: Enhanced Meta Widget
 Plugin URI: http://neurodawg.wordpress.com/enhanced-meta-widget/
 Description: Replaces the meta sidebar included with WordPress, and displays various links based upon user roles.
-Version: 2.2.1
+Version: 2.3
 Text Domain: enhanced-meta-widget
 Author: NeuroDawg
 Author URI: http://neurodawg.wordpress.com
@@ -114,14 +114,16 @@ function widget( $args, $instance ) {
       else { ?>
         <p><?php printf(__('Welcome, <em>%s</em>', 'enhanced-meta-widget'), $userdata->display_name);?></p><?php }}
     if ($display_logout) { ?>
-      <li><?php wp_loginout(wp_logout_url($_SERVER['REQUEST_URI']));?></li><?php }
+      <li><?php wp_loginout($_SERVER['REQUEST_URI']);?></li><?php }
     if ($display_profile) { ?>
       <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/profile.php"><?php _e('My Profile', 'enhanced-meta-widget')?></a></li><?php }
     //if ($display_linebreaks) echo '</ul><br /><ul>';
     if ($display_dashboard && ($user_level <= 9)) {?>
-        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin"><?php _e('Dashboard', 'enhanced-meta-widget')?></a></li><?php }
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/index.php"><?php _e('Dashboard', 'enhanced-meta-widget')?></a></li><?php }
     if (current_user_can('edit_posts') && $display_newpost) {?>
       <li><a href="<?php bloginfo('wpurl') ?>/wp-admin/post-new.php"><?php _e('New Post', 'enhanced-meta-widget')?></a></li> <?php }
+	  if (current_user_can('edit_pages') && $display_newpage) {?>
+      <li><a href="<?php bloginfo('wpurl') ?>/wp-admin/page-new.php"><?php _e('New Page', 'enhanced-meta-widget')?></a></li> <?php }
     if ((is_single() && $display_editthispost) && (current_user_can('edit_others_posts') || (current_user_can('edit_posts') && $user_ID == $post->post_author))) { ?>
         <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Post', 'enhanced-meta-widget')?></a></li><?php }
     if ((is_page() && $display_editthispage) && (current_user_can('edit_others_pages') || (current_user_can('edit_pages') && $user_ID == $post->post_author))) { ?>
@@ -132,7 +134,7 @@ function widget( $args, $instance ) {
     if ($user_level == 10) { ?>
       <?php if ((( $display_logout || $display_profile || (is_single() && $display_editthispost) || (is_page() && $display_editthispage) || $display_newpost) && ( $display_dashboard || $display_manposts || $display_mandrafts || $display_medialib || $display_manlinks || $display_manpages || $display_mancomments || $display_manthemes || $display_manwidgets || $display_manwidgets || $display_manplugins || $display_manusers || $display_tools || $display_settings)) && ($display_linebreaks)) echo '</ul><br /><ul>';
       if ($display_dashboard) {?>
-        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin"><?php _e('Dashboard', 'enhanced-meta-widget')?></a></li><?php }
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/index.php"><?php _e('Dashboard', 'enhanced-meta-widget')?></a></li><?php }
       if ($display_manposts) {?>
         <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit.php"><?php _e('Manage Posts', 'enhanced-meta-widget')?></a></li><?php }
       if ($display_mandrafts) {?>
@@ -235,6 +237,7 @@ function update($new_instance, $old_instance) {
     $instance['editthispost'] = $new_instance['editthispost'] ? '1' : '0';
     $instance['editthispage'] = $new_instance['editthispage'] ? '1' : '0';
     $instance['newpost']      = $new_instance['newpost'] ? '1' : '0';
+    $instance['newpage']      = $new_instance['newpage'] ? '1' : '0';
     $instance['dashboard']    = $new_instance['dashboard'] ? '1' : '0';
     $instance['manposts']     = $new_instance['manposts'] ? '1' : '0';
     $instance['mandrafts']    = $new_instance['mandrafts'] ? '1' : '0';
@@ -258,7 +261,7 @@ function update($new_instance, $old_instance) {
    * Creates the widget admin options form
   */
   function form( $instance ) {
-    $instance = wp_parse_args((array) $instance, array('title' => '', 'username' => 0, 'userlink' => 0, 'profile' => 0, 'login' => 0, 'logout' => 0, 'loginform' => 0, 'register' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'dashboard' => 0, 'manposts' => 0, 'mandrafts' => 0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0, 'linebreaks' => 0));
+    $instance = wp_parse_args((array) $instance, array('title' => '', 'username' => 0, 'userlink' => 0, 'profile' => 0, 'login' => 0, 'logout' => 0, 'loginform' => 0, 'register' => 0, 'editthispost' => 0, 'editthispage' => 0, 'newpost' => 0, 'newpage' => 0, 'dashboard' => 0, 'manposts' => 0, 'mandrafts' => 0, 'medialib' => 0, 'manlinks' => 0, 'manpages' => 0, 'mancomments' => 0, 'manthemes' => 0, 'manwidgets' => 0, 'manplugins' => 0, 'manusers' => 0, 'tools' => 0, 'settings' => 0, 'entrss' => 0, 'commrss' => 0, 'wplink' => 0, 'linebreaks' => 0));
     $title        = strip_tags($instance['title']);
     $username     = $instance['username'] ? 'checked="checked"' : '';
     $userlink     = $instance['userlink'] ? 'checked="checked"' : '';
@@ -270,6 +273,7 @@ function update($new_instance, $old_instance) {
     $editthispost = $instance['editthispost'] ? 'checked="checked"' : '';
     $editthispage = $instance['editthispage'] ? 'checked="checked"' : '';
     $newpost      = $instance['newpost'] ? 'checked="checked"' : '';
+		$newpage			= $instance['newpage'] ? 'checked="checked"' : '';
     $dashboard    = $instance['dashboard'] ? 'checked="checked"' : '';
     $manposts     = $instance['manposts'] ? 'checked="checked"' : '';
     $mandrafts    = $instance['mandrafts'] ? 'checked="checked"' : '';
@@ -311,6 +315,8 @@ function update($new_instance, $old_instance) {
     <label for="<?php echo $this->get_field_id('register'); ?>"><?php _e('register link', 'enhanced-meta-widget'); ?></label><br />
     <input class="checkbox" type="checkbox" <?php checked($instance['newpost'], true) ?> id="<?php echo $this->get_field_id('newpost'); ?>" name="<?php echo $this->get_field_name('newpost'); ?>" />
     <label for="<?php echo $this->get_field_id('newpost'); ?>"><?php _e('<em>new post</em>', 'enhanced-meta-widget'); ?></label><br />
+		<input class="checkbox" type="checkbox" <?php checked($instance['newpage'], true) ?> id="<?php echo $this->get_field_id('newpage'); ?>" name="<?php echo $this->get_field_name('newpage'); ?>" />
+    <label for="<?php echo $this->get_field_id('newpage'); ?>"><?php _e('<em>new page</em>', 'enhanced-meta-widget'); ?></label><br />
     <input class="checkbox" type="checkbox" <?php checked($instance['profile'], true) ?> id="<?php echo $this->get_field_id('profile'); ?>" name="<?php echo $this->get_field_name('profile'); ?>" />
     <label for="<?php echo $this->get_field_id('profile'); ?>"><?php _e('<em>my profile</em>', 'enhanced-meta-widget'); ?></label><br />
     <input class="checkbox" type="checkbox" <?php checked($instance['editthispost'], true) ?> id="<?php echo $this->get_field_id('editthispost'); ?>" name="<?php echo $this->get_field_name('editthispost'); ?>" />
