@@ -1,4 +1,4 @@
-﻿=== Enhanced Meta Widget===
+=== Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.wordpress.com/enhanced-meta-widget/
 Version: 2.3.2
@@ -44,11 +44,11 @@ Please inform me of any problems/issues. Recommendations for improvement are alw
 
 = Into what languages has EMW been translated? =
 * French (fr_FR) - [Florian Stoffel](http://florianstoffel.com/ "Florian Stoffel Architecture & Urbanisme")
-* Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.")
-* Polish (pl_PL) - [Daniel Frużyński](http://blog.poradnik-webmastera.com/)
+* Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.") and [Sandra Rietveld](http://www.coachsan.nl)
+* Polish (pl_PL) - [Daniel Fru?y?ski](http://blog.poradnik-webmastera.com/)
 * Danish (da_DK) - Mette Olsen
 * German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
-* Turkish (tr_TR) - Gökçe Ozan Toptas
+* Turkish (tr_TR) - G�k�e Ozan Toptas
 * Belarusian (be_BY) - [M. Comfi](http://www.comfi.com "Communications Fidelity - A leading online communication company with offices in the USA & Europe")
 * Italian (it_IT) - [Gianni Diurno](http://gidibao.net "Gidibao's Cafe")
 
@@ -168,11 +168,11 @@ This version fixes a problem some users had with the dashboard link. Instead of 
 == Languages and Translators ==
 
 * French (fr_FR) - [Florian Stoffel](http://florianstoffel.com/ "Florian Stoffel Architecture & Urbanisme")
-* Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.")
-* Polish (pl_PL) - [Daniel Frużyński](http://blog.poradnik-webmastera.com/)
+* Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.") and [Sandra Rietveld](http://www.coachsan.nl)
+* Polish (pl_PL) - [Daniel Fru?y?ski](http://blog.poradnik-webmastera.com/)
 * Danish (da_DK) - Mette Olsen
 * German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
-* Turkish (tr_TR) - Gökçe Ozan Toptas
+* Turkish (tr_TR) - G�k�e Ozan Toptas
 * Belarusian (be_BY) - [M. Comfi](http://www.comfi.com "Communications Fidelity - A leading online communication company with offices in the USA & Europe")
 * Italian (it_IT) - [Gianni Diurno](http://gidibao.net "Gidibao's Cafe")
 
