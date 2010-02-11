@@ -1,11 +1,11 @@
 ﻿=== Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.wordpress.com/enhanced-meta-widget/
-Version: 2.3
+Version: 2.3.2
 Tags: meta, customize, custom, widget
 Requires at least: 2.8
 Tested up to: 2.9.1
-Stable Tag: 2.3
+Stable Tag: 2.3.2
 
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
 
@@ -49,6 +49,8 @@ Please inform me of any problems/issues. Recommendations for improvement are alw
 * Danish (da_DK) - Mette Olsen
 * German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
 * Turkish (tr_TR) - Gökçe Ozan Toptas
+* Belarusian (be_BY) - [M. Comfi](http://www.comfi.com "Communications Fidelity - A leading online communication company with offices in the USA & Europe")
+* Italian (it_IT) - [Gianni Diurno](http://gidibao.net "Gidibao's Cafe")
 
 = How can I translate this widget into my language? =
 I've written a fairly [detailed tutorial](http://neurodawg.wordpress.com/translating-emw/) on how to translate any WordPress plugin.
@@ -63,6 +65,13 @@ Send your questions to neurodawg@hebers.us
 4. **Options**: You can select which links you want displayed. No links are displayed unless they're relevant to the currently logged in user, on the page they're currently viewing.
 
 == Change Log ==
+
+= 2.3.2 =
+* Adds language files for Italian
+* Corrected errors in the Dutch Translation.
+
+= 2.3.1 =
+* Adds language files for Belarusian.
 
 = 2.3 =
 * Added option to add a new page.
@@ -146,6 +155,12 @@ Send your questions to neurodawg@hebers.us
 
 == Upgrade Notice ==
 
+= 2.3.2 =
+Adds language files for Italian and corrects the Dutch translation.
+
+= 2.3.1 =
+Adds the language files for Belarusian.
+
 = 2.3 =
 This version fixes a problem some users had with the dashboard link. Instead of just linking to the /wp-admin directory, the link now directs to the /wp-admin/index.php file directly.
 
@@ -158,6 +173,8 @@ This version fixes a problem some users had with the dashboard link. Instead of 
 * Danish (da_DK) - Mette Olsen
 * German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
 * Turkish (tr_TR) - Gökçe Ozan Toptas
+* Belarusian (be_BY) - [M. Comfi](http://www.comfi.com "Communications Fidelity - A leading online communication company with offices in the USA & Europe")
+* Italian (it_IT) - [Gianni Diurno](http://gidibao.net "Gidibao's Cafe")
 
 == Credits and Copyright ==
 Copyright 2009 NeuroDawg.
