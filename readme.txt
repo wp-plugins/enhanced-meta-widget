@@ -1,11 +1,11 @@
-=== Enhanced Meta Widget===
+ï»¿=== Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.wordpress.com/enhanced-meta-widget/
-Version: 2.3.4
+Version: 2.3.3
 Tags: meta, customize, custom, widget
 Requires at least: 2.8
 Tested up to: 2.9.2
-Stable Tag: 2.3.4
+Stable Tag: 2.3.3
 
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
 
@@ -46,7 +46,7 @@ Please inform me of any problems/issues. Recommendations for improvement are alw
 * Polish (pl_PL) - [Daniel Fru?y?ski](http://blog.poradnik-webmastera.com/)
 * Danish (da_DK) - Mette Olsen
 * German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
-* Turkish (tr_TR) - Gökçe Ozan Toptas
+* Turkish (tr_TR) - GÃ¶kÃ§e Ozan Toptas
 * Belarusian (be_BY) - [M. Comfi](http://www.fatcow.com)
 * Italian (it_IT) - [Gianni Diurno](http://gidibao.net "Gidibao's Cafe")
 * Czech (cs_CZ) - Tomas Vesely
@@ -180,7 +180,7 @@ This version fixes a problem some users had with the dashboard link. Instead of 
 * Polish (pl_PL) - [Daniel Fru?y?ski](http://blog.poradnik-webmastera.com/)
 * Danish (da_DK) - Mette Olsen
 * German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
-* Turkish (tr_TR) - Gökçe Ozan Toptas
+* Turkish (tr_TR) - GÃ¶kÃ§e Ozan Toptas
 * Belarusian (be_BY) - [M. Comfi](http://www.fatcow.com)
 * Italian (it_IT) - [Gianni Diurno](http://gidibao.net "Gidibao's Cafe")
 * Czech (cs_CZ) - Tomas Vesely
