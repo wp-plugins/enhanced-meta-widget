@@ -1,11 +1,11 @@
 === Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.wordpress.com/enhanced-meta-widget/
-Version: 2.3.3
+Version: 2.3.4
 Tags: meta, customize, custom, widget
 Requires at least: 2.8
 Tested up to: 2.9.2
-Stable Tag: 2.3.3
+Stable Tag: 2.3.4
 
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
 
