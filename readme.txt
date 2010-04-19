@@ -1,17 +1,15 @@
 === Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.wordpress.com/enhanced-meta-widget/
-Version: 2.3.2
+Version: 2.3.3
 Tags: meta, customize, custom, widget
 Requires at least: 2.8
-Tested up to: 2.9.1
-Stable Tag: 2.3.2
+Tested up to: 2.9.2
+Stable Tag: 2.3.3
 
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles.
 
 == Description ==
-**Update -- This widget is now fully internationalized. A list of current languages can be found in [Other Notes](http://wordpress.org/extend/plugins/enhanced-meta-widget/other_notes/), the [Faq](http://wordpress.org/extend/plugins/enhanced-meta-widget/faq/), or at the end of the readme.txt file. If anyone is willing to translate for me, please contact me or follow the directions found at the plugin homepage (see [Faq](http://wordpress.org/extend/plugins/enhanced-meta-widget/faq/)).**
-
 This plugin replaces the meta sidebar included with WordPress, and displays links based upon user roles. 
 
 For logged in users all links are based upon that user's role/permissions. Can the user write posts? A link for "Write Post" is presented. On a post/page that the user can edit? There are links for "Edit Post" or "Edit Page". If the user is an administrator, then there are links to all the main sections of the administrator pages, plus a few of the subsections like "Manage Widgets" and "Manage Drafts".
@@ -24,7 +22,7 @@ All links can be turned on/off, and a different title for the sidebar widget can
 
 Enhanded Meta Widget is also a multi-widget -- it can be used in multiple instances on the same or different sidebars. Want your admin links only on a right-hand sidebar, but your general meta links on the left? Can be done. Want one widget just for the standard meta RSS and wordpress.org links, and a section below, with a different title for admin links? That can be done too, just add two separate widgets to the same sidebar and enable different options.
 
-**Please note that this plugin/widget was written using the new programming method in WP 2.8, and will not work with previous versions.**
+This widget is fully internationalized. A list of current languages can be found in [Other Notes](http://wordpress.org/extend/plugins/enhanced-meta-widget/other_notes/), the [Faq](http://wordpress.org/extend/plugins/enhanced-meta-widget/faq/), or at the end of the readme.txt file. If anyone is willing to translate for me, please contact me or follow the directions found at the plugin homepage (see [Faq](http://wordpress.org/extend/plugins/enhanced-meta-widget/faq/)).
 
 This plugin was developed using ideas gathered from a number of different WordPress plugins. Credits and Copyright information can be found in [Other Notes](http://wordpress.org/extend/plugins/enhanced-meta-widget/other_notes/) (or at the end of the readme.txt file).
 
@@ -49,8 +47,12 @@ Please inform me of any problems/issues. Recommendations for improvement are alw
 * Danish (da_DK) - Mette Olsen
 * German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
 * Turkish (tr_TR) - Gökçe Ozan Toptas
-* Belarusian (be_BY) - [M. Comfi](http://www.comfi.com "Communications Fidelity - A leading online communication company with offices in the USA & Europe")
+* Belarusian (be_BY) - [M. Comfi](http://www.fatcow.com)
 * Italian (it_IT) - [Gianni Diurno](http://gidibao.net "Gidibao's Cafe")
+* Czech (cs_CZ) - Tomas Vesely
+* Hungarian (hu_HU) - Csaba Sarkadi
+* Argentinian Spanish (es_AR) - S!
+* Russian (ru_RU) - anonymous contributor
 
 = How can I translate this widget into my language? =
 I've written a fairly [detailed tutorial](http://neurodawg.wordpress.com/translating-emw/) on how to translate any WordPress plugin.
@@ -66,8 +68,11 @@ Send your questions to neurodawg@hebers.us
 
 == Change Log ==
 
+= 2.3.3 =
+* Adds language files for Czech, Hungarian, Argentinian Spanish, and Russian.
+
 = 2.3.2 =
-* Adds language files for Italian
+* Adds language files for Italian.
 * Corrected errors in the Dutch Translation.
 
 = 2.3.1 =
@@ -155,6 +160,9 @@ Send your questions to neurodawg@hebers.us
 
 == Upgrade Notice ==
 
+= 2.3.3 =
+Added language files for Czech, Hungarian, Argentinian Spanish, and Russian.
+
 = 2.3.2 =
 Adds language files for Italian and corrects the Dutch translation.
 
@@ -173,8 +181,13 @@ This version fixes a problem some users had with the dashboard link. Instead of 
 * Danish (da_DK) - Mette Olsen
 * German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
 * Turkish (tr_TR) - Gökçe Ozan Toptas
-* Belarusian (be_BY) - [M. Comfi](http://www.comfi.com "Communications Fidelity - A leading online communication company with offices in the USA & Europe")
+* Belarusian (be_BY) - [M. Comfi](http://www.fatcow.com)
 * Italian (it_IT) - [Gianni Diurno](http://gidibao.net "Gidibao's Cafe")
+* Czech (cs_CZ) - Tomas Vesely
+* Hungarian (hu_HU) - Csaba Sarkadi
+* Argentinian Spanish (es_AR) - S!
+* Russian (ru_RU) - anonymous contributor
+
 
 == Credits and Copyright ==
 Copyright 2009 NeuroDawg.
