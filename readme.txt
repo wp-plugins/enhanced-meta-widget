@@ -1,4 +1,4 @@
-=== Enhanced Meta Widget===
+Ôªø=== Enhanced Meta Widget===
 Contributors: NeuroDawg
 Donate Link: http://neurodawg.wordpress.com/enhanced-meta-widget/
 Version: 3.0.0
@@ -45,16 +45,16 @@ Please inform me of any problems/issues. Recommendations for improvement are alw
 = Into what languages has EMW been translated? =
 * French (fr_FR) - [Florian Stoffel](http://florianstoffel.com/ "Florian Stoffel Architecture & Urbanisme")
 * Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.") and [Sandra Rietveld](http://www.coachsan.nl)
-* Polish (pl_PL) - [Daniel Fru?y?ski](http://blog.poradnik-webmastera.com/)
+* Polish (pl_PL) - [Daniel Fru≈ºy≈Ñski](http://blog.poradnik-webmastera.com/)
 * Danish (da_DK) - Mette Olsen
 * German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
-* Turkish (tr_TR) - GˆkÁe Ozan Toptas
+* Turkish (tr_TR) - G√∂k√ße Ozan Toptas
 * Belarusian (be_BY) - [M. Comfi](http://www.fatcow.com)
 * Italian (it_IT) - [Gianni Diurno](http://gidibao.net "Gidibao's Cafe")
 * Czech (cs_CZ) - Tomas Vesely
 * Hungarian (hu_HU) - Csaba Sarkadi
-* Argentinian Spanish (es_AR) - Sebasti·n Asegurado
-* Spanish (Spain) - Sebasti·n Asegurado
+* Argentinian Spanish (es_AR) - Sebasti√°n Asegurado
+* Spanish (Spain) - Sebasti√°n Asegurado
 * Russian (ru_RU) - [Vladimir Zhoukov](http://www.orktos.ru)
 
 = How can I translate this widget into my language? =
@@ -189,16 +189,16 @@ This version fixes a problem some users had with the dashboard link. Instead of 
 
 * French (fr_FR) - [Florian Stoffel](http://florianstoffel.com/ "Florian Stoffel Architecture & Urbanisme")
 * Dutch (nl_NL) - [Mado](http://www.zijnwijdat.nl "Zijn Wij Dat? persoonlijke observaties in een wereld die steeds gekker wordt.") and [Sandra Rietveld](http://www.coachsan.nl)
-* Polish (pl_PL) - [Daniel Fru?y?ski](http://blog.poradnik-webmastera.com/)
+* Polish (pl_PL) - [Daniel Fru≈ºy≈Ñski](http://blog.poradnik-webmastera.com/)
 * Danish (da_DK) - Mette Olsen
 * German (de_DE) - [Dirk Rasmussen](http://www.bevis.de)
-* Turkish (tr_TR) - GˆkÁe Ozan Toptas
+* Turkish (tr_TR) - G√∂k√ße Ozan Toptas
 * Belarusian (be_BY) - [M. Comfi](http://www.fatcow.com)
 * Italian (it_IT) - [Gianni Diurno](http://gidibao.net "Gidibao's Cafe")
 * Czech (cs_CZ) - Tomas Vesely
 * Hungarian (hu_HU) - Csaba Sarkadi
-* Argentinian Spanish (es_AR) - Sebasti·n Asegurado
-* Spanish (Spain) - Sebasti·n Asegurado
+* Argentinian Spanish (es_AR) - Sebasti√°n Asegurado
+* Spanish (Spain) - Sebasti√°n Asegurado
 * Russian (ru_RU) - [Vladimir Zhoukov](http://www.orktos.ru)
 
 == Credits and Copyright ==
