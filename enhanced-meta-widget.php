@@ -3,7 +3,7 @@
 Plugin Name: Enhanced Meta Widget
 Plugin URI: http://neurodawg.wordpress.com/enhanced-meta-widget/
 Description: Replaces the meta sidebar included with WordPress, and displays various links based upon user roles.
-Version: 2.3.2
+Version: 3.0.0
 Text Domain: enhanced-meta-widget
 Author: NeuroDawg
 Author URI: http://neurodawg.wordpress.com
@@ -123,11 +123,11 @@ function widget( $args, $instance ) {
     if (current_user_can('edit_posts') && $display_newpost) {?>
       <li><a href="<?php bloginfo('wpurl') ?>/wp-admin/post-new.php"><?php _e('New Post', 'enhanced-meta-widget')?></a></li> <?php }
 	  if (current_user_can('edit_pages') && $display_newpage) {?>
-      <li><a href="<?php bloginfo('wpurl') ?>/wp-admin/page-new.php"><?php _e('New Page', 'enhanced-meta-widget')?></a></li> <?php }
+      <li><a href="<?php bloginfo('wpurl') ?>/wp-admin/post-new.php?post_type=page"><?php _e('New Page', 'enhanced-meta-widget')?></a></li> <?php }
     if ((is_single() && $display_editthispost) && (current_user_can('edit_others_posts') || (current_user_can('edit_posts') && $user_ID == $post->post_author))) { ?>
-        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Post', 'enhanced-meta-widget')?></a></li><?php }
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?post=<?php the_id();?>&action=edit"><?php _e('Edit This Post', 'enhanced-meta-widget')?></a></li><?php }
     if ((is_page() && $display_editthispage) && (current_user_can('edit_others_pages') || (current_user_can('edit_pages') && $user_ID == $post->post_author))) { ?>
-        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/page.php?action=edit&post=<?php the_id();?>"><?php _e('Edit This Page', 'enhanced-meta-widget')?></a></li><?php }
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/post.php?post=<?php the_id();?>&action=edit"><?php _e('Edit This Page', 'enhanced-meta-widget')?></a></li><?php }
     /*
      * This section displays only when an administrator is logged in
     */
@@ -144,7 +144,7 @@ function widget( $args, $instance ) {
       if ($display_manlinks) {?>
         <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/link-manager.php"><?php _e('Manage Links', 'enhanced-meta-widget')?></a></li><?php }
       if ($display_manpages) {?>
-        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit-pages.php"><?php _e('Manage Pages', 'enhanced-meta-widget')?></a></li><?php }
+        <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit.php?post_type=page"><?php _e('Manage Pages', 'enhanced-meta-widget')?></a></li><?php }
       if ($display_mancomments) {?>
         <li><a href="<?php bloginfo('wpurl'); ?>/wp-admin/edit-comments.php"><?php _e('Manage Comments', 'enhanced-meta-widget')?></a></li><?php }
       if ($display_manthemes) {?>
